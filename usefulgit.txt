@@ -1,0 +1,20 @@
+# change your current branch using
+git checkout master
+git checkout chris-work
+git checkout alex-work
+
+# check which branch you're in, and other information
+git status
+
+# typical commands to upload to github, once your editing is done
+git add .
+git commit -m "some description goes here"
+git push
+
+# don't forget to perform a pull-request; not sure how to do this 
+# on the command line (might be possible)
+
+# once your branch has been merged into the master, you can re-sync your branch
+# using
+git checkout whichever-branch-you-want
+git rebase master
