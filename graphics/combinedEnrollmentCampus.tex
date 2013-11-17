@@ -1,0 +1,42 @@
+% arara: pdflatex
+% !arara: indent: {overwrite: yes}
+\documentclass{standalone}
+% Caption: Combined Math enrollment by CAMPUS
+% 2008-2012
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+\pgfplotstableread{
+Year	SY	CA	RC	ELC
+2008	10860	5656	9545	3076
+2009	13038	7781	11658	4367
+2010	14252	8005	12643	5025
+2011	16855	9740	14931	5916
+2012	16137	9322	14878	6247
+}\mydata
+
+\begin{tikzpicture}
+	\begin{axis}[
+			ybar,
+			symbolic x coords={2008, 2009, 2010, 2011, 2012},
+			xtick=data,
+			minor ytick={1000,2000,3000,4000,6000,7000,8000,9000,11000,12000,13000,14000,16000,17000},
+			enlarge x limits,
+			scale only axis,       
+			grid = both,
+			ymin=0,ymax=18000,
+			scaled ticks=false, 
+			tick label style={/pgf/number format/fixed},
+			legend pos=outer north east,
+		]
+		\addplot table[x=Year,y=SY]{\mydata};
+		\addplot table[x=Year,y=CA]{\mydata};
+		\addplot table[x=Year,y=RC]{\mydata};
+		\addplot table[x=Year,y=ELC]{\mydata};
+		\legend{SY, CA, RC, ELC}
+	\end{axis}
+\end{tikzpicture}
+\end{document}

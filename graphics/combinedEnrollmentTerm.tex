@@ -1,0 +1,42 @@
+% arara: pdflatex
+% !arara: indent: {overwrite: yes}
+\documentclass{standalone}
+% Caption: Combined Math enrollment by term and year
+% 2008-2012
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+\pgfplotstableread{
+	Year    Summer  Fall    Winter  Spring
+	2008  3184    8747    8617    8589
+	2009  4070    10725   11234   10815
+	2010  5367    11739   11642   11177
+	2011  5195    14594   14182   13471
+	2012  5696    14459   13709   12720
+	}\mydata
+
+\begin{tikzpicture}
+	\begin{axis}[
+			ybar stacked,
+			symbolic x coords={2008, 2009, 2010, 2011, 2012},
+			xtick=data,
+			minor ytick={5000,15000,25000,35000,45000},
+			enlarge x limits,
+			scale only axis,       
+			grid = both,
+			ymin=0,ymax=50000,
+			scaled ticks=false, 
+			tick label style={/pgf/number format/fixed},
+			legend pos=outer north east,
+		]
+		\addplot table[x=Year,y=Summer]{\mydata};
+		\addplot table[x=Year,y=Fall]{\mydata};
+		\addplot table[x=Year,y=Winter]{\mydata};
+		\addplot table[x=Year,y=Spring]{\mydata};
+		\legend{Summer, Fall, Winter, Spring}
+	\end{axis}
+\end{tikzpicture}
+\end{document}
