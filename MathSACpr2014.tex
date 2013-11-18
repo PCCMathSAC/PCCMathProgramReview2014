@@ -1,8 +1,18 @@
-\documentclass{report}
+\documentclass[11pt]{report}
 
+\usepackage[margin=2cm]{geometry}
+\usepackage{titlesec}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{titlepic}
+\usepackage[charter]{mathdesign}
+\usepackage{hyperref}
+
+
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thesubsection}{}
+
+
 
 %Title page info
 \title{A Review of the Mathematics Program/Discipline at Portland Community College}
@@ -14,6 +24,9 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
+
+\include{Section3}
 
 
 \end{document}
