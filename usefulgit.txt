@@ -21,7 +21,7 @@ git pull
 git checkout whichever-branch-you-want
 git rebase master
 
-# undo all UNcommitted changes, see http://stackoverflow.com/questions/14075581/git-undo-all-uncommited-changes
+# undo all UNcommitted changes see http://stackoverflow.com/questions/14075581/git-undo-all-uncommited-changes
 git reset
 git checkout .
 git clean -fdx
