@@ -1,0 +1,133 @@
+% arara: pdflatex
+\documentclass{article}
+\usepackage[landscape,textwidth=25cm]{geometry}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% caption: pass rates and demographics for 2012-2013
+
+% empty column type- very useful
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+\pgfplotstableset{percentstyle/.style={
+    preproc/expr={##1*100},
+    dec sep align,fixed,fixed zerofill,
+postproc cell content/.append code={
+            \ifx\\##1\\% check if ##1 is empty
+            \else
+            \ifnum1=\pgfplotstablepartno
+                \pgfkeysalso{@cell content/.add={}{\,\%}}%
+            \fi
+            \fi
+        },
+    precision=0,
+}
+}
+
+% references:
+%   http://tex.stackexchange.com/questions/65760/pgfplotstable-how-can-i-add-percent-signs-and-respect-dec-sep-align
+%   http://tex.stackexchange.com/questions/16604/easiest-way-to-delete-a-column/16607#16607
+%   http://tex.stackexchange.com/questions/89365/check-for-empty-macro-argument
+
+\begin{document}
+
+\pgfplotstableread[col sep=comma]{demographics2012-2013.csv}\diversitydata
+
+\noindent\resizebox{\textwidth}{!}{
+\pgfplotstabletypeset[
+every head row/.style={
+        before row={%
+        \toprule
+        \multirow{2}{*}{2012--2013}
+        & \multicolumn{6}{c}{MTH 20} 
+        & \multicolumn{5}{c}{MTH 60} 
+        & \multicolumn{6}{c}{MTH 65} 
+        & \multicolumn{6}{c}{MTH 95} 
+        & \multicolumn{6}{c}{MTH 111} 
+        & \multicolumn{6}{c}{MTH 112} 
+        & \multicolumn{6}{c}{MTH 243} 
+        & \multicolumn{6}{c}{MTH 244} 
+        & \multicolumn{6}{c}{MTH 251} 
+        & \multicolumn{6}{c}{MTH 252} 
+        & \multicolumn{6}{c}{MTH 253} 
+        & \multicolumn{6}{c}{MTH 254}\\},
+        after row=\midrule},
+every last row/.style={after row=\bottomrule},
+    columns/demographic/.style={string type,column name={},column type=l},
+    % MTH 20 - ignore most of the columns
+    columns/mth20p/.style={column type=H},
+    columns/mth20np/.style={column type=H},
+    columns/mth20tot/.style={column name=Total},
+    columns/mth20totper/.style={percentstyle,column name=\% Total},
+    columns/mth20totpass/.style={column type=H},
+    % MTH 60 - ignore most of the columns
+    columns/mth60p/.style={column type=H},
+    columns/mth60np/.style={column type=H},
+    columns/mth60tot/.style={column name=Total},
+    columns/mth60totper/.style={percentstyle,column name=\% Total},
+    columns/mth60totpass/.style={column type=H},
+    % MTH 65 - ignore most of the columns
+    columns/mth65p/.style={column type=H},
+    columns/mth65np/.style={column type=H},
+    columns/mth65tot/.style={column name=Total},
+    columns/mth65totper/.style={percentstyle,column name=\% Total},
+    columns/mth65totpass/.style={column type=H},
+    % MTH 95 - ignore most of the columns
+    columns/mth95p/.style={column type=H},
+    columns/mth95np/.style={column type=H},
+    columns/mth95tot/.style={column name=Total},
+    columns/mth95totper/.style={percentstyle,column name=\% Total},
+    columns/mth95totpass/.style={column type=H},
+    % MTH 111 - ignore most of the columns
+    columns/mth111p/.style={column type=H},
+    columns/mth111np/.style={column type=H},
+    columns/mth111tot/.style={column name=Total},
+    columns/mth111totper/.style={percentstyle,column name=\% Total},
+    columns/mth111totpass/.style={column type=H},
+    % MTH 112 - ignore most of the columns
+    columns/mth112p/.style={column type=H},
+    columns/mth112np/.style={column type=H},
+    columns/mth112tot/.style={column name=Total},
+    columns/mth112totper/.style={percentstyle,column name=\% Total},
+    columns/mth112totpass/.style={column type=H},
+    % MTH 243 - ignore most of the columns
+    columns/mth243p/.style={column type=H},
+    columns/mth243np/.style={column type=H},
+    columns/mth243tot/.style={column name=Total},
+    columns/mth243totper/.style={percentstyle,column name=\% Total},
+    columns/mth243totpass/.style={column type=H},
+    % MTH 244 - ignore most of the columns
+    columns/mth244p/.style={column type=H},
+    columns/mth244np/.style={column type=H},
+    columns/mth244tot/.style={column name=Total},
+    columns/mth244totper/.style={percentstyle,column name=\% Total},
+    columns/mth244totpass/.style={column type=H},
+    % MTH 251 - ignore most of the columns
+    columns/mth251p/.style={column type=H},
+    columns/mth251np/.style={column type=H},
+    columns/mth251tot/.style={column name=Total},
+    columns/mth251totper/.style={percentstyle,column name=\% Total},
+    columns/mth251totpass/.style={column type=H},
+    % MTH 252 - ignore most of the columns
+    columns/mth252p/.style={column type=H},
+    columns/mth252np/.style={column type=H},
+    columns/mth252tot/.style={column name=Total},
+    columns/mth252totper/.style={percentstyle,column name=\% Total},
+    columns/mth252totpass/.style={column type=H},
+    % MTH 253 - ignore most of the columns
+    columns/mth253p/.style={column type=H},
+    columns/mth253np/.style={column type=H},
+    columns/mth253tot/.style={column name=Total},
+    columns/mth253totper/.style={percentstyle,column name=\% Total},
+    columns/mth253totpass/.style={column type=H},
+    % MTH 254 - ignore most of the columns
+    columns/mth254p/.style={column type=H},
+    columns/mth254np/.style={column type=H},
+    columns/mth254tot/.style={column name=Total},
+    columns/mth254totper/.style={percentstyle,column name=\% Total},
+    columns/mth254totpass/.style={column type=H},
+]{\diversitydata}
+}
+
+\end{document}
