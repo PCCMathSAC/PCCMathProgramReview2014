@@ -25,3 +25,4 @@ git rebase master
 git reset
 git checkout .
 git clean -fdx
+test
