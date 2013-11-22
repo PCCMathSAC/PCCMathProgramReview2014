@@ -25,4 +25,6 @@ git rebase master
 git reset
 git checkout .
 git clean -fdx
-test
+
+# http://stackoverflow.com/questions/6897600/git-push-failed-non-fast-forward-updates-were-rejected 
+git pull origin chris-work
