@@ -1,0 +1,99 @@
+% arara: pdflatex
+\documentclass{article}
+\usepackage[landscape,textwidth=25cm]{geometry}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% caption: pass rates by demographic for 2011-2012
+
+% empty column type- very useful
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+\pgfplotstableset{percentstyle/.style={
+    preproc/expr={##1*100},
+    dec sep align,fixed,fixed zerofill,
+postproc cell content/.append code={
+            \ifx\\##1\\% check if ##1 is empty
+            \else
+            \ifnum1=\pgfplotstablepartno
+                \pgfkeysalso{@cell content/.add={}{\,\%}}%
+            \fi
+            \fi
+        },
+    precision=0,
+}
+}
+
+% references:
+%   http://tex.stackexchange.com/questions/65760/pgfplotstable-how-can-i-add-percent-signs-and-respect-dec-sep-align
+%   http://tex.stackexchange.com/questions/16604/easiest-way-to-delete-a-column/16607#16607
+%   http://tex.stackexchange.com/questions/89365/check-for-empty-macro-argument
+
+\begin{document}
+
+\pgfplotstableread[col sep=comma]{../data/demographics/demographics2011-2012.csv}\diversitydata
+
+\noindent\resizebox{\textwidth}{!}{
+\pgfplotstabletypeset[
+every head row/.style={
+        before row={%
+        \toprule
+        \multirow{2}{*}{2011--2012}
+        & \multicolumn{3}{c}{MTH 20} 
+        & \multicolumn{3}{c}{MTH 60} 
+        & \multicolumn{3}{c}{MTH 65} 
+        & \multicolumn{3}{c}{MTH 95} 
+        & \multicolumn{3}{c}{MTH 111} 
+        & \multicolumn{3}{c}{MTH 112} 
+        & \multicolumn{3}{c}{MTH 243} 
+        & \multicolumn{3}{c}{MTH 244} 
+        & \multicolumn{3}{c}{MTH 251} 
+        & \multicolumn{3}{c}{MTH 252} 
+        & \multicolumn{3}{c}{MTH 253} 
+        & \multicolumn{3}{c}{MTH 254}\\},
+        after row=\midrule},
+every last row/.style={after row=\bottomrule},
+every row no 3/.style={after row=\cmidrule{2-35}},
+every row no 12/.style={after row=\cmidrule{2-35}},
+    columns/demographic/.style={string type,column name={},column type=l},
+    % MTH 20 - ignore most of the columns
+    columns/mth20tot/.style={column name=Total,column type=r},
+    columns/mth20totper/.style={percentstyle,column name=\% Total},
+    % MTH 60 - ignore most of the columns
+    columns/mth60tot/.style={column name=Total,column type=r},
+    columns/mth60totper/.style={percentstyle,column name=\% Total},
+    % MTH 65 - ignore most of the columns
+    columns/mth65tot/.style={column name=Total,column type=r},
+    columns/mth65totper/.style={percentstyle,column name=\% Total},
+    % MTH 95 - ignore most of the columns
+    columns/mth95tot/.style={column name=Total,column type=r},
+    columns/mth95totper/.style={percentstyle,column name=\% Total},
+    % MTH 111 - ignore most of the columns
+    columns/mth111tot/.style={column name=Total,column type=r},
+    columns/mth111totper/.style={percentstyle,column name=\% Total},
+    % MTH 112 - ignore most of the columns
+    columns/mth112tot/.style={column name=Total,column type=r},
+    columns/mth112totper/.style={percentstyle,column name=\% Total},
+    % MTH 243 - ignore most of the columns
+    columns/mth243tot/.style={column name=Total,column type=r},
+    columns/mth243totper/.style={percentstyle,column name=\% Total},
+    % MTH 244 - ignore most of the columns
+    columns/mth244tot/.style={column name=Total,column type=r},
+    columns/mth244totper/.style={percentstyle,column name=\% Total},
+    % MTH 251 - ignore most of the columns
+    columns/mth251tot/.style={column name=Total,column type=r},
+    columns/mth251totper/.style={percentstyle,column name=\% Total},
+    % MTH 252 - ignore most of the columns
+    columns/mth252tot/.style={column name=Total,column type=r},
+    columns/mth252totper/.style={percentstyle,column name=\% Total},
+    % MTH 253 - ignore most of the columns
+    columns/mth253tot/.style={column name=Total,column type=r},
+    columns/mth253totper/.style={percentstyle,column name=\% Total},
+    % MTH 254 - ignore most of the columns
+    columns/mth254tot/.style={column name=Total,column type=r},
+    columns/mth254totper/.style={percentstyle,column name=\% Total},
+]{\diversitydata}
+}
+
+\end{document}
