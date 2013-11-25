@@ -1,6 +1,6 @@
 % arara: pdflatex
-\documentclass{article}
-\usepackage[landscape,textwidth=25cm]{geometry}
+\documentclass[varwidth]{standalone}
+%\usepackage[landscape,textwidth=25cm]{geometry}
 \usepackage{pgfplotstable}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -59,8 +59,8 @@ every head row/.style={
         & \multicolumn{6}{c}{MTH 254}\\},
         after row=\midrule},
 every last row/.style={after row=\bottomrule},
-every row no 3/.style={after row=\cmidrule{2-85}},
-every row no 12/.style={after row=\cmidrule{2-85}},
+every row no 3/.style={after row=\cmidrule{2-88}},
+every row no 12/.style={after row=\cmidrule{2-88}},
     columns/demographic/.style={string type,column name={},column type=l},
     % MTH 20 - ignore most of the columns
     columns/mth20p/.style={column type=H},
