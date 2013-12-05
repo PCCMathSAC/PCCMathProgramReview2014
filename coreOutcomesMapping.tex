@@ -1,0 +1,74 @@
+% arara: pdflatex: {files: [MathSACpr2014]}
+% !arara: indent: {overwrite: yes}
+
+\chapter{Core Outcomes Mapping}\label{sec:app:coreoutcomes}
+
+\begin{minipage}[t]{.45\textwidth}
+Mapping Level Indicators:
+\begin{enumerate}
+  \item Not Applicable.
+  \item Limited demonstration or application of knowledge and skills.
+  \item Basic demonstration and application of knowledge and skills.
+  \item Demonstrated comprehension and is able to apply essential knowledge and skills.
+  \item Demonstrates thorough, effective and/or sophisticated application of knowledge and skills.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{.45\textwidth}
+Core Outcomes (CO): 
+\begin{enumerate}
+\item Communication.
+\item Community and Environmental Responsibility.
+\item Critical Thinking and Problem Solving.
+\item Cultural Awareness.
+\item Professional Competence.
+\item Self-Reflection.
+\end{enumerate}
+\end{minipage}%
+
+\pgfplotstableread{
+	Course 	{Course Name}	CO1	CO2	CO3	CO4	CO5	CO6
+	{MTH 10}	{Basic Math}	4	0	4	0	4	3
+	{MTH 20}	{Basic Math}	4	0	4	0	4	3
+	{MTH 30}	{Business Mathematics}	4	0	4	0	4	3
+	{MTH 60}	{Introductory Algebra, 1st term}	4	0	4	0	4	3
+	{MTH 61}	{Introductory Algebra, Part I}	4	0	4	0	4	3
+	{MTH 62}	{Introductory Algebra, Part II}	4	0	4	0	4	3
+	{MTH 63}	{Introductory Algebra, Part III}	4	0	4	0	4	3
+	{MTH 65}	{Introductory Algebra, 2nd term}	4	0	4	0	4	3
+	{MTH 70}	{Introduction to Intermediate Algebra}	4	0	4	0	4	3
+	{MTH 91}	{Intermediate Algebra, Part I}	4	0	4	0	4	3
+    {MTH 92}	{Intermediate Algebra, Part I}I	4	0	4	0	4	3
+    {MTH 93}	{Intro to TI Graphics Calculator}	4	0	4	0	4	3
+    {MTH 95}	{Intermediate Algebra}	4	0	4	0	4	3
+    {MTH 111} 	{College Algebra}	4	0	4	0	4	3
+    {MTH 112}	{Elementary Functions}	4	0	4	0	4	3
+    {MTH 211}	{Foundations of Elementary Math I}	4	0	4	0	4	3
+    {MTH 212}	{Foundations of Elementary Math II}	4	0	4	0	4	3
+    {MTH 213}	{Foundations of Elementary Math III}	4	0	4	0	4	3
+    {MTH 241}	{Calculus for Management}	4	0	4	0	4	3
+    {MTH 243}	{Statistics I}	4	0	4	0	4	3
+    {MTH 244}	{Statistics II}	4	0	4	0	4	3
+    {MTH 251}	{Calculus I}	4	0	4	0	4	3
+    {MTH 252}	{Calculus II}	4	0	4	0	4	3
+    {MTH 253}	{Calculus III}	4	0	4	0	4	3
+    {MTH 254}	{Calculus IV}	4	0	4	0	4	3
+    {MTH 259}	{Single Variable Calculus Review}	4	0	4	0	4	3
+    {MTH 256}	{Differential Equations}	4	0	4	0	4	3
+    {MTH 261}	{Applied Linear Algebra}	4	0	4	0	4	3
+
+	}\coreOutComes
+
+\pgfplotstabletypeset[
+begin table=\begin{longtable},
+end table=\end{longtable},
+	every head row/.style={
+		before row=\toprule,
+		after row=\midrule},
+	every last row/.style={after row=\bottomrule},
+    every row no 8/.style={after row=\cmidrule{2-8}},
+    every row no 12/.style={after row=\cmidrule{2-8}},
+    every row no 14/.style={after row=\cmidrule{2-8}},
+    every row no 20/.style={after row=\cmidrule{2-8}},
+	columns/Course/.style={string type,column type=l},
+	columns/Course Name/.style={string type,column type=l},
+]{\coreOutComes}
