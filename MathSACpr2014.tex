@@ -1,4 +1,6 @@
 % arara: pdflatex
+% !arara: makeglossaries
+% !arara: pdflatex
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
 %
@@ -13,8 +15,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{booktabs}
-\usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{standalone}
 \usepackage{titlepic}
 \usepackage{tablefootnote}
 \usepackage[charter]{mathdesign}
@@ -24,31 +26,41 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{cleveref}
 \usepackage{refcheck} % remove once the document is completed
 
+% hyperlink setup
+\hypersetup{colorlinks=true,
+	linkcolor=blue
+}
+
+% cleveref settings
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+\crefname{figure}{Figure}{Figures}
+\Crefname{figure}{Figure}{Figures}
+
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
-\usepackage[nonumberlist,section=chapter]{glossaries}
-%\usepackage[section=chapter]{glossaries}
+%\usepackage[nonumberlist,section=chapter]{glossaries}
+\usepackage[section=chapter,toc]{glossaries}
 % make the links black
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
-\newglossaryentry{ALC}{name=ALC,description={}} % NEED
-\newglossaryentry{AMP}{name=AMP,description={}} % NEED
-\newglossaryentry{MMP}{name=MMP,description={MyMathLab-- a commercial, publisher-owned homework management system }}
+\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center}}
+\newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
+\newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
+\newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
+\newglossaryentry{DL}{name=DL,description={Distance Learning}} 
+\makeglossaries
 
 % to do:
-%   - fix chapter,section, subsection formatting
-%   - tcolorbox around title and toc
-%   - glossary items
+%   - tcolorbox around title and toc, or perhaps pretty toc?
+%           http://tex.stackexchange.com/questions/35825/pretty-table-of-contents
+%   - glossary items, and update glossary entries throughout using perl script
 %   - make consistent choice about on-campus, oncampus, on campus, online
 %   - check that all sections in the appendix are referenced in the body 
-%       (use refcheck package to check the output)
+%       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
-%   - secnumdepth issue for subsections
-
-\renewcommand{\thesection}{\Alph{section}}
-%\renewcommand{\thesubsection}{} % couldn't we use secnumdepth instead?
-
+%   - check for undefined references, multiply defined labels- grep log file
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -64,28 +76,68 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \date{Fall 2008 -- Fall 2013}
 \titlepic{\includegraphics[width=\textwidth]{./50th_mathematicsproof}}
 
+% custom chapter
+\titleformat{\chapter}[display]
+{\normalfont\Large\filcenter\bf}
+{}
+{1pc}
+{\Huge\thechapter--~}
 
-\includeonly{coreOutcomesMapping}
+% \chapter*
+\titleformat{name=\chapter,numberless}
+{\normalfont\huge\bfseries}{}{-20pt}{\Huge}
 
+% custom section
+\titleformat{\section}
+{\itshape}
+{\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection}}}\hskip 9pt}}
+{0pt}
+{}
+
+% spacing around headings
+% From the titlesec package
+% \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+% spacing: how to read {12pt plus 4pt minus 2pt}
+%           12pt is what we would like the spacing to be
+%           plus 4pt means that TeX can stretch it by at most 4pt
+%           minus 2pt means that TeX can shrink it by at most 2pt
+%       This is one example of the concept of, 'glue', in TeX
+\titlespacing{\chapter}{0pt}{*4}{0.1cm}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+
+% secnumdepth dictates which headings get enumerated- setting it 
+% to 1 means that chapters and sections get enumerated, but 
+% no headings below them will (such as subsection, subsubsection, paragraph, etc)
+\setcounter{secnumdepth}{1}
+
+\includeonly{OtherCurricularIssues}
 \begin{document}
-\maketitle
-\tableofcontents
+
+% The following lines should be uncommented in the final (production) version
+%\maketitle
+%\tableofcontents
+%\printglossary
 
 %= == == == == == == == == == == =
 % main chapters
 %= == == == == == == == == == == =
+\renewcommand{\thesection}{\Alph{section}}
 \include{OtherCurricularIssues}
 
 %= == == == == == == == == == == =
 % appendices
 %= == == == == == == == == == == =
 \appendix
+\renewcommand{\thesection}{\arabic{section}}
 \include{changeinALCcourses}
 \include{coreOutcomesMapping}
 \include{courseScheduling}
 \include{dlsurveysummary}
+\include{onlineHwStudy}
 \include{accessibilitysummary}
 \include{ALEKSpilot}
+\include{enrollmentSummaries}
 
 
 \end{document}
