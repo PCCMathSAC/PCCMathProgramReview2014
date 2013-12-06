@@ -10,16 +10,19 @@
 %       Prepared in Fall 2013
 %
 %= == == == == == == == == == == =
-\usepackage[left=3.5cm,right=1.5cm,showframe=false,
+\usepackage[left=3.5cm,right=2.0cm,showframe=false,
 top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}               
 \usepackage{parskip}
 \usepackage{titlesec}
+\usepackage{titletoc}
 \usepackage{booktabs}
 \usepackage{longtable}
+\usepackage{fancyhdr}   % headers and footers
 \usepackage{standalone}
 \usepackage{titlepic}
 \usepackage{tablefootnote}
 \usepackage[charter]{mathdesign}
+\usepackage{microtype}
 \usepackage{siunitx}
 \usepackage{pgfplotstable}
 \usepackage{hyperref}
@@ -44,12 +47,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
+\newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
 \newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
 \newglossaryentry{DL}{name=DL,description={Distance Learning}} 
+\newglossaryentry{FT}{name=FT,description={Full-time (usually in reference to faculty)}} 
+\newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \makeglossaries
 
 % to do:
@@ -57,10 +63,13 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %           http://tex.stackexchange.com/questions/35825/pretty-table-of-contents
 %   - glossary items, and update glossary entries throughout using perl script
 %   - make consistent choice about on-campus, oncampus, on campus, online
+%   - make consistent choice about full-time, full time, part-time, part time
 %   - check that all sections in the appendix are referenced in the body 
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
 %   - check for undefined references, multiply defined labels- grep log file
+%   - give headings to paragraphs when appropriate using \paragraph{}
+%   - do we need the bookmark package? are we getting bookmarks in the sidepane?
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -76,12 +85,17 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \date{Fall 2008 -- Fall 2013}
 \titlepic{\includegraphics[width=\textwidth]{./50th_mathematicsproof}}
 
+% from the titlesec package
+%\titleformat{ command }
+%             [ shape ]
+%             { format }{ label }{ sep }{ before-code }[ after-code ]
 % custom chapter
-\titleformat{\chapter}[display]
-{\normalfont\Large\filcenter\bf}
-{}
-{1pc}
-{\Huge\thechapter--~}
+\titleformat{\chapter}
+{\normalfont\Large\filleft\bf}                          % format applied to label+text
+{}                                                      % label
+{1pc}                                                   % horizontal separation between label and title body
+{\resizebox{2cm}{!}{\color{gray!80}\thechapter}\\\Huge} % before the title body
+[]                                                      % after the title body
 
 % \chapter*
 \titleformat{name=\chapter,numberless}
@@ -94,6 +108,14 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 {0pt}
 {}
 
+% custom paragraph heading
+\titleformat{\paragraph}[leftmargin]
+{\normalfont
+\scshape\filleft}
+{}
+{0pt}
+{}
+
 % spacing around headings
 % From the titlesec package
 % \titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
@@ -102,21 +124,47 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %           plus 4pt means that TeX can stretch it by at most 4pt
 %           minus 2pt means that TeX can shrink it by at most 2pt
 %       This is one example of the concept of, 'glue', in TeX
-\titlespacing{\chapter}{0pt}{*4}{0.1cm}
+\titlespacing{\chapter}{0pt}{0pt}{0.1cm}
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing{\paragraph}{4pc}{1.5ex plus .1ex minus .2ex}{1pc}
 
 % secnumdepth dictates which headings get enumerated- setting it 
 % to 1 means that chapters and sections get enumerated, but 
 % no headings below them will (such as subsection, subsubsection, paragraph, etc)
 \setcounter{secnumdepth}{1}
 
-\includeonly{OtherCurricularIssues}
+% headers and footers
+\fancyhf{} % delete current header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO,RE]{\leftmark}
+\pagestyle{fancy}
+
+% remove the word Chapter from the header
+\def\chaptermark#1{\markboth{\textsc{\thechapter. \  #1}}{}}
+
+%%% make refcheck and cleveref play nicely together: 
+% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
+\makeatletter
+\newcommand{\refcheckize}[1]{%
+  \expandafter\let\csname @@\string#1\endcsname#1%
+  \expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{%
+    \csname @@\string#1\endcsname{##1}\wrtusdrf{##1}}%
+  \expandafter\let\expandafter#1\csname relax\string#1\endcsname
+}
+\makeatother
+% Now we add the reference commands we want refcheck to be aware of
+\refcheckize{\cref}
+\refcheckize{\Cref}
+%%%
+
+%\includeonly{facultyDegrees}
+
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
 %\maketitle
-%\tableofcontents
+\tableofcontents
 %\printglossary
 
 %= == == == == == == == == == == =
@@ -129,7 +177,22 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % appendices
 %= == == == == == == == == == == =
 \appendix
+% add the word Appendix to the header
+\def\chaptermark#1{\markboth{\textsc{Appendix \thechapter. \  #1}}{}}
+% custom section
+\titleformat{\section}
+{\Large\bfseries}
+{\llap{\thesection\hskip.5cm}}
+{0pt}
+{}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-5pt plus 2pt minus 2pt}
+
 \renewcommand{\thesection}{\arabic{section}}
+% start a partial tableofcontents for the appendix
+\chapter*{Appendices}
+\addcontentsline{toc}{chapter}{Appendices}
+\startcontents[appendixtoc]
+\printcontents[appendixtoc]{}{0}{}
 \include{changeinALCcourses}
 \include{coreOutcomesMapping}
 \include{courseScheduling}
@@ -138,6 +201,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \include{accessibilitysummary}
 \include{ALEKSpilot}
 \include{enrollmentSummaries}
+\include{sectionsTaughtPTFT}
+\include{facultyDegrees}
 
 
 \end{document}
