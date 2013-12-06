@@ -1,0 +1,60 @@
+% arara: pdflatex: {files: [MathSACpr2014]}
+% !arara: indent: {overwrite: yes, trace: yes}
+\chapter{Faculty Educational Degrees by campus}\label{app:sec:facultyDegrees}
+
+\Cref{app:tab:facultyDegrees} shows the highest educational 
+qualifications of full-time and part-time faculty at each of the campuses.
+
+\Cref{app:tab:facultyturnover} shows the faculty turn over from 
+Summer 2011--Spring 2013.
+
+\fixthis{Cascade's table needs to be updated to reflect Hughes' transfer}
+\begin{table}[!htb]
+	\centering
+	\caption{Faculty Education (Highest Degree)}
+	\label{app:tab:facultyDegrees}
+	\begin{tabular}{ll*{3}{c}}
+		\toprule
+		 & & Bachelor's Degree & Master's Degree & Doctorate \\
+		\midrule
+		Cascade    & Full-Time & 0  & 8  & 0 \\
+		           & Part-Time & 20 & 25 & 1 \\
+		\cmidrule{2-5}
+		Sylvania   & Full-Time & 0  & 16 & 2 \\
+		           & Part-Time & 16 & 34 & 1 \\
+		\cmidrule{2-5}
+		Rock Creek & Full-Time & 0  & 10 & 2 \\
+		           & Part-Time & 14 & 50 & 4 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+	\begin{list}{}{%
+			\setlength{\leftmargin}{-2.5cm}
+			\setlength{\rightmargin}{1.5cm}}%
+		\item[]%
+		\caption{Faculty Turnover from Summer 2011--Spring 2013}
+        \label{app:tab:facultyturnover}
+		\begin{tabular}{*{10}{p{.1\textwidth}}}
+			\toprule
+			& & & & \multicolumn{6}{c}{Reason}\\
+			\cmidrule{5-10}
+			           &           & Joined & Left                                                                                   & FT Retired now PT & FT teach elsewhere & FT non-teaching & FT other PCC campus & PT other PCC campus & Stay home with kids \\
+			\midrule
+			Cascade    & Full-time & 3      & 5\tablefootnote{includes 4 FT temps and 1 FT permanent}                                & 1                 & 1                  &                 & 2                   &                     &                     \\
+			           & Part-time & 16     & 10\tablefootnote{reasons for leaving often unknown or don't fit into these categories} &                   & 1                  & 1               &                     & 2                   &                     \\
+			           & Total     & 19     & 15                                                                                     &                   &                    &                 &                     &                     &                     \\
+			\bottomrule
+			Sylvania   & Full-time & 3      & 3                                                                                      & 3                 &                    &                 &                     &                     &                     \\
+			           & Part-time & 8      & 6                                                                                      &                   & 2                  & 1               &                     & 2                   & 1                   \\
+			           & Total     & 11     & 9                                                                                      &                   &                    &                 &                     &                     &                     \\
+			\bottomrule
+            \mbox{Rock Creek} & Full-time & 4      & 3                                                                                      & 1                 &                    &                 & 2                   &                     &                     \\
+			           & Part-time & 29     & 19                                                                                     &                   &                    &                 &                     & 6                   &                     \\
+			           & Total     & 33     & 22                                                                                     &                   &                    &                 &                     &                     &                     \\
+			\bottomrule
+		\end{tabular}
+	\end{list}
+\end{table}
+
