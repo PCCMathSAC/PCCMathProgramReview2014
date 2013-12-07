@@ -1,0 +1,35 @@
+% arara: pdflatex
+% !arara: indent: {overwrite: yes}
+\documentclass{standalone}
+% Caption: Enrollment in F2F
+% 2007/08-2012/13
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=newest}
+
+\pgfplotstableread[col sep=comma]{../data/ProcessedGradesData.csv}\enrollmentdata
+
+\begin{document}
+
+\begin{tikzpicture}
+	\begin{axis}[
+			%ybar,
+			symbolic x coords={2007/08, 2008/09, 2009/10, 2010/11, 2011/12, 2012/13, NaN},
+			xtick=data,
+			%minor ytick={1000,5000,...,40000},
+			enlarge x limits,
+			scale only axis,       
+			grid = both,
+			ymin=0,ymax=40000,
+			scaled ticks=false, 
+			tick label style={/pgf/number format/fixed},
+			legend pos=outer north east,
+			restrict x to domain=0:5,
+			x tick label style={rotate=15},
+		]
+		\addplot table[x=AY,y=F2F_Enrollments]{\enrollmentdata};
+		%\legend{DL}
+	\end{axis}
+\end{tikzpicture}
+\end{document}
