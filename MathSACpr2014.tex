@@ -20,8 +20,10 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{fancyhdr}   % headers and footers
 \usepackage{standalone}
 \usepackage{titlepic}
+\usepackage{changepage}
 \usepackage{tablefootnote}
 \usepackage[sc,hang]{caption}
+\usepackage{subcaption}
 \usepackage[charter]{mathdesign}
 \usepackage{microtype}
 \usepackage{siunitx}
@@ -41,6 +43,11 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \crefname{figure}{Figure}{Figures}
 \Crefname{figure}{Figure}{Figures}
 
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                    legend cell align=left,       % otherwise width won't be as intended: http://tex.stackexchange.com/questions/36297/pgfplots-how-can-i-scale-to-text-width
+                    }}
+
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
 %\usepackage[nonumberlist,section=chapter]{glossaries}
 \usepackage[section=chapter,toc]{glossaries}
@@ -55,6 +62,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
 \newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
 \newglossaryentry{DL}{name=DL,description={Distance Learning}} 
+\newglossaryentry{F2F}{name=F2F,description={Face-to-face}} 
 \newglossaryentry{FT}{name=FT,description={Full-time (usually in reference to faculty)}} 
 \newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \newglossaryentry{LAS}{name=LAS,description={Learning Assessment Council}} 
@@ -67,6 +75,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - glossary items, and update glossary entries throughout using perl script
 %   - make consistent choice about on-campus, oncampus, on campus, online
 %   - make consistent choice about full-time, full time, part-time, part time
+%   - make consistent choice about face 2 face or face-to-face
 %   - check that all sections in the appendix are referenced in the body 
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
@@ -161,7 +170,14 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \refcheckize{\Cref}
 %%%
 
-%\includeonly{effectivenessALC}
+% wide page for side by side figures, tables, etc
+\newlength{\offsetpage}
+\setlength{\offsetpage}{3.0cm}
+\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-\offsetpage}%
+                            \addtolength{\textwidth}{2\offsetpage}}%
+                         {\end{adjustwidth}}
+
+\includeonly{OtherCurricularIssues}
 
 \begin{document}
 

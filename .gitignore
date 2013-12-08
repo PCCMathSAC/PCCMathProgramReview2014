@@ -26,5 +26,6 @@
 *.glo
 *.gls
 *.ist
+*.sta
 *.run.xml
 *.synctex*
