@@ -1,4 +1,4 @@
-% arara: pdflatex: {files: [MathSACpr2014]}
+% arara: pdflatex: {files: [../MathSACpr2014], options: "--output-directory=../"}
 % !arara: indent: {overwrite: yes}
 \chapter{Demographic data}\label{app:sec:demographicdata}
 
@@ -9,14 +9,22 @@ demographic data for the academic years 2008 through 2013.
 % is restored at the end
 \newgeometry{left=0.5cm,right=0.5cm,
 top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
+
+% 2008-2009
+% 2008-2009
+% 2008-2009
 \begin{sidewaystable}
   \captionsetup{skip=0pt}
 	\centering
 	\caption{Demographic data for 2008--2009 (Pre-college level MTH and statistics)}
+    \label{app:tab:demographic2008-2009}
 	\input{tables/diversityData2008-2009PreCollege.tex}
 	\caption{Demographic data for 2008--2009 (College level MTH)}
 	\input{tables/diversityData2008-2009College.tex}
 \end{sidewaystable}
+% 2009-2010
+% 2009-2010
+% 2009-2010
 \begin{sidewaystable}
   \captionsetup{skip=0pt}
 	\centering
@@ -25,6 +33,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
 	\caption{Demographic data for 2009--2010 (College level MTH). Note that MTH 111A had $0$ enrollment for 2009--2010, so its data is not displayed. }
 	\input{tables/diversityData2009-2010College.tex}
 \end{sidewaystable}
+% 2010-2011
+% 2010-2011
+% 2010-2011
 \begin{sidewaystable}
   \captionsetup{skip=0pt}
 	\centering
@@ -32,6 +43,29 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
 	\input{tables/diversityData2010-2011PreCollege.tex}
 	\caption{Demographic data for 2010--2011 (College level MTH). Note that MTH 111A had $0$ enrollment for 2010--2011, so its data is not displayed. }
 	\input{tables/diversityData2010-2011College.tex}
+\end{sidewaystable}
+% 2011-2012
+% 2011-2012
+% 2011-2012
+\begin{sidewaystable}
+  \captionsetup{skip=0pt}
+	\centering
+	\caption{Demographic data for 2011--2012 (Pre-college level MTH and statistics)}
+	\input{tables/diversityData2011-2012PreCollege.tex}
+	\caption{Demographic data for 2011--2012 (College level MTH). Note that MTH 111A, B, and C courses were combined into MTH 111 starting in this AY.}
+	\input{tables/diversityData2011-2012College.tex}
+\end{sidewaystable}
+% 2012-2013
+% 2012-2013
+% 2012-2013
+\begin{sidewaystable}
+  \captionsetup{skip=0pt}
+	\centering
+	\caption{Demographic data for 2012--2013 (Pre-college level MTH and statistics)}
+	\input{tables/diversityData2012-2013PreCollege.tex}
+	\caption{Demographic data for 2012--2013 (College level MTH).}
+    \label{app:tab:demographic2012-2013}
+	\input{tables/diversityData2012-2013College.tex}
 \end{sidewaystable}
 
 % fix the margins back
