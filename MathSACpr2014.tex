@@ -13,22 +13,27 @@
 \usepackage[left=3.5cm,right=2.0cm,showframe=false,
 top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}               
 \usepackage{parskip}
-\usepackage{titlesec}
-\usepackage{titletoc}
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{fancyhdr}   % headers and footers
-\usepackage{standalone}
-\usepackage{titlepic}
-\usepackage{tablefootnote}
-\usepackage[sc,hang]{caption}
-\usepackage[charter]{mathdesign}
-\usepackage{microtype}
-\usepackage{siunitx}
-\usepackage{pgfplotstable}
-\usepackage{hyperref}
-\usepackage{cleveref}
-\usepackage{refcheck} % remove once the document is completed
+\usepackage{titlesec}           % customize headings
+\usepackage{titletoc}           % customize tableofcontents
+\usepackage{multirow}           % multirows in tables
+\usepackage{booktabs}           % beautiful tables
+\usepackage[figuresright]{rotating}           % sideways table
+\usepackage{longtable}          % tables that can break across pages
+\usepackage{fancyhdr}           % headers and footers
+\usepackage{standalone}         % maintain graphs and tables in separate files
+\usepackage{pdfpages}           % include separate pdf documents
+\usepackage{titlepic}           % image for titlepage
+\usepackage{changepage}         % adjust margins for selected portions
+\usepackage{tablefootnote}      % footnotes within tables
+\usepackage[sc,hang]{caption}   % customize captions of tables and figures
+\usepackage{subcaption}         % subfigures and subtables
+\usepackage[charter]{mathdesign}% font choice
+\usepackage{microtype}          % better kerning
+\usepackage{siunitx}            % elegant handling of units
+\usepackage{pgfplotstable}      % typeset tables intelligently
+\usepackage{hyperref}           % hyperlinks
+\usepackage{cleveref}           % allows \cref and friends
+\usepackage{refcheck}           % checks if labels have been used remove once the document is completed
 
 % hyperlink setup
 \hypersetup{colorlinks=true,
@@ -41,6 +46,30 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \crefname{figure}{Figure}{Figures}
 \Crefname{figure}{Figure}{Figures}
 
+% axis style, ticks, etc
+\pgfplotsset{every axis/.append style={
+                    legend cell align=left,       % otherwise width won't be as intended: http://tex.stackexchange.com/questions/36297/pgfplots-how-can-i-scale-to-text-width
+                    }}
+
+% percentage style for tables
+\pgfplotstableset{percentstyle/.style={
+    preproc/expr={##1*100},
+    dec sep align,fixed,fixed zerofill,
+postproc cell content/.append code={
+            \ifx\\##1\\% check if ##1 is empty
+            \else
+            \ifnum1=\pgfplotstablepartno
+                \pgfkeysalso{@cell content/.add={}{\,\%}}%
+            \fi
+            \fi
+        },
+    precision=0,
+}
+}
+
+% empty column type- very useful for big tables that ignore columns
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
 %\usepackage[nonumberlist,section=chapter]{glossaries}
 \usepackage[section=chapter,toc]{glossaries}
@@ -49,12 +78,14 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % basic vocab
 \newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
+\newglossaryentry{DOI}{name=DOI,description={Deans Of Instruction}}
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
 \newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
 \newglossaryentry{DL}{name=DL,description={Distance Learning}} 
+\newglossaryentry{F2F}{name=F2F,description={Face-to-face}} 
 \newglossaryentry{FT}{name=FT,description={Full-time (usually in reference to faculty)}} 
 \newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \newglossaryentry{LAS}{name=LAS,description={Learning Assessment Council}} 
@@ -67,6 +98,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - glossary items, and update glossary entries throughout using perl script
 %   - make consistent choice about on-campus, oncampus, on campus, online
 %   - make consistent choice about full-time, full time, part-time, part time
+%   - make consistent choice about face 2 face or face-to-face
 %   - check that all sections in the appendix are referenced in the body 
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
@@ -161,13 +193,20 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \refcheckize{\Cref}
 %%%
 
-%\includeonly{effectivenessALC}
+% wide page for side by side figures, tables, etc
+\newlength{\offsetpage}
+\setlength{\offsetpage}{3.0cm}
+\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-\offsetpage}%
+                            \addtolength{\textwidth}{2\offsetpage}}%
+                         {\end{adjustwidth}}
+
+%\includeonly{demographicData}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
 %\maketitle
-\tableofcontents
+%\tableofcontents
 %\printglossary
 
 %= == == == == == == == == == == =
@@ -192,10 +231,10 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
-\chapter*{Appendices}
+%\chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
-\printcontents[appendixtoc]{}{0}{}
+%\printcontents[appendixtoc]{}{0}{}
 \include{changeinALCcourses}
 \include{coreOutcomesMapping}
 \include{courseScheduling}
@@ -208,6 +247,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \include{facultyDegrees}
 \include{ampData}
 \include{effectivenessALC}
-
+\include{socialJustice}
+\include{classSize}
+\include{demographicData}
 
 \end{document}

@@ -8,9 +8,19 @@
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=newest}
 
-\pgfplotstableread[col sep=comma]{../data/ProcessedGradesData.csv}\enrollmentdata
 
 \begin{document}
+
+% http://tex.stackexchange.com/questions/128468/problems-with-pgfplotstableread-and-relative-paths
+\IfStandalone{
+	\newcommand{\fromRoot}[1]{../data/#1}
+	}{
+	\newcommand{\fromRoot}[1]{./data/#1}
+}
+
+% need to have the read command in the main document, otherwise it will 
+% be ignored when used with standalone
+\pgfplotstableread[col sep=comma]{\fromRoot{ProcessedGradesData.csv}}\enrollmentdata
 
 \begin{tikzpicture}
 	\begin{axis}[
@@ -19,14 +29,15 @@
 			xtick=data,
 			minor ytick={1000,2000,...,7000},
 			enlarge x limits,
-			scale only axis,       
+			%scale only axis,       
 			grid = both,
 			ymin=0,ymax=7000,
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
 			legend pos=outer north east,
 			restrict x to domain=0:5,
-			x tick label style={rotate=15},
+			x tick label style={rotate=25},
+			width=\textwidth,
 		]
 		\addplot table[x=AY,y=DL_Enrollments]{\enrollmentdata};
 		%\legend{DL}

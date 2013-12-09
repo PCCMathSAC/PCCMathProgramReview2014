@@ -8,9 +8,17 @@
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=newest}
 
-\pgfplotstableread[col sep=comma]{../data/ProcessedGradesData.csv}\enrollmentdata
 
 \begin{document}
+
+% http://tex.stackexchange.com/questions/128468/problems-with-pgfplotstableread-and-relative-paths
+\IfStandalone{
+	\newcommand{\fromRoot}[1]{../data/#1}
+	}{
+	\newcommand{\fromRoot}[1]{./data/#1}
+}
+
+\pgfplotstableread[col sep=comma]{\fromRoot{ProcessedGradesData.csv}}\enrollmentdata
 
 \begin{tikzpicture}
 	\begin{axis}[
@@ -19,15 +27,16 @@
 			xtick=data,
 			%minor ytick={1000,2000,...,7000},
 			enlarge x limits,
-			scale only axis,       
+			%scale only axis,       
 			grid = both,
 			ymin=0.3,ymax=0.85,
 			axis y discontinuity=crunch,
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
-			legend pos=outer north east,
+			legend pos=north east,
 			restrict x to domain=0:5,
-			x tick label style={rotate=15},
+			x tick label style={rotate=25},
+            width=\textwidth,
 		]
 		\addplot table[x=AY,y=060_DL_Pass_Rate]{\enrollmentdata};
 		\addplot table[x=AY,y=060_F2F_Pass_Rate]{\enrollmentdata};

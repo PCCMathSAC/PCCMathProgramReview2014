@@ -1,3 +1,4 @@
+% arara: pdflatex: {files: [MathSACpr2014]}
 \chapter{Other  Curricular Issues}
 \section[Distance education]{To what degree are courses offered in a Distance modality (on-line, hybrid, interactive television, etc)? For courses offered both via DL and on-campus, are there differences in student success? (Contact the Office of Institutional Effectiveness , either Laura Massey or Rob Vergun,  for course-level data). If so, how are you, or will you address these differences? What significant revelations, concerns or questions arise in the area of DL delivery?}
 
@@ -23,21 +24,20 @@ Offered as DL & Not offered  DL upper division & Not offered  DL specialty\\
 Approximately 14.1\% of PCC math enrollments were into a DL class during the academic year of 2012/13 compared to only 9.1\% in the 2007/08 academic year. This percentage increase is coupled with a general enrollment surge over the past five years, and the number of DL enrollments has grown by over 150\% in this time period. \Cref{tab:sec3:F2FandDLenrollments} shows student enrollment in face-to-face courses compared to online courses over six academic years.
 
 \begin{figure}[!htb]
-    \begin{minipage}{\textwidth}
-         \captionof{table}{Table Caption goes here}\label{tab:sec3:F2FandDLenrollments}
-          table code
+    \begin{minipage}{.5\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/enrollmentInDL.pdf}
+          \input{graphics/enrollmentInDL.tex}
+          \caption{Enrollments in DL}
     \end{minipage}%
-    
     \begin{minipage}{.5\textwidth}
-          \includegraphics[width=\textwidth]{graphics/enrollmentInDL.pdf}
-          \captionof{figure}{Enrollments in DL}
+          %\includegraphics[width=\textwidth]{graphics/enrollmentInF2F.pdf}
+          \input{graphics/enrollmentInF2F.tex}
+          \caption{Enrollments in F2F}
     \end{minipage}
-    \begin{minipage}{.5\textwidth}
-          \includegraphics[width=\textwidth]{graphics/enrollmentInF2F.pdf}
-          \captionof{figure}{Enrollments in F2F}
-    \end{minipage}
+         \captionof{table}{Table Caption goes here}\label{tab:sec3:F2FandDLenrollments}
 \end{figure}
 
+\fixthis{is the above table caption appropriate?}
 
 As enrollment demand for DL math courses has increased, we have increased the number of sections that we offer and trained more interested faculty in managing DL courses.  Between the academic years of 2003/04 and 2007/08, the annual number of sections offered increased from 51 to 87.  In the 2012/13 academic year, we offered 185 DL sections.   The resulting increase in sections offers access to students that can succeed in this modality and need this option due to outside constraints such as work and family.
 
@@ -46,32 +46,40 @@ As enrollment demand for DL math courses has increased, we have increased the nu
 Pass rates in DL courses are significantly lower than those for their face-to-face counterparts. We recognize that students need a certain level of self-discipline, better study skills, and comfort engaging with technology to succeed in a DL course. However we currently have no method for screening which students are less likely to succeed using a distance modality.  \Cref{fig:sec3:F2FandDLpassRates} shows the difference in pass rates between the DL courses that we offer and their face-to-face counterparts.  It is clear that, in the six academic years shown, the passing rates are generally decreasing regardless of delivery mode.  We hypothesize that this overall trend is mostly the result of the economic collapse of 2008 which led to increased enrollment and changes in our student demographics (REF to diversity section?).  But the pass rates in DL courses are as much as 30\% lower than in face-to-face counterparts and this large discrepancy needs to be addressed.
 
 \begin{figure}[!htb]
-    \caption{Pass Rates By Modality}\label{fig:sec3:F2FandDLpassRates}
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality020.pdf}
+  \begin{widepage}
+    \begin{subfigure}{.3\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/passRatesByModality020.pdf}
+          \input{graphics/passRatesByModality020.tex}
           \captionof{figure}{MTH 20}
-    \end{minipage}
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality060.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{.3\textwidth}
+    %      \includegraphics[width=\textwidth]{graphics/passRatesByModality060.pdf}
+          \input{graphics/passRatesByModality060.tex}
           \captionof{figure}{MTH 60}
-    \end{minipage}
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality065.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{.3\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/passRatesByModality065.pdf}
+          \input{graphics/passRatesByModality065.tex}
           \captionof{figure}{MTH 65}
-    \end{minipage}
+    \end{subfigure}
 
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality095.pdf}
+    \begin{subfigure}{.3\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/passRatesByModality095.pdf}
+          \input{graphics/passRatesByModality095.tex}
           \captionof{figure}{MTH 95}
-    \end{minipage}
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality111.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{.3\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/passRatesByModality111.pdf}
+          \input{graphics/passRatesByModality111.tex}
           \captionof{figure}{MTH 111}
-    \end{minipage}
-    \begin{minipage}{.3\textwidth}
-          \includegraphics[width=\textwidth]{graphics/passRatesByModality243.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{.3\textwidth}
+          %\includegraphics[width=\textwidth]{graphics/passRatesByModality243.pdf}
+          \input{graphics/passRatesByModality243.tex}
           \captionof{figure}{MTH 243}
-    \end{minipage}
+    \end{subfigure}
+    \caption{Pass Rates By Modality}\label{fig:sec3:F2FandDLpassRates}
+  \end{widepage}
 \end{figure}
 
 The difference in student-success rates between on-campus courses and DL courses is an important issue for the Math SAC.  The Distance Learning Standing Committee has met to consider this issue and the factors that lead to this difference in success rates.  We can only speculate the reason for the disparity based on anecdotal evidence and professional experience.  Students may no longer see DL courses as unusual, so they may be unaware that successful DL math students should have stronger study skills, self-discipline, and time management skills than face-to-face math students absolutely need to be successful. We believe that many students register for DL math courses without adequate understanding of the study habits, time commitment, learning styles, and technical skills that are necessary for success in these classes. Anecdotal evidence suggests that some students who are aware of these issues and who would otherwise enroll in a face-to-face section still enroll in a DL section due to a lack of space in face-to-face sections.
@@ -93,6 +101,8 @@ Other methods that are employed by DL faculty to directly communicate with their
 Faculty have sought to increase engagement by DL students through use of online homework platforms. An online homework platform can provide students with immediate feedback and also hold the student accountable for completion of assigned exercises. Faculty can monitor progress and employ formative assessment from a distance.
 
 The SAC recognizes that program changes should come from research toward best practices.  Faculty members Wendy Fresh, Rebecca Ross, Tammy Louie, Jessica Bernards, and Diane Edwards have investigated the effects of use of an online homework system in several experiments (in both DL and F2F courses). In most cases, results from these experiments suggest there may be positive effects to using an online platform, but it remains too early to declare statistical significance. To demonstrate statistical significance in studies of this nature requires considerably large sample sizes. However Jessica Bernards has been able to measure one positive effect to a significant degree. Instructor Bernards taught several online sections of MTH 111, with control groups doing homework from the textbook and submitting paper write-ups, and experimental groups using online homework. The withdrawal rate was 32\% for the control group and only 16\% for the experimental group, and this difference was statistically significant ($P<1\%$).  Instructor Wendy Fresh ran a very similar experiment with online sections of MTH 60. There may still be an effect at that level, but more data is necessary to confirm with statistical significance.
+\fixthis{monster paragraph}
+Faculty members Wendy Fresh, Rebecca Ross, Tammy Louie, Jessica Bernards, and Diane Edwards investigated the effects of use of an online homework system on pass rates in DL courses in several experiments. 
 
 \fixthis{cite outside sources? http://physics.wku.edu/~bonham/Publications/HomeworkCompare.pdf, http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202011/TR_2011_2.pdf, http://www-rohan.sdsu.edu/~ituba/math3cw03/webworkfocus.pdf
 }
