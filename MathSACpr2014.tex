@@ -31,6 +31,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}          % better kerning
 \usepackage{siunitx}            % elegant handling of units
 \usepackage{pgfplotstable}      % typeset tables intelligently
+\usepackage{varioref}           % good for referencing things 'far away'
 \usepackage{hyperref}           % hyperlinks
 \usepackage{cleveref}           % allows \cref and friends
 \usepackage{refcheck}           % checks if labels have been used remove once the document is completed
@@ -90,6 +91,7 @@ postproc cell content/.append code={
 \newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \newglossaryentry{LAS}{name=LAS,description={Learning Assessment Council}} 
 \newglossaryentry{AY}{name=AY,description={Academic Year}} 
+\newglossaryentry{CCOG}{name=CCOG,description={Course Curriculum and Outcome Guide}} 
 \makeglossaries
 
 % to do:
@@ -139,7 +141,7 @@ postproc cell content/.append code={
 % custom section
 \titleformat{\section}
 {\itshape}
-{\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection}}}\hskip 9pt}}
+{\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}}
 {0pt}
 {}
 
@@ -200,7 +202,12 @@ postproc cell content/.append code={
                             \addtolength{\textwidth}{2\offsetpage}}%
                          {\end{adjustwidth}}
 
-\includeonly{appendices/demographicData}
+% renew the quote environment to make it italic
+\let\oldquote\quote
+\let\oldendquote\endquote
+\renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
+
+%\includeonly{NeedsOfStudentsAndCommunity}
 
 \begin{document}
 
@@ -214,6 +221,7 @@ postproc cell content/.append code={
 %= == == == == == == == == == == =
 \renewcommand{\thesection}{\Alph{section}}
 \include{OtherCurricularIssues}
+\include{NeedsOfStudentsAndCommunity}
 
 %= == == == == == == == == == == =
 % appendices
