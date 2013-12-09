@@ -1,0 +1,38 @@
+% arara: pdflatex: {files: [MathSACpr2014]}
+% !arara: indent: {overwrite: yes}
+\chapter{Demographic data}\label{app:sec:demographicdata}
+
+\Crefrange{app:tab:demographic2008-2009}{app:tab:demographic2012-2013} show
+demographic data for the academic years 2008 through 2013.
+
+% the monster tables need bigger margins- don't worry, it
+% is restored at the end
+\newgeometry{left=0.5cm,right=0.5cm,
+top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
+\begin{sidewaystable}
+  \captionsetup{skip=0pt}
+	\centering
+	\caption{Demographic data for 2008--2009 (Pre-college level MTH and statistics)}
+	\input{tables/diversityData2008-2009PreCollege.tex}
+	\caption{Demographic data for 2008--2009 (College level MTH)}
+	\input{tables/diversityData2008-2009College.tex}
+\end{sidewaystable}
+\begin{sidewaystable}
+  \captionsetup{skip=0pt}
+	\centering
+	\caption{Demographic data for 2009--2010 (Pre-college level MTH and statistics)}
+	\input{tables/diversityData2009-2010PreCollege.tex}
+	\caption{Demographic data for 2009--2010 (College level MTH). Note that MTH 111A had $0$ enrollment for 2009--2010, so its data is not displayed. }
+	\input{tables/diversityData2009-2010College.tex}
+\end{sidewaystable}
+\begin{sidewaystable}
+  \captionsetup{skip=0pt}
+	\centering
+	\caption{Demographic data for 2010--2011 (Pre-college level MTH and statistics)}
+	\input{tables/diversityData2010-2011PreCollege.tex}
+	\caption{Demographic data for 2010--2011 (College level MTH). Note that MTH 111A had $0$ enrollment for 2010--2011, so its data is not displayed. }
+	\input{tables/diversityData2010-2011College.tex}
+\end{sidewaystable}
+
+% fix the margins back
+\restoregeometry

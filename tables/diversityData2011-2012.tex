@@ -1,6 +1,5 @@
 % arara: pdflatex
-\documentclass{article}
-\usepackage[landscape,textwidth=25cm]{geometry}
+\documentclass[varwidth]{standalone}
 \usepackage{pgfplotstable}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -31,8 +30,14 @@ postproc cell content/.append code={
 %   http://tex.stackexchange.com/questions/89365/check-for-empty-macro-argument
 
 \begin{document}
+% http://tex.stackexchange.com/questions/128468/problems-with-pgfplotstableread-and-relative-paths
+\IfStandalone{
+	\newcommand{\fromRoot}[1]{../data/demographics/#1}
+	}{
+	\newcommand{\fromRoot}[1]{./data/demographics/#1}
+}
 
-\pgfplotstableread[col sep=comma]{../data/demographics/demographics2011-2012.csv}\diversitydata
+\pgfplotstableread[col sep=comma]{\fromRoot{demographics2011-2012.csv}}\diversitydata
 
 \noindent\resizebox{\textwidth}{!}{
 \pgfplotstabletypeset[

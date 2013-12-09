@@ -50,20 +50,14 @@ every head row/.style={
         & \multicolumn{7}{c}{MTH 20} 
         & \multicolumn{7}{c}{MTH 60} 
         & \multicolumn{7}{c}{MTH 65} 
-        & \multicolumn{7}{c}{MTH 95} 
-        & \multicolumn{7}{c}{MTH 111A} 
-        & \multicolumn{18}{c}{MTH 111 B\&C} 
-        & \multicolumn{6}{c}{MTH 112} 
-        & \multicolumn{7}{c}{MTH 243} 
-        & \multicolumn{7}{c}{MTH 244} 
-        & \multicolumn{7}{c}{MTH 251} 
-        & \multicolumn{7}{c}{MTH 252} 
-        & \multicolumn{7}{c}{MTH 253} 
-        & \multicolumn{7}{c}{MTH 254}\\},
+        & \multicolumn{29}{c}{MTH 95} 
+        & \multicolumn{10}{c}{MTH 243} 
+        & \multicolumn{10}{c}{MTH 244} 
+        \\},
         after row=\midrule},
 every last row/.style={after row=\bottomrule},
-every row no 3/.style={after row=\cmidrule{2-102}},
-every row no 13/.style={after row=\cmidrule{2-102}},
+every row no 3/.style={after row=\cmidrule{2-70}},
+every row no 13/.style={after row=\cmidrule{2-70}},
     columns/demographic/.style={string type,column name={},column type=l},
     % MTH 20 - ignore most of the columns
     columns/mth20p/.style={column type=H},
@@ -92,9 +86,9 @@ every row no 13/.style={after row=\cmidrule{2-102}},
     % MTH 111A - ignore all of the columns
     columns/mth111Ap/.style={column type=H},
     columns/mth111Anp/.style={column type=H},
-    columns/mth111Atot/.style={column name=Total,column type=r},
-    columns/mth111Atotper/.style={percentstyle,column name=\% Total},
-    columns/mth111Atotpass/.style={percentstyle,column name=\% Pass},
+    columns/mth111Atot/.style={column type=H},
+    columns/mth111Atotper/.style={column type=H},
+    columns/mth111Atotpass/.style={column type=H},
     % MTH 111B - ignore all of the columns
     columns/mth111Bp/.style={column type=H},
     columns/mth111Bnp/.style={column type=H},
@@ -110,15 +104,15 @@ every row no 13/.style={after row=\cmidrule{2-102}},
     % MTH 111BC - ignore most of the columns
     columns/mth111BCp/.style={column type=H},
     columns/mth111BCnp/.style={column type=H},
-    columns/mth111BCtot/.style={column name=Total,column type=r},
-    columns/mth111BCtotper/.style={percentstyle,column name=\% Total},
-    columns/mth111BCtotpass/.style={percentstyle,column name=\% Pass},
+    columns/mth111BCtot/.style={column type=H},
+    columns/mth111BCtotper/.style={column type=H},
+    columns/mth111BCtotpass/.style={column type=H},
     % MTH 112 - ignore most of the columns
     columns/mth112p/.style={column type=H},
     columns/mth112np/.style={column type=H},
-    columns/mth112tot/.style={column name=Total,column type=r},
-    columns/mth112totper/.style={percentstyle,column name=\% Total},
-    columns/mth112totpass/.style={percentstyle,column name=\% Pass},
+    columns/mth112tot/.style={column type=H},
+    columns/mth112totper/.style={column type=H},
+    columns/mth112totpass/.style={column type=H},
     % MTH 243 - ignore most of the columns
     columns/mth243p/.style={column type=H},
     columns/mth243np/.style={column type=H},
@@ -134,27 +128,27 @@ every row no 13/.style={after row=\cmidrule{2-102}},
     % MTH 251 - ignore most of the columns
     columns/mth251p/.style={column type=H},
     columns/mth251np/.style={column type=H},
-    columns/mth251tot/.style={column name=Total,column type=r},
-    columns/mth251totper/.style={percentstyle,column name=\% Total},
-    columns/mth251totpass/.style={percentstyle,column name=\% Pass},
+    columns/mth251tot/.style={column type=H},
+    columns/mth251totper/.style={column type=H},
+    columns/mth251totpass/.style={column type=H},
     % MTH 252 - ignore most of the columns
     columns/mth252p/.style={column type=H},
     columns/mth252np/.style={column type=H},
-    columns/mth252tot/.style={column name=Total,column type=r},
-    columns/mth252totper/.style={percentstyle,column name=\% Total},
-    columns/mth252totpass/.style={percentstyle,column name=\% Pass},
+    columns/mth252tot/.style={column type=H},
+    columns/mth252totper/.style={column type=H},
+    columns/mth252totpass/.style={column type=H},
     % MTH 253 - ignore most of the columns
     columns/mth253p/.style={column type=H},
     columns/mth253np/.style={column type=H},
-    columns/mth253tot/.style={column name=Total,column type=r},
-    columns/mth253totper/.style={percentstyle,column name=\% Total},
-    columns/mth253totpass/.style={percentstyle,column name=\% Pass},
+    columns/mth253tot/.style={column type=H},
+    columns/mth253totper/.style={column type=H},
+    columns/mth253totpass/.style={column type=H},
     % MTH 254 - ignore most of the columns
     columns/mth254p/.style={column type=H},
     columns/mth254np/.style={column type=H},
-    columns/mth254tot/.style={column name=Total,column type=r},
-    columns/mth254totper/.style={percentstyle,column name=\% Total},
-    columns/mth254totpass/.style={percentstyle,column name=\% Pass},
+    columns/mth254tot/.style={column type=H},
+    columns/mth254totper/.style={column type=H},
+    columns/mth254totpass/.style={column type=H},
 ]{\diversitydata}
 }
 
