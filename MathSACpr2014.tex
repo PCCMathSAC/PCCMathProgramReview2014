@@ -17,6 +17,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{titletoc}           % customize tableofcontents
 \usepackage{multirow}           % multirows in tables
 \usepackage{booktabs}           % beautiful tables
+\usepackage{flafter}            % floats won't appear until after they appear in the code
 \usepackage[figuresright]{rotating}           % sideways table
 \usepackage{longtable}          % tables that can break across pages
 \usepackage{fancyhdr}           % headers and footers
@@ -198,7 +199,7 @@ postproc cell content/.append code={
 % wide page for side by side figures, tables, etc
 \newlength{\offsetpage}
 \setlength{\offsetpage}{3.0cm}
-\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-\offsetpage}%
+\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-.5\offsetpage}%
                             \addtolength{\textwidth}{2\offsetpage}}%
                          {\end{adjustwidth}}
 
@@ -207,7 +208,8 @@ postproc cell content/.append code={
 \let\oldendquote\endquote
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
-\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
+%\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
+%\includeonly{appendices/dlSuccessfulCompletion}
 
 \begin{document}
 
@@ -246,6 +248,7 @@ postproc cell content/.append code={
 \include{appendices/changeinALCcourses}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
+\include{appendices/dlSuccessfulCompletion}
 \include{appendices/dlsurveysummary}
 \include{appendices/onlineHwStudy}
 \include{appendices/accessibilitysummary}
