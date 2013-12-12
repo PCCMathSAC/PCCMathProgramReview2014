@@ -1,7 +1,7 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -56,6 +56,9 @@ citecolor=black,
 \Crefname{table}{Table}{Tables}
 \crefname{figure}{Figure}{Figures}
 \Crefname{figure}{Figure}{Figures}
+
+% graphics path
+\graphicspath{{./graphics/}}
 
 % axis style, ticks, etc
 \pgfplotsset{every axis/.append style={
@@ -151,7 +154,7 @@ every last row/.style={after row=\bottomrule},
 %Title page info
 \title{A Review of the Mathematics Program/Discipline at Portland Community College}
 \date{Fall 2008 -- Fall 2013}
-\titlepic{\includegraphics[width=\textwidth]{./graphics/50th_mathematicsproof}}
+\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
 
 % from the titlesec package
 %\titleformat{ command }
@@ -244,12 +247,12 @@ every last row/.style={after row=\bottomrule},
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{OtherCurricularIssues}
+\includeonly{OtherCurricularIssues}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-\maketitle
+%\maketitle
 \tableofcontents
 %\printglossary
 
