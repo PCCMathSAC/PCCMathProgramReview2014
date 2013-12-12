@@ -1,6 +1,7 @@
 % arara: pdflatex
 % !arara: bibtex
 % !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -220,14 +221,13 @@ postproc cell content/.append code={
 \let\oldendquote\endquote
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
-\includeonly{FacilitiesAndSupport,appendices/resourcesurvey}
-%\includeonly{appendices/dlSuccessfulCompletion}
+\includeonly{FacilitiesAndSupport}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-%\maketitle
-%\tableofcontents
+\maketitle
+\tableofcontents
 %\printglossary
 
 %= == == == == == == == == == == =
@@ -262,10 +262,10 @@ postproc cell content/.append code={
 
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
-%\chapter*{Appendices}
+\chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
-%\printcontents[appendixtoc]{}{0}{}
+\printcontents[appendixtoc]{}{0}{}
 \include{appendices/changeinALCcourses}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
