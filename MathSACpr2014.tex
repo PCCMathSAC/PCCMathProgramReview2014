@@ -1,7 +1,7 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -75,6 +75,22 @@ postproc cell content/.append code={
             \fi
         },
     precision=0,
+},
+sectionFTPT/.style={
+every head row/.style={
+        before row={%
+        \toprule
+        },
+        after row=\midrule},
+every last row/.style={after row=\bottomrule},
+    columns/campus/.style={string type,column name={},column type=l},
+    columns/status/.style={string type,column name={},column type=l},
+    columns/below100/.style={column name={Below 100 level},column type=r},
+    columns/b100percent/.style={column name={\%},percentstyle},
+    columns/above100/.style={column name={Above 100 level},column type=r},
+    columns/a100percent/.style={column name={\%},percentstyle},
+    columns/totpercent/.style={column name={\%},percentstyle},
+    columns/total/.style={column name={Total},column type=r},
 }
 }
 
@@ -228,13 +244,13 @@ postproc cell content/.append code={
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{OtherCurricularIssues}
+\includeonly{appendices/sectionsTaughtPTFT}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-\maketitle
-\tableofcontents
+%\maketitle
+%\tableofcontents
 %\printglossary
 
 %= == == == == == == == == == == =
@@ -269,10 +285,10 @@ postproc cell content/.append code={
 
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
-\chapter*{Appendices}
+%\chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
-\printcontents[appendixtoc]{}{0}{}
+%\printcontents[appendixtoc]{}{0}{}
 \include{appendices/changeinALCcourses}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
