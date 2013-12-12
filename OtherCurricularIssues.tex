@@ -10,40 +10,45 @@ All of our pre-college level math courses (except a calculator skills course) ha
 \begin{table}
 \caption{Course Offerings through Distance Learning}\label{tab:sec3:DLofferings}
 \centering
-\begin{tabular}{p{1in}p{1in}p{1in}}
+\begin{tabular}{ccccccccc}
 \toprule
-Offered as DL & Not offered  DL upper division & Not offered  DL specialty\\
+\multicolumn{3}{p{1in}}{Offered as DL} & \multicolumn{3}{p{1in}}{Not offered  DL upper division} & \multicolumn{3}{p{1in}}{Not offered  DL specialty}\\
 \midrule
-020, 030, 060, 065, 070, 084, 095, 111, 112, 241, 243, 244&
-251, 252, 253, 254, 256, 261&
-015, 25C, 26C, 061, 062, 063, 093, 105, 211, 212, 213\\
+020& 030& 060& 		251& 252& 253&		015& 25C& 26C\\
+065& 070& 084& 		254& 256& 261&		061& 062& 063\\
+095& 111& 112& 		&&&					093& 105& 211\\
+241& 243& 244&		&&&					212& 213\\
+
 \bottomrule
 \end{tabular}
 \end{table}
 
-Approximately 14.1\% of PCC math enrollments were into a DL class during the academic year of 2012/13 compared to only 9.1\% in the 2007/08 academic year. This percentage increase is coupled with a general enrollment surge over the past five years, and the number of DL enrollments has grown by over 150\% in this time period. \Cref{tab:sec3:F2FandDLenrollments} shows student enrollment in face-to-face courses compared to online courses over six academic years.
+Approximately 14.1\% of PCC math enrollments were into a DL class during the academic year of 2012/13 compared to only 9.1\% in the 2007/08 academic year. This percentage increase is coupled with a general enrollment surge over the past five years, and the number of DL enrollments has grown by over 150\% in this time period. \Cref{fig:sec3:DLenrollments,fig:sec3:F2Fenrollments} show student enrollment in face-to-face courses compared to online courses over six academic years. Note that even while overall enrollment has declined some since its peak in 2011/12, that absolute enrollment in DL courses has still grown. \Cref{tab:sec3:F2FandDLdata} gives more detailed data.
 
 \begin{figure}[!htb]
     \begin{minipage}{.5\textwidth}
           %\includegraphics[width=\textwidth]{graphics/enrollmentInDL.pdf}
           \input{graphics/enrollmentInDL.tex}
-          \caption{Enrollments in DL}
+          \caption{Enrollments in DL}\label{fig:sec3:DLenrollments}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
           %\includegraphics[width=\textwidth]{graphics/enrollmentInF2F.pdf}
           \input{graphics/enrollmentInF2F.tex}
-          \caption{Enrollments in F2F}
+          \caption{Enrollments in F2F}\label{fig:sec3:F2Fenrollments}
     \end{minipage}
-         \captionof{table}{Table Caption goes here}\label{tab:sec3:F2FandDLenrollments}
 \end{figure}
 
-\fixthis{a table needs to go here with more detailed DL enrollment data by term, year, and course for courses with DL offerings}
+\begin{table}[!htb]
+  	\caption{DL/F2F enrollments and pass rates}\label{tab:sec3:F2FandDLdata}
+          \input{tables/dlvsF2FenrollPass.tex}
+\end{table}
+\fixthis{I think you (Chris) are right about splitting this table. I tried and failed to do that. Would you mind?}
 
 As enrollment demand for DL math courses has increased, we have increased the number of sections that we offer and trained more interested faculty in managing DL courses.  Between the academic years of 2003/04 and 2007/08, the annual number of sections offered increased from 51 to 87.  In the 2012/13 academic year, we offered 185 DL sections.   The resulting increase in sections offers access to students that can succeed in this modality and need this option due to outside constraints such as work and family.
 
 
 \subsection{Success Rates in DL courses}
-Pass rates in DL courses are quite noticeably lower than those for their face-to-face counterparts. \Cref{fig:sec3:F2FandDLpassRates} shows the difference in pass rates between the DL courses that we offer and their face-to-face counterparts. We recognize that students need a certain level of self-discipline, better study skills, and comfort engaging with technology to succeed in a DL course. However we currently have no method for screening which students are less likely to succeed using a distance modality.    It is clear that, in the six academic years shown, the passing rates are generally decreasing regardless of delivery mode.  We hypothesize that this overall trend is mostly the result of the economic collapse of 2008 which led to increased enrollment and changes in our student demographics (see demographics data in \vref{app:sec:demographicdata}).  But the pass rates in DL courses are as much as 30\% lower than in face-to-face counterparts and this large discrepancy needs to be addressed.
+Pass rates in DL courses are quite noticeably lower than those for their face-to-face counterparts. \Cref{fig:sec3:F2FandDLpassRates} visualizes the difference in pass rates between the highest enrollment DL courses that we offer and their face-to-face counterparts. More detailed data for all DL offerings can be found in \cref{tab:sec3:F2FandDLdata}. We recognize that students need a certain level of self-discipline, better study skills, and comfort engaging with technology to succeed in a DL course. However we currently have no method for screening which students are less likely to succeed using a distance modality.    It is clear that, in the six academic years shown, the passing rates are generally decreasing regardless of delivery mode.  We hypothesize that this overall trend is mostly the result of the economic collapse of 2008 which led to increased enrollment and changes in our student demographics (see demographics data in \vref{app:sec:demographicdata}).  But the pass rates in DL courses are as much as 30\% lower than in face-to-face counterparts and this large discrepancy needs to be addressed.
 
 \begin{figure}[!htb]
   \begin{widepage}
@@ -106,10 +111,7 @@ The SAC recognizes that program changes should come from research toward best pr
 
 However Jessica Bernards has been able to measure one positive effect to a significant degree. Instructor Bernards taught several online sections of MTH 111, with control groups doing homework from the textbook and submitting paper write-ups, and experimental groups using online homework. The withdrawal rate was 32\% for the control group and only 16\% for the experimental group, and this difference was statistically significant ($P<1\%$).  Instructor Wendy Fresh ran a very similar experiment with online sections of MTH 60. There may still be an effect at that level, but more data is necessary to confirm with statistical significance. Both instructors noted modest improvement in exam scores among the experimental group, but again more data is being gathered to confirm with significance.
 
-For more information on research by Instructors Bernards and Fresh, see \vref{app:sec:onlinehwstudy}. For information on research by instructors Edwards and Louie, see \vref{app:sec:aleks}. 
-
-\fixthis{cite outside sources? http://physics.wku.edu/~bonham/Publications/HomeworkCompare.pdf, http://www.d.umn.edu/math/Technical%20Reports/Technical%20Reports%202007-/TR%202011/TR_2011_2.pdf, http://www-rohan.sdsu.edu/~ituba/math3cw03/webworkfocus.pdf
-}
+For more information on research by Instructors Bernards and Fresh for DL courses, see \vref{app:sec:onlinehwstudy}. For information on research by instructors Edwards and Louie, see \vref{app:sec:aleks}. Research on the efficacy of WeBWorK (an online homework platform discussed in \ref{other:sec:webwork}) was done in \cite{focuswebwork}.  In \cite{brewer} it was found that when students are segregated by incoming ability, those who were less prepared when entering a course do benefit significantly from online homework use. As a community college, we have more underprepared students entering than universities, so this finding suggests that use of online homework may be more helpful at PCC. It is important to note that each of these studies were done with face-to-face courses; in DL courses the traditional homework alternative presents the challenge of delivery, complicating the question in favor of using online homework.
 
 \subsection{WeBWorK}\label{other:sec:webwork}
 Recent exciting developments at PCC have centered around the free and open-source online homework platform called WeBWorK that is partially funded by the National Science Foundation and maintained by the Mathematical Association of America. By spring 2014 we expect that over 20 faculty will be using WeBWorK in their courses. The math SAC is also loaning out the services of Alex Jordan to CTE and LDC science SACs to create free online homework review programs. We envision using WeBWorK for future Learning Assessment research and placement advising. We are working with Dual Credit instructors to offer WeBWorK services to Portland Public Schools.
@@ -120,14 +122,20 @@ By contrast, WeBWorK is a platform for online homework that is free and open-sou
 
 Over this period, WeBWorK users in the Math SAC lobbied Technology Solution Services to provide the Math SAC with its own WeBWorK server. While the UO server provided service to us, it came with certain restrictions and complications that prevented WeBWorK at PCC from reaching its full potential. For a time there was a chicken-and-egg situation, as TSS requested a greater usage by PCC faculty before arranging for a server while some faculty chose not to use WeBWorK because of the inconvenience of using the UO server.
 
-In the 2012/13 academic year, faculty Chris Hughes and Scot Leavitt researched accessibility issues (in the ADA sense) alongside Disability Services. \fixthis{REF accessibility report, and paragraphs in this document- not sure where they reside yet} Among many other findings, they found that MyMathLab (at the time of the project) had many significant accessibility problems while WeBWorK was quite close to being fully ADA compliant. The open-source nature of WeBWorK meant that the few remaining obstacles to accessibility could be addressed. They recommended that the SAC cease using MyMathLab for newly developed courses and newly developed online shells. They also recommended that faculty migrate from MyMathLab to WeBWorK. Disability Services supported their recommendations, and also began lobbying TSS for a PCC WeBWorK server. Within the WeBWorK community PCC is now seen as a leader when it comes to accessibility issues.\fixthis{CITE: \url{http://michaelgage.blogspot.com/2013/11/webwork-accessibility-projects.html}} As a result of this, PCC is hosting a WeBWorK development camp in August 2014 with a central theme of addressing accessibility issues and enhancing its accessibility.
+In the 2012/13 academic year, faculty Chris Hughes and Scot Leavitt researched accessibility issues (in the ADA sense) alongside Disability Services. See \cite{accessibilityproject} for the full report. Among many other findings, they found that MyMathLab (at the time of the project) had many significant accessibility problems while WeBWorK was quite close to being fully ADA compliant. The open-source nature of WeBWorK meant that the few remaining obstacles to accessibility could be addressed. They recommended that the SAC cease using MyMathLab for newly developed courses and newly developed online shells. They also recommended that faculty migrate from MyMathLab to WeBWorK. Disability Services supported their recommendations, and also began lobbying TSS for a PCC WeBWorK server. Within the WeBWorK community PCC is now seen as a leader when it comes to accessibility issues. See \cite{webworkblog} for a post about this on the WeBWorK news blog. As a result of this, PCC is hosting a WeBWorK development camp in August 2014 with a central theme of addressing accessibility issues and enhancing its accessibility.
 
 TSS partnered with the Clackamas Education Service District to deliver a WeBWorK server that will be fully implemented in winter 2014.  SAC members Alex Jordan, Chris Hughes, and Xiaolong Yao are preparing \href{http://webwork.pcc.edu}{webwork.pcc.edu} for regular use during the winter 2014 term. A backup server at \href{http://webwork-dev.pcc.edu}{webwork-dev.pcc.edu} is in place for faculty to experiment with. 
 
 The arrival of our own WeBWorK installation has significant implications beyond homework management, particularly in the advising department. We envisage that advisors would enroll students in a `review course' that contains (mostly) pre-college practice problems, and that the student would be encouraged to sit the Compass placement test only when they are comfortable with the problems in WeBWorK. Furthermore, we can easily use WeBWorK as an advising tool to replace Hughes' Placement Advisory Test in situations when students are not happy with their placement from Compass.  The SAC should work with advising to implement this. 
 
 \subsection{PCC WeBWorK problem library}
-WeBWorK has been in use at universities for some time now, and an extensive library exists of math problems for college-level courses. However there was weak content support for basic algebra and other pre-college topics. Over summer of 2013, Alex Jordan, Chris Hughes, and Xiaolong Yao oversaw an effort to create a library of high-quality, algorithmically generated, basic algebra WeBWorK exercises which was partly funded with an IIP development grant; they received support from Kandace Kling, Debbie Neft, Jeremy Shaw, and Danielle Rice.  These exercises currently cover topics from MTH 60 and 65, and the team continues to add problems to the library for MTH 95. The library development was a success because of the strong collaboration and dedication of the three faculty members, and the foundations that Dr.\ Jordan had laid in previous years. Jordan, Hughes, and Yao presented their work at the STEM showcase (Rock Creek) in Fall 2013 \fixthis{Show Poster somewhere, reference to STEM Showcase}. It was at this showcase that the idea was hatched to create free online homework review programs for CTE and LDC science SACs.
+WeBWorK has been in use at universities for some time now, and an extensive library exists of math problems for college-level courses. However there was weak content support for basic algebra and other pre-college topics. Over summer of 2013, Alex Jordan, Chris Hughes, and Xiaolong Yao oversaw an effort to create a library of high-quality, algorithmically generated, basic algebra WeBWorK exercises which was partly funded with an IIP development grant; they received support from Kandace Kling, Debbie Neft, Jeremy Shaw, and Danielle Rice.  These exercises currently cover topics from MTH 60 and 65, and the team continues to add problems to the library for MTH 95. The library development was a success because of the strong collaboration and dedication of the three faculty members, and the foundations that Dr.\ Jordan had laid in previous years. Jordan, Hughes, and Yao presented their work at the STEM showcase (Rock Creek) in Fall 2013 (see \cref{webworkposter}. It was at this showcase that the idea was hatched to create free online homework review programs for CTE and LDC science SACs.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=0.5\textwidth]{webworkposter.pdf}
+	\caption{WeBWorK poster from the PCC STEM Showcase}\label{webworkposter}
+\end{figure}
 
 As time and funding progress, SAC members with the requisite coding experience hope to add more problems to this PCC library, expanding into the arenas of MTH courses 20, 111, 112, 243, and 244. It is important to note the level of quality of the problems from this library. Each problem has a full walk-through solution coded along side the question which can be put to use by faculty in a number of ways. Each problem is given fine attention to detail so that automated feedback messages to the students are as informative as modern technology can allow. This high level of quality requires time and experience to achieve. However it is necessary if any instructor hopes to use WeBWorK as a teaching tool and not just an assessment tool.
 
@@ -140,7 +148,7 @@ Each of the following three issues have been raised by SAC members, and during t
 \end{itemize}
 
 \subsection{Recommendations}
-Our main recommendations concern how to best inform students about the particular skills that a distance learning student should have or adopt in order to be successful. We also recommend enacting some prerequisite items for DL registration to help give these skills to students. Lastly there are some recommendations that do not fit these descriptions.
+Our main recommendations concern how to best inform students about the particular skills that a distance learning student should have or adopt in order to be successful. We also recommend enacting some prerequisite items for DL registration to help give these skills to students. Lastly there are some recommendations that do not fit these descriptions. Many of these recommendations hold for F2F courses as well, and may be repeated elsewhere in this program review. 
 \begin{description}
 \item For the Math SAC
 \begin{itemize}
@@ -211,11 +219,3 @@ In the fall term of 2012, an ad hoc committee was formed in the mathematics SAC 
 Students at Central Catholic High School will get their first opportunity to earn PCC mathematics dual credit during the 2013/14 academic year.  This adoption was coordinated through the dual credit program; that is, the math SAC played no active role in the creation of this dual credit agreement.
 There is concern in the mathematics SAC that the state's 40-40-20 initiative, and the accompanying bills aimed at encouraging high school students to earn college credits, might lead to a dramatic increase in the number of high schools offering dual credit for mathematics courses.  What's most worrisome about this is that there are not that many high school mathematics instructors who meet PCC's qualifications to teach post-100 level mathematics courses.  We are concerned that the day might come where we are pressured to lower those standards or, of even more concern, we are pressured to start awarding PCC dual credit for developmental mathematics courses (MTH 95 or below).
 
-\begin{sidewaystable}
-	\captionsetup{skip=0pt}
-	\centering
-	\caption{Pass rates and enrollment rates for DL vs F2F}
-	\input{tables/dlvsF2FenrollPass}
-\end{sidewaystable}
-
-\fixthis{Alex- maybe you want this table split into two? if we split it, we might not have to rotate it}
