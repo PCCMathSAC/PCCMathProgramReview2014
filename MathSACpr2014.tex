@@ -1,4 +1,8 @@
 % arara: pdflatex
+% arara: biber
+% arara: pdflatex
+% arara: pdflatex
+
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -32,6 +36,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}          % better kerning
 \usepackage{siunitx}            % elegant handling of units
 \usepackage{pgfplotstable}      % typeset tables intelligently
+\usepackage[backend=biber, style=numeric-comp]{biblatex}   % for the bibliography
 \usepackage{varioref}           % good for referencing things 'far away'
 \usepackage{hyperref}           % hyperlinks
 \usepackage{cleveref}           % allows \cref and friends
@@ -71,6 +76,10 @@ postproc cell content/.append code={
 
 % empty column type- very useful for big tables that ignore columns
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+% bibliography settings
+\addbibresource{MathSACpr2014.bib} 
+
 
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
 %\usepackage[nonumberlist,section=chapter]{glossaries}
@@ -210,6 +219,7 @@ postproc cell content/.append code={
 
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
+%\includeonly{OtherCurricularIssues}
 
 \begin{document}
 
@@ -261,5 +271,6 @@ postproc cell content/.append code={
 \include{appendices/socialJustice}
 \include{appendices/classSize}
 \include{appendices/demographicData}
+\printbibliography
 
 \end{document}

@@ -28,3 +28,7 @@ git clean -fdx
 
 # http://stackoverflow.com/questions/6897600/git-push-failed-non-fast-forward-updates-were-rejected 
 git pull origin chris-work
+
+# access a single file from a different branch with out checking out the whole branch
+# http://stackoverflow.com/questions/7856416/view-a-file-in-a-different-git-branch-without-changing-branches
+git show branch:file
