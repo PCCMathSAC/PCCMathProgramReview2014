@@ -1,0 +1,120 @@
+% arara: pdflatex
+\documentclass[varwidth]{standalone}
+\usepackage{pgfplotstable}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+% caption: pass rates by class for DL vs F2F
+
+% empty column type- very useful
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+\pgfplotstableset{percentstyle/.style={
+    preproc/expr={##1*100},
+    dec sep align,fixed,fixed zerofill,
+postproc cell content/.append code={
+            \ifx\\##1\\% check if ##1 is empty
+            \else
+            \ifnum1=\pgfplotstablepartno
+                \pgfkeysalso{@cell content/.add={}{\,\%}}%
+            \fi
+            \fi
+        },
+    precision=0,
+}
+}
+
+% references:
+%   http://tex.stackexchange.com/questions/65760/pgfplotstable-how-can-i-add-percent-signs-and-respect-dec-sep-align
+%   http://tex.stackexchange.com/questions/16604/easiest-way-to-delete-a-column/16607#16607
+%   http://tex.stackexchange.com/questions/89365/check-for-empty-macro-argument
+
+\begin{document}
+
+% http://tex.stackexchange.com/questions/128468/problems-with-pgfplotstableread-and-relative-paths
+\IfStandalone{
+	\newcommand{\fromRoot}[1]{../data/#1}
+	}{
+	\newcommand{\fromRoot}[1]{./data/#1}
+}
+
+\pgfplotstableread[col sep=comma]{\fromRoot{dlvsF2FenrollmentPassRates.csv}}\dlvsftofdata
+
+%Note that MTH 111A had $0$ enrollment for 2009--2010, so its data is not displayed.
+
+\noindent\resizebox{\textwidth}{!}{
+\pgfplotstabletypeset[
+every head row/.style={
+        before row={%
+        \toprule
+        \multirow{2}{*}{Course}
+        & \multicolumn{7}{c}{2007--2008} 
+        & \multicolumn{7}{c}{2008--2009} 
+        & \multicolumn{7}{c}{2009--2010} 
+        & \multicolumn{7}{c}{2010--2011} 
+        & \multicolumn{7}{c}{2011--2012} 
+        & \multicolumn{7}{c}{2012--2013} 
+        \\},
+        after row=\midrule},
+every last row/.style={after row=\bottomrule},
+%every row no 3/.style={after row=\cmidrule{2-80}},
+%every row no 13/.style={after row=\cmidrule{2-80}},
+columns/Course/.style={string type,column name={},column type=r},
+    % 2007-08
+    % 2007-08
+    % 2007-08
+    columns/2007-08/.style={column type=H},
+    columns/DL2007-08/.style={column name={DL},column type=r},
+    columns/DL Pass rate2007-08/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2007-08/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2007-08/.style={column name={\% Pass},percentstyle},
+    % 2008-09
+    % 2008-09
+    % 2008-09
+    columns/2008-09/.style={column type=H},
+    columns/DL2008-09/.style={column name={DL},column type=r},
+    columns/DL Pass rate2008-09/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2008-09/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2008-09/.style={column name={\% Pass},percentstyle},
+    % 2009-10
+    % 2009-10
+    % 2009-10
+    columns/2009-10/.style={column type=H},
+    columns/DL2009-10/.style={column name={DL},column type=r},
+    columns/DL Pass rate2009-10/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2009-10/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2009-10/.style={column name={\% Pass},percentstyle},
+    % 2010-11
+    % 2010-11
+    % 2010-11
+    columns/2010-11/.style={column type=H},
+    columns/DL2010-11/.style={column name={DL},column type=r},
+    columns/DL Pass rate2010-11/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2010-11/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2010-11/.style={column name={\% Pass},percentstyle},
+    % 2011-12
+    % 2011-12
+    % 2011-12
+    columns/2011-12/.style={column type=H},
+    columns/DL2011-12/.style={column name={DL},column type=r},
+    columns/DL Pass rate2011-12/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2011-12/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2011-12/.style={column name={\% Pass},percentstyle},
+    % 2012-13
+    % 2012-13
+    % 2012-13
+    columns/2012-13/.style={column type=H},
+    columns/DL2012-13/.style={column name={DL},column type=r},
+    columns/DL Pass rate2012-13/.style={column name={\% Pass},percentstyle},
+    columns/FtoF2012-13/.style={column name={F2F},column type=r},
+    columns/FtoF Pass rate2012-13/.style={column name={\% Pass},percentstyle},
+    % ignore these columns
+    columns/2008-09/.style={column type=H},
+    columns/2009-10/.style={column type=H},
+    columns/2010-11/.style={column type=H},
+    columns/2011-12/.style={column type=H},
+    columns/2012-13/.style={column type=H},
+]{\dlvsftofdata}
+}
+
+\end{document}
