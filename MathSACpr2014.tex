@@ -1,4 +1,7 @@
 % arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -13,34 +16,39 @@
 \usepackage[left=3.5cm,right=2.0cm,showframe=false,
 top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}               
 \usepackage{parskip}
-\usepackage{titlesec}           % customize headings
-\usepackage{titletoc}           % customize tableofcontents
-\usepackage{multirow}           % multirows in tables
-\usepackage{booktabs}           % beautiful tables
-\usepackage{flafter}            % floats won't appear until after they appear in the code
-\usepackage[figuresright]{rotating}           % sideways table
-\usepackage{longtable}          % tables that can break across pages
-\usepackage{fancyhdr}           % headers and footers
-\usepackage{standalone}         % maintain graphs and tables in separate files
-\usepackage{pdfpages}           % include separate pdf documents
-\usepackage{titlepic}           % image for titlepage
-\usepackage{changepage}         % adjust margins for selected portions
-\usepackage{tablefootnote}      % footnotes within tables
-\usepackage[sc,hang]{caption}   % customize captions of tables and figures
-\usepackage{subcaption}         % subfigures and subtables
-\usepackage[charter]{mathdesign}% font choice
-\usepackage{microtype}          % better kerning
-\usepackage{siunitx}            % elegant handling of units
-\usepackage{pgfplotstable}      % typeset tables intelligently
-\usepackage{varioref}           % good for referencing things 'far away'
-\usepackage{hyperref}           % hyperlinks
-\usepackage{cleveref}           % allows \cref and friends
-\usepackage{refcheck}           % checks if labels have been used remove once the document is completed
+\usepackage{titlesec}                   % customize headings
+\usepackage{titletoc}                   % customize tableofcontents
+\usepackage{multirow}                   % multirows in tables
+\usepackage{booktabs}                   % beautiful tables
+\usepackage{flafter}                    % floats won't appear until after they appear in the code
+\usepackage[figuresright]{rotating}     % sideways table
+\usepackage{longtable}                  % tables that can break across pages
+\usepackage{fancyhdr}                   % headers and footers
+\usepackage{standalone}                 % maintain graphs and tables in separate files
+\usepackage{pdfpages}                   % include separate pdf documents
+\usepackage{enumitem}                   % customization of list environments
+\usepackage{titlepic}                   % image for titlepage
+\usepackage{changepage}                 % adjust margins for selected portions
+\usepackage{tablefootnote}              % footnotes within tables
+\usepackage[sc,hang]{caption}           % customize captions of tables and figures
+\usepackage{subcaption}                 % subfigures and subtables
+\usepackage[charter]{mathdesign}        % font choice
+\usepackage{microtype}                  % better kerning
+\usepackage{siunitx}                    % elegant handling of units
+\usepackage{pgfplotstable}              % typeset tables intelligently
+\usepackage[backend=bibtex]{biblatex}   % bibliography
+\usepackage{varioref}                   % good for referencing things 'far away'
+\usepackage{hyperref}                   % hyperlinks
+\usepackage{cleveref}                   % allows \cref and friends
+\usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
 
 % hyperlink setup
 \hypersetup{colorlinks=true,
-	linkcolor=blue
+	linkcolor=blue,
+citecolor=black,
 }
+
+\addbibresource{pccbib}
 
 % cleveref settings
 \crefname{table}{Table}{Tables}
@@ -78,21 +86,24 @@ postproc cell content/.append code={
 % make the links black
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
-\newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
-\newglossaryentry{DOI}{name=DOI,description={Deans Of Instruction}}
-\newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
-\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center}}
+\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
-\newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
-\newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
+\newglossaryentry{AY}{name=AY,description={Academic Year}} 
+\newglossaryentry{CIC}{name=CIC,description={Completion Investment Council}} 
+\newglossaryentry{CTE}{name=CTE,description={Career Technical Education}} 
+\newglossaryentry{OSD}{name=OSD,description={Office of Students with Disabilities}} 
+\newglossaryentry{CCOG}{name=CCOG,description={Course Curriculum and Outcome Guide}} 
 \newglossaryentry{DL}{name=DL,description={Distance Learning}} 
+\newglossaryentry{DOI}{name=DOI,description={Deans Of Instruction}}
 \newglossaryentry{F2F}{name=F2F,description={Face-to-face}} 
 \newglossaryentry{FT}{name=FT,description={Full-time (usually in reference to faculty)}} 
-\newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \newglossaryentry{LAS}{name=LAS,description={Learning Assessment Council}} 
-\newglossaryentry{AY}{name=AY,description={Academic Year}} 
-\newglossaryentry{CCOG}{name=CCOG,description={Course Curriculum and Outcome Guide}} 
+\newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
+\newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
+\newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
+\newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
+\newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \makeglossaries
 
 % to do:
@@ -192,8 +203,10 @@ postproc cell content/.append code={
 }
 \makeatother
 % Now we add the reference commands we want refcheck to be aware of
+\refcheckize{\vref}
 \refcheckize{\cref}
 \refcheckize{\Cref}
+\refcheckize{\cpageref}
 %%%
 
 % wide page for side by side figures, tables, etc
@@ -208,23 +221,30 @@ postproc cell content/.append code={
 \let\oldendquote\endquote
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
-%\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
-%\includeonly{appendices/dlSuccessfulCompletion}
-\includeonly{OtherCurricularIssues}
+\includeonly{FacilitiesAndSupport}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-%\maketitle
-%\tableofcontents
+\maketitle
+\tableofcontents
 %\printglossary
 
 %= == == == == == == == == == == =
 % main chapters
 %= == == == == == == == == == == =
 \renewcommand{\thesection}{\Alph{section}}
+% need section 1
+% need section 2
 \include{OtherCurricularIssues}
 \include{NeedsOfStudentsAndCommunity}
+% need section 5
+\include{FacilitiesAndSupport}
+
+%= == == == == == == == == == == =
+% bibliography
+%= == == == == == == == == == == =
+\printbibliography[heading=bibintoc]
 
 %= == == == == == == == == == == =
 % appendices
@@ -242,15 +262,15 @@ postproc cell content/.append code={
 
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
-%\chapter*{Appendices}
+\chapter*{Appendices}
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
-%\printcontents[appendixtoc]{}{0}{}
+\printcontents[appendixtoc]{}{0}{}
 \include{appendices/changeinALCcourses}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
 \include{appendices/dlSuccessfulCompletion}
-\include{appendices/dlsurveysummary}
+\include{appendices/resourcesurvey}
 \include{appendices/onlineHwStudy}
 \include{appendices/accessibilitysummary}
 \include{appendices/ALEKSpilot}
