@@ -23,7 +23,7 @@ All of our pre-college level math courses (except a calculator skills course) ha
 \end{tabular}
 \end{table}
 
-Approximately 14.1\% of PCC math enrollments were into a DL class during the academic year of 2012/13 compared to only 9.1\% in the 2007/08 academic year. This percentage increase is coupled with a general enrollment surge over the past five years, and the number of DL enrollments has grown by over 150\% in this time period. \Cref{fig:sec3:DLenrollments,fig:sec3:F2Fenrollments} show student enrollment in face-to-face courses compared to online courses over six academic years. Note that even while overall enrollment has declined some since its peak in 2011/12, that absolute enrollment in DL courses has still grown. \Cref{tab:sec3:F2FandDLdata2007-2010,tab:sec3:F2FandDLdata2010-2013} gives more detailed data.
+Approximately 14.1\% of PCC math enrollments were into a DL class during the academic year of 2012/13 compared to only 9.1\% in the 2007/08 academic year. This percentage increase is coupled with a general enrollment surge over the past five years, and the number of DL enrollments has grown by over 150\% in this time period. \Cref{fig:sec3:DLenrollments,fig:sec3:F2Fenrollments} show student enrollment in face-to-face courses compared to online courses over six academic years. Note that even while overall enrollment has declined some since its peak in 2011/12, that absolute enrollment in DL courses has still grown. \Cref{tab:sec3:F2FandDLdata} gives more detailed data.
 
 \begin{figure}[!htb]
     \begin{minipage}{.5\textwidth}
@@ -38,19 +38,16 @@ Approximately 14.1\% of PCC math enrollments were into a DL class during the aca
     \end{minipage}
 \end{figure}
 
-\begin{table}[!htb]
-  \begin{widepage}
-    \centering
-  	\caption{DL \& F2F enrollments and pass rates 2007--2010}\label{tab:sec3:F2FandDLdata2007-2010}
-          %\input{tables/dlvsF2FenrollPass.tex}
+\begin{sidewaystable}
+  	\caption{DL/F2F enrollments and pass rates}\label{tab:sec3:F2FandDLdata}
+	\centering
+	\begin{minipage}{\textwidth}
           \input{tables/dlvsF2FenrollPass2007-2010.tex}
-          \vspace{1cm}
-  	\caption{DL \& F2F enrollments and pass rates 2010--2013}\label{tab:sec3:F2FandDLdata2010-2013}
-          %\input{tables/dlvsF2FenrollPass.tex}
+          \vspace{2pc}
           \input{tables/dlvsF2FenrollPass2010-2013.tex}
-  \end{widepage}
-\end{table}
-\fixthis{it would be great if we could separate this table and figure with some text}
+          \end{minipage}
+\end{sidewaystable}
+
 As enrollment demand for DL math courses has increased, we have increased the number of sections that we offer and trained more interested faculty in managing DL courses.  Between the academic years of 2003/04 and 2007/08, the annual number of sections offered increased from 51 to 87.  In the 2012/13 academic year, we offered 185 DL sections.   The resulting increase in sections offers access to students that can succeed in this modality and need this option due to outside constraints such as work and family.
 
 
@@ -136,12 +133,12 @@ TSS partnered with the Clackamas Education Service District to deliver a WeBWorK
 The arrival of our own WeBWorK installation has significant implications beyond homework management, particularly in the advising department. We envisage that advisors would enroll students in a `review course' that contains (mostly) pre-college practice problems, and that the student would be encouraged to sit the Compass placement test only when they are comfortable with the problems in WeBWorK. Furthermore, we can easily use WeBWorK as an advising tool to replace Hughes' Placement Advisory Test in situations when students are not happy with their placement from Compass.  The SAC should work with advising to implement this. 
 
 \subsection{PCC WeBWorK problem library}
-WeBWorK has been in use at universities for some time now, and an extensive library exists of math problems for college-level courses. However there was weak content support for basic algebra and other pre-college topics. Over summer of 2013, Alex Jordan, Chris Hughes, and Xiaolong Yao oversaw an effort to create a library of high-quality, algorithmically generated, basic algebra WeBWorK exercises which was partly funded with an IIP development grant; they received support from Kandace Kling, Debbie Neft, Jeremy Shaw, and Danielle Rice.  These exercises currently cover topics from MTH 60 and 65, and the team continues to add problems to the library for MTH 95. The library development was a success because of the strong collaboration and dedication of the three faculty members, and the foundations that Dr.\ Jordan had laid in previous years. Jordan, Hughes, and Yao presented their work at the STEM showcase (Rock Creek) in Fall 2013 (see \cref{other:fig:webworkposter}). It was at this showcase that the idea was hatched to create free online homework review programs for CTE and LDC science SACs.
+WeBWorK has been in use at universities for some time now, and an extensive library exists of math problems for college-level courses. However there was weak content support for basic algebra and other pre-college topics. Over summer of 2013, Alex Jordan, Chris Hughes, and Xiaolong Yao oversaw an effort to create a library of high-quality, algorithmically generated, basic algebra WeBWorK exercises which was partly funded with an IIP development grant; they received support from Kandace Kling, Debbie Neft, Jeremy Shaw, and Danielle Rice.  These exercises currently cover topics from MTH 60 and 65, and the team continues to add problems to the library for MTH 95. The library development was a success because of the strong collaboration and dedication of the three faculty members, and the foundations that Dr.\ Jordan had laid in previous years. Jordan, Hughes, and Yao presented their work at the STEM showcase (Rock Creek) in Fall 2013 (see \cref{webworkposter}). It was at this showcase that the idea was hatched to create free online homework review programs for CTE and LDC science SACs.
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{webworkposter}
-	\caption{WeBWorK poster from the PCC STEM Showcase}\label{other:fig:webworkposter}
+	\includegraphics[width=0.5\textwidth]{webworkposter.pdf}
+	\caption{WeBWorK poster from the PCC STEM Showcase}\label{webworkposter}
 \end{figure}
 
 As time and funding progress, SAC members with the requisite coding experience hope to add more problems to this PCC library, expanding into the arenas of MTH courses 20, 111, 112, 243, and 244. It is important to note the level of quality of the problems from this library. Each problem has a full walk-through solution coded along side the question which can be put to use by faculty in a number of ways. Each problem is given fine attention to detail so that automated feedback messages to the students are as informative as modern technology can allow. This high level of quality requires time and experience to achieve. However it is necessary if any instructor hopes to use WeBWorK as a teaching tool and not just an assessment tool.
@@ -201,7 +198,7 @@ Since the overall student ability level was high, there was time in class to inv
 
 
 \subsection{Social Justice Workgroup}
-A Math and Social Justice workgroup was formed by Ann Cary and Emiliano Vega in response to a national convention they attended. The group has collected and disseminated data sets and activities to participating instructors and has gained interest and participants from other disciplines at PCC as well as area high school math instructors and community activists in Portland. More importantly, the group has the focus of providing a forum on how to discuss potentially sensitive subjects in a classroom setting when using application problems and how to be more culturally and socially aware of individual students and classes. The information they gathered has been brought to participating instructors and has improved the pool of activities and application problems available, improved the ability of instructors to work effectively with the broad demographic of students and co-workers, and also continues the college's focus on two Core Outcomes: Community and Environmental Responsibility and Cultural Awareness. For a sample of material from this workgroup, see \vref{app:sec:socialJustic}.
+A Math and Social Justice workgroup was formed by Ann Cary and Emiliano Vega in response to a national convention they attended. The group has collected and disseminated data sets and activities to participating instructors and has gained interest and participants from other disciplines at PCC as well as area high school math instructors and community activists in Portland. More importantly, the group has the focus of providing a forum on how to discuss potentially sensitive subjects in a classroom setting when using application problems and how to be more culturally and socially aware of individual students and classes. The information they gathered has been brought to participating instructors and has improved the pool of activities and application problems available, improved the ability of instructors to work effectively with the broad demographic of students and co-workers, and also continues the college's focus on two Core Outcomes: Community and Environmental Responsibility and Cultural Awareness. For a sample of material from this workgroup, see \cref{app:sec:socialJustic}.
 
 \subsection{Service Learning}
 Service Learning has been a part of many math instructors' courses at PCC, but has been deepened and new supports exist through the Service Learning website. The Service Learning website includes additional resources and syllabi submitted by participating Instructors at PCC. In addition, Service Learning will been added to some CCOGs evaluation criteria to encourage instructors to incorporate Service Learning in their math classes. In addition, Jeff Pettit participated as an observer in the Service Learning training cohort at Sylvania campus, connecting with instructors in other disciplines and understanding how Service Learning is employed in other courses. This has led to new curriculum in his Statistics courses and upper-division courses where Service Learning was not originally employed.
@@ -227,7 +224,7 @@ Students at Central Catholic High School will get their first opportunity to ear
 There is concern in the mathematics SAC that the state's 40-40-20 initiative, and the accompanying bills aimed at encouraging high school students to earn college credits, might lead to a dramatic increase in the number of high schools offering dual credit for mathematics courses.  What's most worrisome about this is that there are not that many high school mathematics instructors who meet PCC's qualifications to teach post-100 level mathematics courses.  We are concerned that the day might come where we are pressured to lower those standards or, of even more concern, we are pressured to start awarding PCC dual credit for developmental mathematics courses (MTH 95 or below).
 
 
-\section[Other significant curricular changes]{Identify and explain any other significant curricular changes that have been made since the last review.}
+\section[Other significant curricular changes]{Identify and explain any other significant curricular changes that have been made since the last review.}\label{cur:sec:other}
 
 \subsection{MTH 20 moved to the Math SAC from the DE SAC}
 The MTH 20 curriculum was moved into the Math SAC from the DE SAC in Fall 2012, bringing all math curriculum under the same SAC.  This move was meant to help create consistency in the CCOGs across the spectrum of math courses, as well as ensure that the MTH 20 curriculum is adequately preparing students for the next math course.
@@ -289,15 +286,15 @@ The calculus series has been more strongly split into Calculus I/II and Calculus
 \subsection{Math Study Skills Material Development}
 Research has shown that students with strong study skills are more successful in their academic pursuits than their counterparts.  A common characteristic of students entering developmental mathematics courses involve poor study skills.  In an effort to help students build a stronger awareness of how a successful student studies, math SAC member Jessica Bernards from the Rock Creek Campus created a Math Study Skills program to be used in our developmental math courses.  This program consists of seven topics all relating to study skills specific to mathematics: how learning math is different, resources available for help at PCC, time management, listening and note-taking skills, how to do homework, test taking strategies, and overcoming math and test anxiety.  Each lesson is broken up into three parts: a short video to be watched by students outside of class, a student worksheet to be completed in conjunction with the video, and an in-class discussion lead by the instructor. Additionally, each topic has quotes from successful students which help strengthen the ideas in each video.  Many math instructors across all campuses piloted the program in the Spring 2013 and are continuing to use it this Fall 2013. For winter 2014, fourteen DE math instructors have reported that they will be using it.
  
-\subsection{MTH 111/112 Document Project}
+\subsection{MTH 111/112 Document Project}\label{cur:sec:111/112doc}
 In Winter 2010, Math SAC member Chris Hughes proposed that the SAC write its own MTH 111/112 textbook. This idea sprung from a general frustration with commercially available textbooks for this sequence.  Available books tend to fall on one end or another of a spectrum ranging from template-based and lacking in conceptual understanding to abstract and lacking in guidance for students.  We seek something with better balance.  Since then, other motivations for such a project have arisen, including the high impact it would have on student pocketbooks.
 
 Initially over 10 members of the Math SAC became involved, submitting ideas and small sections of what might someday become a textbook.  As time passed, four SAC members (Chris Hughes, Alex Jordan, Ann Cary, and Steve Simonds) maintained serious interest in the project.  Piecing together earlier work from the larger group, expanding on that work, and editing, these four produced a rough draft chapter representing about 10\% of a final product. (Given that this draft would need editing, we estimate that represents 5\% of the work necessary for completion.)
 
-As of Spring 2013 roughly 10\% of a finished product had been produced (the project is hosted at \cite{mth111project}).  At this point the four remaining editors put active work on hold until some level of release time can be secured that would enable completion in a timely manner.  A completed textbook for the entire sequence could be drafted with three faculty taking one-third release time for two consecutive terms.  An additional such term would provide for peripherals such as guided lecture notes, an online homework library, and LiveScribe videos. 
+As of Spring 2013 roughly 10\% of a finished product had been produced.  At this point the four remaining editors put active work on hold until some level of release time can be secured that would enable completion in a timely manner.  A completed textbook for the entire sequence could be drafted with three faculty taking one-third release time for two consecutive terms.  An additional such term would provide for peripherals such as guided lecture notes, an online homework library, and LiveScribe videos.
  
 \subsection{Supplemental Course Packets}
-Textbooks that the Math SAC selects for courses occasionally have gaps when compared to the CCOGs for that course.  Supplemental course packets were created to fill in the gaps and are required for those specific classes.  These include explanations of topics not covered in the textbook at all as well as example problems to fully cover a topic that might be lacking in the textbook examples.  Supplemental course packets have been created for MTH 60, 65, 95, 111 and 112.\fixthis{link once it's confirmed that links are current}.
+Textbooks that the Math SAC selects for courses occasionally have gaps when compared to the CCOGs for that course.  Supplemental course packets were created to fill in the gaps and are required for those specific classes.  These include explanations of topics not covered in the textbook at all as well as example problems to fully cover a topic that might be lacking in the textbook examples.  Supplemental course packets have been created for MTH 60, 65, 95, 111 and 112, and these can be freely downloaded from the Math department's web sit (\href{http://spot.pcc.edu/math/}{http://spot.pcc.edu/math/}).
  
 \subsection{MTH 251 Lab Manual}
 Since the late 1990s, MTH 251 has been taught in a lecture/lab format.  From that time through the late 2000s the materials used during the lab portion of the course were modified on a frequent basis.  By 2009 the lab manual had devolved into a collection of random problems.  The problems themselves were fine, there was simply no connection between one set of problems and the next.  There also were limited central themes to any one set of problems.
@@ -324,13 +321,13 @@ The SAC approved the CCOG for an introduction to GeoGebra course. The course is 
 ALEKS technology requires students to complete each mathematics topic successfully, keeps track of student work time, provides instant feedback, routinely assesses students and requires them to revisit previously learned material.  It allows students to study a variety of topics at a time and minimizes practice of mastered material. Two pilots of ALEKS in MTH 20 and MTH 112 were conducted.
 
 \begin{description}
-\item[MTH 20: Basic Mathematics] ALEKS was incorporated into six online and six on-campus MTH 20 classes.  Data was compared to the previous year?s MTH 20 classes taught by the same two instructors, Diane Edwards and Marilyn Marshall.  On average, courses using ALEKS had significantly higher pass rates than non-ALEKS courses.  For example, there was an 11\% increase in pass rates in on-campus ALEKS classes fall term 2012 compared to non-ALEKS fall term 2011 classes.  Both on-campus and DL classes showed increased passing rates using ALEKS.  In addition, a few students each term were able to complete two courses during one term, finishing Basic Mathematics early and then successfully completing MTH 60.\fixthis{confirm the technical meaning of significance here}
+\item[MTH 20: Basic Mathematics] ALEKS was incorporated into six online and six on-campus MTH 20 classes.  Data was compared to the previous year?s MTH 20 classes taught by the same two instructors, Diane Edwards and Marilyn Marshall.  On average, courses using ALEKS had noticeably higher pass rates than non-ALEKS courses.  For example, there was an 11\% increase in pass rates in on-campus ALEKS classes fall term 2012 compared to non-ALEKS fall term 2011 classes.  Both on-campus and DL classes showed increased passing rates using ALEKS.  In addition, a few students each term were able to complete two courses during one term, finishing Basic Mathematics early and then successfully completing MTH 60.
 
 \item[MTH 112: Elementary Functions] ALEKS was incorporated into one Elementary Functions section and compared with two traditional sections, all taught by faculty member Tammy Louie.  In this small sample, both the grade distribution and pass rates were similar.  However the student retention rate in the ALEKS class was 17.3\% higher than in the non-ALEKS classes.  
  
  \end{description}
  
-In both pilots students were observed to enjoy using ALEKS and increase their study time while using ALEKS.  More detailed data can be found in the \vref{app:sec:aleks} concerning both pilot projects. These pilots of ALEKS had significant success with data and student perception and involvement.  Further exploration of ALEKS technology should be pursued as a possible option to improving student success in mathematics courses.\fixthis{confirm the technical meaning of significance here}
+In both pilots students were observed to enjoy using ALEKS and increase their study time while using ALEKS.  More detailed data can be found in the \vref{app:sec:aleks} concerning both pilot projects. These pilots of ALEKS had noticeable success with data and student perception and involvement.  Further exploration of ALEKS technology should be pursued as a possible option to improving student success in mathematics courses.
  
 \subsection{MTH 112 Formula Sheet}
 The SAC approved a standardized ``formula sheet'' for use in MTH 112.  Math SAC member Wendy Fresh revised and submitted a formula sheet edited from one provided by SAC member Pete Haberman.  The page was added to the course CCOGs to help guide instructors and clarify evaluation expectations.
@@ -339,7 +336,7 @@ The SAC approved a standardized ``formula sheet'' for use in MTH 112.  Math SAC 
 With SAC approval, the MTH 211-213 instructors added a basic skills proficiency exam to MTH 212 that must be passed with no less than a 90\% in order to pass the course.  MTH 212 is the second of a three part series of courses for students preparing to enter a teacher education field. The proficiency exam covers basic operations on integers, fractions, decimals, and percents.  Although there is a MTH 95 prerequisite for the MTH 211-213 series, many of the students do not remember these basic operations. Since these are topics covered in MTH 212, it was felt that holding the students responsible for the basic skills would help them grasp the concepts with more success.  This approach has been adopted by several of the Oregon community colleges and four-year universities that offer the MTH 211-213 sequence.
 
 \subsection{Casio Classpad}
-The SAC approved of the Casio Classpad as an additional accepted graphing calculator in MTH 95 and Lower Division Transfer courses. In addition, the CCOG for MTH 93, the graphing calculator class, was revised to reflect topics specific to the Casio Classpad. Faculty members Tammy Louie and Alex Jordan created a PCC-specific user guide for the Classpad, which is available for download (along with earlier PCC calculator manuals) at the math department web site \cite{pccmathdept}. 
+The SAC approved of the Casio Classpad as an additional accepted graphing calculator in MTH 95 and Lower Division Transfer courses. In addition, the CCOG for MTH 93, the graphing calculator class, was revised to reflect topics specific to the Casio Classpad. Faculty members Tammy Louie and Alex Jordan created a PCC-specific user guide for the Classpad, which is available for download (along with earlier PCC calculator manuals) at the math department web site (\href{http://spot.pcc.edu/math/download.htm}{http://spot.pcc.edu/math/download.htm}). 
  
  
 
