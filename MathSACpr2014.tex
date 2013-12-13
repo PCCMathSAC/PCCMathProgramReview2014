@@ -27,7 +27,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{standalone}                 % maintain graphs and tables in separate files
 \usepackage{pdfpages}                   % include separate pdf documents
 \usepackage{enumitem}                   % customization of list environments
-\usepackage{titlepic}                   % image for titlepage
+%\usepackage{titlepic}                   % image for titlepage
 \usepackage{changepage}                 % adjust margins for selected portions
 \usepackage{tablefootnote}              % footnotes within tables
 \usepackage[sc,hang]{caption}           % customize captions of tables and figures
@@ -157,9 +157,9 @@ every last row/.style={after row=\bottomrule},
 }
 
 %Title page info
-\title{A Review of the Mathematics Program/Discipline at Portland Community College}
-\date{Fall 2008 -- Fall 2013}
-\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
+%\title{A Review of the Mathematics Program/Discipline at Portland Community College}
+%\date{Fall 2008 -- Fall 2013}
+%\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
 
 % from the titlesec package
 %\titleformat{ command }
@@ -258,8 +258,10 @@ every last row/.style={after row=\bottomrule},
 
 \begin{document}
 
+\includepdf{graphics/titlePage}
+
 % The following lines should be uncommented in the final (production) version
-\maketitle
+%\maketitle
 %\tableofcontents
 \begin{tcolorbox}[breakable,enhanced,title={Contents},fonttitle=\bfseries\Large,
     colback=yellow!10!white,colframe=red!50!black,before=\par\bigskip\noindent,
