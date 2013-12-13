@@ -4,7 +4,7 @@
 \usepackage[margin=0.5cm,bottom=2cm]{geometry}
 \usepackage{kpfonts}
 \usepackage{eso-pic}                % put things into background 
-\usepackage{transparent}
+%\usepackage{transparent}
 \usepackage{tcolorbox}
 
 \tcbuselibrary{skins}
@@ -13,8 +13,8 @@
 \AddToShipoutPicture{% from package eso-pic: put something to the background
 	\AtPageCenter{% start the bar at the bottom right of the page
 		\put(-\LenToUnit{.45\paperwidth},-\LenToUnit{.4\paperheight}){% move it to the middle
-			%{\transparent{.4}{\includegraphics[width=20cm]{pcclogo}}}
-			{\transparent{.5}{\includegraphics[width=20cm]{50th_mathematicsproof}}}
+			%{\transparent{.5}{\includegraphics[width=20cm]{50th_mathematicsproof}}}
+			{{\includegraphics[width=20cm]{50th_mathematicsproof}}}
 		}%
 	}%
 	\AtPageLowerLeft{% start the bar at the bottom right of the page
@@ -45,7 +45,7 @@
 
 \global\sbox{\mybox}{%
 	\begin{tcolorbox}[enhanced,flushright upper,
-			width=6.8cm,boxrule=0.4pt,
+			width=6.8cm,boxrule=1.4pt,
 			colback=white,colframe=black!50!yellow,
 		drop fuzzy midday shadow=black!50!yellow]
 		{\bfseries\LARGE {Program Review} \par}
