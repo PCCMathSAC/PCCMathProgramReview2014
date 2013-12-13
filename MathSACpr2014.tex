@@ -36,11 +36,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usepackage{tcolorbox}
 \usepackage[backend=bibtex]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
+
+% tcolorbox libraries
+\tcbuselibrary{breakable,skins}
 
 % hyperlink setup
 \hypersetup{colorlinks=true,
@@ -246,7 +250,7 @@ every last row/.style={after row=\bottomrule},
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
 
-%\includeonly{FacilitiesAndSupport}
+\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{OtherCurricularIssues}
@@ -255,8 +259,18 @@ every last row/.style={after row=\bottomrule},
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-%\maketitle
-\tableofcontents
+\maketitle
+%\tableofcontents
+\begin{tcolorbox}[breakable,enhanced,title={Contents},fonttitle=\bfseries\Large,
+    colback=yellow!10!white,colframe=red!50!black,before=\par\bigskip\noindent,
+      watermark color=yellow!75!red!25!white,pad at break=3mm,
+        watermark text={\bfseries\Large Contents},
+          %enlargepage=2\baselineskip,
+            drop fuzzy shadow]
+            \makeatletter
+            \@starttoc{toc}
+            \makeatother
+          \end{tcolorbox}
 %\printglossary
 
 %= == == == == == == == == == == =
