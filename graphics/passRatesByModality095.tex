@@ -29,6 +29,9 @@
 			grid = both,
 			ymin=0.3,ymax=0.85,
 			axis y discontinuity=crunch,
+			yticklabel={%
+				\pgfmathparse{\tick*100}
+				\pgfmathprintnumber{\pgfmathresult}\%},
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
 			legend pos=north east,

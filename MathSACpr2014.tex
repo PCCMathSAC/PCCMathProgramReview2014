@@ -1,7 +1,7 @@
 % arara: pdflatex
 % arara: bibtex
 % arara: pdflatex
-% arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -57,6 +57,9 @@ citecolor=black,
 \crefname{figure}{Figure}{Figures}
 \Crefname{figure}{Figure}{Figures}
 
+% graphics path
+\graphicspath{{./graphics/}}
+
 % axis style, ticks, etc
 \pgfplotsset{every axis/.append style={
                     legend cell align=left,       % otherwise width won't be as intended: http://tex.stackexchange.com/questions/36297/pgfplots-how-can-i-scale-to-text-width
@@ -107,6 +110,7 @@ every last row/.style={after row=\bottomrule},
 % basic vocab
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
 \newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center}}
+\newglossaryentry{ALEKS}{name=ALEKS,description={Publisher owned software.}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{AY}{name=AY,description={Academic Year}} 
 \newglossaryentry{CIC}{name=CIC,description={Completion Investment Council}} 
@@ -151,7 +155,7 @@ every last row/.style={after row=\bottomrule},
 %Title page info
 \title{A Review of the Mathematics Program/Discipline at Portland Community College}
 \date{Fall 2008 -- Fall 2013}
-\titlepic{\includegraphics[width=\textwidth]{./graphics/50th_mathematicsproof}}
+\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
 
 % from the titlesec package
 %\titleformat{ command }
@@ -244,12 +248,12 @@ every last row/.style={after row=\bottomrule},
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{OtherCurricularIssues}
+\includeonly{OtherCurricularIssues}
 
 \begin{document}
 
 % The following lines should be uncommented in the final (production) version
-\maketitle
+%\maketitle
 \tableofcontents
 %\printglossary
 
