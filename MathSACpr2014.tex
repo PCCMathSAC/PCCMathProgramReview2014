@@ -1,7 +1,7 @@
 % arara: pdflatex
-% !arara: bibtex
-% !arara: pdflatex
-% !arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -199,6 +199,7 @@ every last row/.style={after row=\bottomrule},
 \titlespacing{\chapter}{0pt}{0pt}{0.1cm}
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{-3pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing{\paragraph}{4pc}{1.5ex plus .1ex minus .2ex}{1pc}
 
 % secnumdepth dictates which headings get enumerated- setting it 
@@ -249,7 +250,7 @@ every last row/.style={after row=\bottomrule},
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{OtherCurricularIssues}
-\includeonly{FacultyReflection,appendices/sectionsTaughtPTFT,appendices/facultyDegrees}
+%\includeonly{FacultyReflection,appendices/instructorQualifications}
 
 \begin{document}
 
@@ -278,6 +279,7 @@ every last row/.style={after row=\bottomrule},
 % appendices
 %= == == == == == == == == == == =
 \appendix
+\fixthis{appendices need reordering- should be able to grep the chapter files to check in which order they are referenced}
 % add the word Appendix to the header
 \def\chaptermark#1{\markboth{\textsc{Appendix \thechapter. \  #1}}{}}
 % custom section
@@ -310,6 +312,6 @@ every last row/.style={after row=\bottomrule},
 \include{appendices/socialJustice}
 \include{appendices/classSize}
 \include{appendices/demographicData}
-\printbibliography
+\include{appendices/instructorQualifications}
 
 \end{document}
