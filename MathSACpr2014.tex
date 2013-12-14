@@ -170,7 +170,14 @@ every last row/.style={after row=\bottomrule},
 {\normalfont\Large\filleft\bf}                          % format applied to label+text
 {}                                                      % label
 {1pc}                                                   % horizontal separation between label and title body
-{\resizebox{2cm}{!}{\color{gray!80}\thechapter}\\\Huge} % before the title body
+{%
+	\begin{tcolorbox}[enhanced,flushright upper,
+			width=2.8cm,boxrule=1.4pt,
+			colback=white,colframe=black!50!yellow,
+		drop fuzzy midday shadow=black!50!yellow]
+\resizebox{2cm}{!}{\color{gray!80}\thechapter}%
+	\end{tcolorbox}\Huge} % before the title body
+%\resizebox{2cm}{!}{\color{gray!80}\thechapter}\\\Huge} % before the title body
 []                                                      % after the title body
 
 % \chapter*
@@ -250,10 +257,10 @@ every last row/.style={after row=\bottomrule},
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
 
-\includeonly{FacilitiesAndSupport}
+%\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{OtherCurricularIssues}
+\includeonly{OtherCurricularIssues}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
 
 \begin{document}
@@ -264,7 +271,8 @@ every last row/.style={after row=\bottomrule},
 %\maketitle
 %\tableofcontents
 \begin{tcolorbox}[breakable,enhanced,title={Contents},fonttitle=\bfseries\Large,
-    colback=yellow!10!white,colframe=red!50!black,before=\par\bigskip\noindent,
+    colback=yellow!10!white,colframe=black!50!yellow,%colframe=red!50!black,
+    before=\par\bigskip\noindent,
       watermark color=yellow!75!red!25!white,pad at break=3mm,
         watermark text={\bfseries\Large Contents},
           %enlargepage=2\baselineskip,
