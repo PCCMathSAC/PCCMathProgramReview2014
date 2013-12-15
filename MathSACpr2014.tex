@@ -27,7 +27,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{standalone}                 % maintain graphs and tables in separate files
 \usepackage{pdfpages}                   % include separate pdf documents
 \usepackage{enumitem}                   % customization of list environments
-\usepackage{titlepic}                   % image for titlepage
+%\usepackage{titlepic}                   % image for titlepage
 \usepackage{changepage}                 % adjust margins for selected portions
 \usepackage{tablefootnote}              % footnotes within tables
 \usepackage[sc,hang]{caption}           % customize captions of tables and figures
@@ -36,11 +36,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usepackage{tcolorbox}
 \usepackage[backend=bibtex]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
+
+% tcolorbox libraries
+\tcbuselibrary{breakable,skins}
 
 % hyperlink setup
 \hypersetup{colorlinks=true,
@@ -153,9 +157,9 @@ every last row/.style={after row=\bottomrule},
 }
 
 %Title page info
-\title{A Review of the Mathematics Program/Discipline at Portland Community College}
-\date{Fall 2008 -- Fall 2013}
-\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
+%\title{A Review of the Mathematics Program/Discipline at Portland Community College}
+%\date{Fall 2008 -- Fall 2013}
+%\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
 
 % from the titlesec package
 %\titleformat{ command }
@@ -166,7 +170,14 @@ every last row/.style={after row=\bottomrule},
 {\normalfont\Large\filleft\bf}                          % format applied to label+text
 {}                                                      % label
 {1pc}                                                   % horizontal separation between label and title body
-{\resizebox{2cm}{!}{\color{gray!80}\thechapter}\\\Huge} % before the title body
+{%
+	\begin{tcolorbox}[enhanced,flushright upper,
+			width=2.8cm,boxrule=1.4pt,
+			colback=white,colframe=black!50!yellow,
+		drop fuzzy midday shadow=black!50!yellow]
+\resizebox{2cm}{!}{\color{gray!80}\thechapter}%
+	\end{tcolorbox}\Huge} % before the title body
+%\resizebox{2cm}{!}{\color{gray!80}\thechapter}\\\Huge} % before the title body
 []                                                      % after the title body
 
 % \chapter*
@@ -199,6 +210,7 @@ every last row/.style={after row=\bottomrule},
 \titlespacing{\chapter}{0pt}{0pt}{0.1cm}
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{-3pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing{\paragraph}{4pc}{1.5ex plus .1ex minus .2ex}{1pc}
 
 % secnumdepth dictates which headings get enumerated- setting it 
@@ -248,14 +260,27 @@ every last row/.style={after row=\bottomrule},
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{OtherCurricularIssues}
-\includeonly{FacultyReflection,appendices/sectionsTaughtPTFT,appendices/facultyDegrees}
+\includeonly{OtherCurricularIssues}
+%\includeonly{FacultyReflection,appendices/instructorQualifications}
 
 \begin{document}
 
+\includepdf{graphics/titlePage}
+
 % The following lines should be uncommented in the final (production) version
 %\maketitle
-\tableofcontents
+%\tableofcontents
+\begin{tcolorbox}[breakable,enhanced,title={Contents},fonttitle=\bfseries\Large,
+    colback=yellow!10!white,colframe=black!50!yellow,%colframe=red!50!black,
+    before=\par\bigskip\noindent,
+      watermark color=yellow!75!red!25!white,pad at break=3mm,
+        watermark text={\bfseries\Large Contents},
+          %enlargepage=2\baselineskip,
+            drop fuzzy shadow]
+            \makeatletter
+            \@starttoc{toc}
+            \makeatother
+          \end{tcolorbox}
 %\printglossary
 
 %= == == == == == == == == == == =
@@ -278,6 +303,7 @@ every last row/.style={after row=\bottomrule},
 % appendices
 %= == == == == == == == == == == =
 \appendix
+\fixthis{appendices need reordering- should be able to grep the chapter files to check in which order they are referenced}
 % add the word Appendix to the header
 \def\chaptermark#1{\markboth{\textsc{Appendix \thechapter. \  #1}}{}}
 % custom section
@@ -310,6 +336,6 @@ every last row/.style={after row=\bottomrule},
 \include{appendices/socialJustice}
 \include{appendices/classSize}
 \include{appendices/demographicData}
-\printbibliography
+\include{appendices/instructorQualifications}
 
 \end{document}

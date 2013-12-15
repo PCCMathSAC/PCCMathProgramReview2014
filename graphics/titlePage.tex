@@ -1,0 +1,79 @@
+% arara: pdflatex
+% !arara: indent: {overwrite: yes}
+\documentclass{article}
+\usepackage[margin=0.5cm,bottom=2cm]{geometry}
+\usepackage{kpfonts}
+\usepackage{eso-pic}                % put things into background 
+%\usepackage{transparent}
+\usepackage{tcolorbox}
+
+\tcbuselibrary{skins}
+
+
+\AddToShipoutPicture{% from package eso-pic: put something to the background
+	\AtPageCenter{% start the bar at the bottom right of the page
+		\put(-\LenToUnit{.45\paperwidth},-\LenToUnit{.4\paperheight}){% move it to the middle
+			%{\transparent{.5}{\includegraphics[width=20cm]{50th_mathematicsproof}}}
+			{{\includegraphics[width=20cm]{50th_mathematicsproof}}}
+		}%
+	}%
+	\AtPageLowerLeft{% start the bar at the bottom right of the page
+		\put(\LenToUnit{\dimexpr\paperwidth-3cm},0){% move it to the top right
+			\color{blue}\rule{3cm}{\LenToUnit\paperheight}%
+		}%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.7cm},\LenToUnit{17cm}){% move it to the top right
+        \color{gray}\scalebox{8}{$\sum$}
+		}%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.5cm},\LenToUnit{12.5cm}){% move it to the top right
+        \color{gray}\scalebox{8}{$\int$}
+		}%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.3cm},\LenToUnit{8.5cm}){% move it to the top right
+        \color{gray}\scalebox{8}{$e$}
+		}%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.7cm},\LenToUnit{5.0cm}){% move it to the top right
+        \color{gray}\scalebox{8}{$\pi$}
+		}%
+        \put(\LenToUnit{\dimexpr\paperwidth-2.2cm},\LenToUnit{1.5cm}){% move it to the top right
+        \color{gray}\scalebox{8}{$i$}
+		}%
+	}%
+}
+
+\pagestyle{empty}
+\newsavebox\mybox
+\begin{document}
+
+\global\sbox{\mybox}{%
+	\begin{tcolorbox}[enhanced,flushright upper,
+			width=6.8cm,boxrule=1.4pt,
+			colback=white,colframe=black!50!yellow,
+		drop fuzzy midday shadow=black!50!yellow]
+		{\bfseries\LARGE {Program Review} \par}
+		{\large \itshape Mathematics \par}
+		{\large Portland Community College }
+	\end{tcolorbox}
+}
+
+\vspace*{1cm}
+\mbox{}\hfill\scalebox{2}{\usebox{\mybox}}
+
+%\mbox{}\hfill\scalebox{-1}{\usebox{\mybox}}
+%\rotatebox{180}{\usebox{\mybox}}
+
+\vfill
+
+\centering
+\vspace*{1cm}
+
+%    \huge Fall 2008--Spring 2013
+\global\sbox{\mybox}{%
+	\begin{tcolorbox}[enhanced,
+			width=4.8cm,boxrule=1.4pt,
+			colback=white,colframe=black!50!yellow,
+		drop fuzzy midday shadow=black!50!yellow]
+		{\scshape Fall 2008--Spring 2013}
+	\end{tcolorbox}
+}
+
+\mbox{}\scalebox{2}{\usebox{\mybox}}\mbox{}\hfill
+\end{document}
