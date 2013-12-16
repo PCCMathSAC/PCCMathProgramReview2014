@@ -1,6 +1,6 @@
 % arara: pdflatex
-% !arara: bibtex
-% !arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
 % !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
@@ -37,7 +37,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usepackage{tcolorbox}
-\usepackage[backend=bibtex]{biblatex}   % bibliography
+\usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
