@@ -1,7 +1,7 @@
 % arara: pdflatex
 % arara: bibtex
 % arara: pdflatex
-% !arara: pdflatex
+% arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 \documentclass[11pt,twoside]{report}
@@ -262,8 +262,9 @@ every last row/.style={after row=\bottomrule},
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
 %\includeonly{appendices/dlSuccessfulCompletion}
-\includeonly{OtherCurricularIssues}
+%\includeonly{OtherCurricularIssues}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
+%\includeonly{OutcomesAndAssessment}
 
 \begin{document}
 
@@ -290,7 +291,8 @@ every last row/.style={after row=\bottomrule},
 %= == == == == == == == == == == =
 \renewcommand{\thesection}{\Alph{section}}
 % need section 1
-% need section 2
+\include{Overview}
+\include{OutcomesAndAssessment}
 \include{OtherCurricularIssues}
 \include{NeedsOfStudentsAndCommunity}
 \include{FacultyReflection}
