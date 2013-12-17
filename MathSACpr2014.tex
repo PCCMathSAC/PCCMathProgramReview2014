@@ -1,6 +1,6 @@
 % arara: pdflatex
-% !arara: bibtex
-% !arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
 % !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
@@ -37,7 +37,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usepackage{tcolorbox}
-\usepackage[backend=bibtex]{biblatex}   % bibliography
+\usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
@@ -136,7 +136,9 @@ every last row/.style={after row=\bottomrule},
 % to do:
 %   - tcolorbox around title and toc, or perhaps pretty toc?
 %           http://tex.stackexchange.com/questions/35825/pretty-table-of-contents
+%   - shorten toc entries where necessary, indentation of toc, generally tidy it
 %   - glossary items, and update glossary entries throughout using perl script
+%   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
 %   - make consistent choice about on-campus, oncampus, on campus, online
 %   - make consistent choice about full-time, full time, part-time, part time
 %   - make consistent choice about face 2 face or face-to-face
