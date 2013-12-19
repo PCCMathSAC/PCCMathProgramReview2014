@@ -36,6 +36,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
 \usepackage{tcolorbox}
 \usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
@@ -154,7 +155,7 @@ every last row/.style={after row=\bottomrule},
 % 	- it writes to a file with a list of things that need fixing
 \newcommand{\fixthis}[1]
 {%
-	\marginpar{\huge \color{red} \framebox{FIX}}%
+	\marginpar{\huge \color{red} \pdftooltip{\framebox{FIX}}{#1}}%
 	\typeout{FIXTHIS: p\thepage : #1^^J}%
 }
 
@@ -258,6 +259,16 @@ every last row/.style={after row=\bottomrule},
 \let\oldendquote\endquote
 \renewenvironment{quote}{\oldquote \itshape}{\oldendquote}
 
+% for quotations with an attributed source
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil#1%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+  {\savebox\mybox{#1}\begin{quote}}
+  {\signed{\usebox\mybox}\end{quote}}
+
 
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
@@ -302,6 +313,7 @@ every last row/.style={after row=\bottomrule},
 % bibliography
 %= == == == == == == == == == == =
 \printbibliography[heading=bibintoc]
+\fixthis{Some references have no author field, but do have an institution. Currently, only the title of the item is printed, not the institution too.}
 
 %= == == == == == == == == == == =
 % appendices
