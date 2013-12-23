@@ -9,12 +9,23 @@
 
 \tcbuselibrary{skins}
 
+\tcbset{
+  pccstyle/.style={
+enhanced,flushright upper,
+			boxrule=1.4pt,
+			colback=white,colframe=black!50!yellow,
+		drop fuzzy midday shadow=black!50!yellow
+  }
+}
+
 
 \AddToShipoutPicture{% from package eso-pic: put something to the background
 	\AtPageCenter{% start the bar at the bottom right of the page
 		\put(-\LenToUnit{.45\paperwidth},-\LenToUnit{.4\paperheight}){% move it to the middle
 			%{\transparent{.5}{\includegraphics[width=20cm]{50th_mathematicsproof}}}
-			{{\includegraphics[width=20cm]{50th_mathematicsproof}}}
+	        \begin{tcolorbox}[pccstyle]
+			\includegraphics[width=20cm]{50th_mathematicsproof}
+	        \end{tcolorbox}
 		}%
 	}%
 	\AtPageLowerLeft{% start the bar at the bottom right of the page
@@ -44,10 +55,7 @@
 \begin{document}
 
 \global\sbox{\mybox}{%
-	\begin{tcolorbox}[enhanced,flushright upper,
-			width=6.8cm,boxrule=1.4pt,
-			colback=white,colframe=black!50!yellow,
-		drop fuzzy midday shadow=black!50!yellow]
+	\begin{tcolorbox}[pccstyle,width=6.8cm]
 		{\bfseries\LARGE {Program Review} \par}
 		{\large \itshape Mathematics \par}
 		{\large Portland Community College }
@@ -67,10 +75,7 @@
 
 %    \huge Fall 2008--Spring 2013
 \global\sbox{\mybox}{%
-	\begin{tcolorbox}[enhanced,
-			width=4.8cm,boxrule=1.4pt,
-			colback=white,colframe=black!50!yellow,
-		drop fuzzy midday shadow=black!50!yellow]
+	\begin{tcolorbox}[pccstyle,width=4.8cm]
 		{\scshape Fall 2008--Spring 2013}
 	\end{tcolorbox}
 }
