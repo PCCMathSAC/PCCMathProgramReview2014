@@ -28,5 +28,6 @@
 *.gls
 *.ist
 *.sta
+*.upa
 *.run.xml
 *.synctex*
