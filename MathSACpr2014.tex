@@ -38,6 +38,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
 \usepackage{tcolorbox}
+\usepackage{etoolbox}
 \usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
@@ -100,6 +101,28 @@ every last row/.style={after row=\bottomrule},
     columns/totpercent/.style={column name={\%},percentstyle},
     columns/total/.style={column name={Total},column type=r},
 }
+}
+
+% for the section counters for each chapter
+\newcommand{\numbertotext}[1]{%
+	\ifcase#1
+	zero%
+	\or
+	one%
+	\or
+	two%
+	\or
+	three%
+	\or
+	four%
+	\or
+	five%
+	\or
+	six%
+    \else
+    % we don't care about the number of sections in chapters greater than 6
+    unimportant
+	\fi
 }
 
 % empty column type- very useful for big tables that ignore columns
@@ -168,6 +191,47 @@ every last row/.style={after row=\bottomrule},
 %\date{Fall 2008 -- Fall 2013}
 %\titlepic{\includegraphics[width=\textwidth]{50th_mathematicsproof}}
 
+% for the section pictures
+\makeatletter
+\newcommand{\cmh}[2]{%
+    % we need the first argument to be a number
+    % http://tex.stackexchange.com/questions/50111/how-to-check-if-the-value-of-a-parameter-is-a-number
+    \if\relax\detokenize\expandafter{\romannumeral-0#1}\relax
+	\@ifundefined{c@totalsections@\numbertotext{#1}}%
+	{%
+		\newcounter{totalsections@\numbertotext{#1}}
+		\setcounter{totalsections@\numbertotext{#1}}{#2}
+		\typeout{Defining a new counter: totalsections@\numbertotext{#1}} 
+	}%
+	{%
+		\ifnum\value{totalsections@\numbertotext{#1}}=#2
+		\typeout{Total sections for Chapter #1 match auxilary file (#2)}
+		\else
+		\typeout{Warning: total sections for Chapter #1 updated from \the\value{totalsections@\numbertotext{#1}} to #2-- recompile to fix}  
+		\fi
+		\setcounter{totalsections@\numbertotext{#1}}{#2}
+	}%
+    \else
+    \fi
+}
+
+% write to the auxilary file before each \chapter command
+\preto\chapter{%
+	\ifnum\value{chapter}>0
+	\immediate\write\@auxout{%
+		\string\cmh\string{\thechapter\string}\string{\the\value{section}\string}
+	}
+    \fi
+}
+
+% ... and the appendix- the above command won't work because the appendix
+% command resets the chapter counter
+\preto\appendix{%
+	\immediate\write\@auxout{%
+		\string\cmh\string{\thechapter\string}\string{\the\value{section}\string}
+	}
+}
+
 % from the titlesec package
 %\titleformat{ command }
 %             [ shape ]
@@ -194,7 +258,37 @@ every last row/.style={after row=\bottomrule},
 % custom section
 \titleformat{\section}
 {\itshape}
-{\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}}
+{%
+% original line- maybe we'll just use it after all :)
+%\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}
+% new stuff
+	\@ifundefined{c@totalsections@\numbertotext{\thechapter}}%
+	{% if the total number of sections for this chapter is undefined
+		\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}
+	}%
+	{% if the total number of sections for this chapter is DEFINED
+		%Defined \thechapter: total sections: \thetotalsections@one 
+        \llap{\vbox to 0pt{\vss\hbox{%
+		\begin{tikzpicture}[scale=0.8]
+			\draw[gray!50] (0,0) circle (1.0cm);
+			\def\mymax{\the\value{totalsections@\numbertotext{\thechapter}}}
+			\foreach \i in {1,2,...,\mymax}
+			{
+				\pgfmathparse{90-(\i-1)*360/\mymax}
+				\ifnum\i=\the\value{section}
+                \node[draw,fill=white,double,circle,minimum width=0.5cm] at (\pgfmathresult:1.0cm)  {\bfseries\@Alph{\i}};
+				\else
+                \node[draw=gray!50,text=gray!50,fill=white,circle,minimum width=0.5cm] at (\pgfmathresult:1.0cm)  {\@Alph{\i}};
+				\fi
+			}
+		\end{tikzpicture}%
+        \hskip 9pt
+        }%
+        \vss
+        }%
+        }%
+	}
+}
 {0pt}
 {}
 
@@ -283,6 +377,7 @@ every last row/.style={after row=\bottomrule},
 
 \begin{document}
 
+% title page
 \includepdf{graphics/titlePage}
 
 % The following lines should be uncommented in the final (production) version
