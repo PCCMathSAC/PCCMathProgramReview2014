@@ -1,6 +1,6 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
 % arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
@@ -278,7 +278,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
         colback=gray!10,colframe=gray,%colframe=red!50!black,
         before=\par\bigskip\noindent,
         pad at break=3mm,
-        left=0.75cm,
+        %left=0.75cm,
         %enlargepage=2\baselineskip,
         drop fuzzy shadow,
     }
@@ -447,7 +447,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 {\savebox\mybox{#1}\begin{quote}}
 {\signed{\usebox\mybox}\end{quote}}
 
-%\includeonly{Overview}
+\includeonly{Overview}
 %\includeonly{OutcomesAndAssessment}
 %\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
@@ -490,11 +490,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 %= == == == == == == == == == == =
 % bibliography
+% bibliography
+% bibliography
 %= == == == == == == == == == == =
 \printbibliography[heading=bibintoc]
 \fixthis{Some references have no author field, but do have an institution. Currently, only the title of the item is printed, not the institution too.}
 
 %= == == == == == == == == == == =
+% appendices
+% appendices
 % appendices
 %= == == == == == == == == == == =
 \appendix
@@ -511,13 +515,23 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % need to change the chapter formatting for the appendices
 \titlecontents{chapter}
-[0pc]               % left margin
+[0pc]             % left margin
 {\vspace{.25cm}}    % above code
 {%                  % numbered format
-	\llap{\color{black}\large\thecontentslabel\hskip .2cm}\large\sc%
+	{\hskip.5cm\color{black}\large\thecontentslabel\hskip .2cm}\large\sc%
 }%
 {\large\sc}         % unnumbered format
 {\titlerule*[.5pc]{.}\large\sc\bfseries \contentspage}%
+
+% need to change the section formatting for the appendices
+\titlecontents{section}
+[1cm]               % left margin
+{}                  % above code
+{%                  % numbered format
+	{\thecontentslabel\hskip .5cm}%
+}%
+{}         % unnumbered format
+{\titlerule*[.5pc]{.}\contentspage}%
 
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
