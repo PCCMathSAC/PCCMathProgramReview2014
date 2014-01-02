@@ -32,3 +32,8 @@ git pull origin chris-work
 # access a single file from a different branch with out checking out the whole branch
 # http://stackoverflow.com/questions/7856416/view-a-file-in-a-different-git-branch-without-changing-branches
 git show branch:file
+
+# pulling a remote branch (useful when re-cloning)
+http://stackoverflow.com/questions/9537392/git-fetch-remote-branch
+
+# writing this from windows machine
