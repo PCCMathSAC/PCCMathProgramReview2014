@@ -1,7 +1,7 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
@@ -14,7 +14,7 @@
 %       Prepared in Fall 2013
 %
 %= == == == == == == == == == == =
-\usepackage[left=3.5cm,right=2.0cm,showframe=false,
+\usepackage[headheight=14pt,left=3.5cm,right=2.0cm,showframe=false,
 top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}               
 \usepackage{parskip}
 \usepackage{titlesec}                   % customize headings
@@ -44,6 +44,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
+%\usepackage[left]{showlabels}
+%\showlabels{hypertarget}
+%\showlabels{hyperlink}
 
 % tcolorbox libraries
 \tcbuselibrary{breakable,skins}
@@ -169,17 +172,17 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - check for undefined references, multiply defined labels- grep log file
 %   - give headings to paragraphs when appropriate using \paragraph{}?
 %   - do we need the bookmark package? are we getting bookmarks in the sidepane?
-%   - check that vref, cref, etc know what to do with references at the subsection level
+%   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
 %   - check that hyphens, em dashes, en dashes are used appropriately
 %   - migrate all recommendations to section 8? use input? or perhaps a savebox?
 %           http://tex.stackexchange.com/questions/74942/writing-notes-want-my-equations-organized-at-the-end-of-document
-%   - go through log file- fancyhdr is complaining, a few bibliography entries, too
-%   - are we doing titles? e.g Mr, Dr, Ms? should be consistent
+%   - go through log file- a few bibliography entries, too
+%   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
 %   - inspirational quotes: perhaps one at the beginning? or one per chapter?
 %           http://tex.stackexchange.com/questions/53377/inspirational-quote-at-start-of-chapter
-%   - side captions for some tables and figures? could be nice ...
 %   - offset fancy header to make header rule longer?
+%   - hyperlink Q1, Q2, etc in chapter 6 to their respective questions in the appendix
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -311,7 +314,10 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % custom section
 \titleformat{\section}
-{\itshape}
+{%
+    \hypertarget{section:petal:\thechapter:\thesection}%
+    \large\bfseries%
+}
 {%
 	% original line- maybe we'll just use it after all :)
 	%\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}
@@ -331,24 +337,29 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 						minimum width=0.5cm,
 						shape border rotate=-(\i-1)*360/\mymax,
 				}]
-				%\draw[gray!50] (0,0) circle (1.0cm);
 				\def\mymax{\the\value{totalsections@\numbertotext{\thechapter}}}
+                % define the radius dependent on the total petals
+                \ifnum\mymax=6
+                \def\myradius{1.0cm}
+                \else
+                \def\myradius{0.9cm}
+                \fi
 				\foreach \i in {1,2,...,\mymax}
 				{
 					\pgfmathparse{90-(\i-1)*360/\mymax}
 					\ifnum\i=\the\value{section}
-					\node[fill=red!70] at (\pgfmathresult:0.9cm)  {\bfseries\@Alph{\i}};
+					\node[fill=red!70] at (\pgfmathresult:\myradius)  {\bfseries\@Alph{\i}};
 					\else
-					\node[draw=gray!50,fill=gray!50,text=gray] at (\pgfmathresult:0.9cm)  {\@Alph{\i}};
+                    \node[draw=gray!50,fill=gray!50] at (\pgfmathresult:\myradius)  {\hypersetup{linkcolor=gray}\hyperlink{section:petal:\thechapter:\@Alph{\i}}{\@Alph{\i}}};
 					\fi
 				}
 			\end{tikzpicture}%
 			\hskip 9pt
 			}%
-			\vss
+			\vss%
 			}%
 		}%
-	}
+	}%
 }
 {0pt}
 {}
@@ -370,7 +381,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %           minus 2pt means that TeX can shrink it by at most 2pt
 %       This is one example of the concept of, 'glue', in TeX
 \titlespacing{\chapter}{0pt}{0pt}{0.1cm}
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{-3pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing{\paragraph}{4pc}{1.5ex plus .1ex minus .2ex}{1pc}
@@ -448,18 +459,22 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 {\savebox\mybox{#1}\begin{quote}}
 {\signed{\usebox\mybox}\end{quote}}
 
+
 %\includeonly{Overview}
-%\includeonly{OutcomesAndAssessment}
+\includeonly{OutcomesAndAssessment,OtherCurricularIssues}
 %\includeonly{OtherCurricularIssues}
-%\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
+%\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{appendices/dlSuccessfulCompletion}
 
+% special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
+\urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
+
 \begin{document}
 
 % title page
-\includepdf{graphics/titlePage}
+%\includepdf{graphics/titlePage}
 
 % The following lines should be uncommented in the final (production) version
 %\maketitle
@@ -517,7 +532,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % need to change the chapter formatting for the appendices
 \titlecontents{chapter}
 [0pc]             % left margin
-{\vspace{.25cm}}    % above code
+{\vskip.25cm}    % above code
 {%                  % numbered format
 	{\hskip.5cm\color{black}\large\thecontentslabel\hskip .2cm}\large\sc%
 }%
@@ -543,6 +558,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \printcontents[appendixtoc]{}{0}{}
 \end{tcolorbox}
 \include{appendices/changeinALCcourses}
+\include{appendices/tutoringHours}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
 \include{appendices/dlSuccessfulCompletion}

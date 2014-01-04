@@ -1,0 +1,46 @@
+% arara: pdflatex
+% !arara: indent: {overwrite: yes}
+\documentclass{standalone}
+% Caption: Tutoring hours at Rock Creek
+% 2008-2012
+
+\usepackage{pgfplots,pgfplotstable}
+\pgfplotsset{compat=newest}
+
+\begin{document}
+
+\pgfplotstableread{
+Year	Fall	Winter	Spring	Summer
+2008	5432.43	4264.18	5773.93	1738.29
+2009	9125.59	8319.72	8403.89	2235.91
+2010	9771.37	9106.15	7613.00	1884.69
+2011	6249.87	5558.01	5231.85	1509.38
+2012	6164.09	5719.20	4252.24	1155.02
+	}\mydata
+
+\begin{tikzpicture}
+	\begin{axis}[
+			%ybar,
+			symbolic x coords={2008, 2009, 2010, 2011, 2012},
+			xtick=data,
+			minor ytick={1000,2000,...,10000},
+			xticklabels = {2008/09,2009/10, 2010/11, 2011/12, 2012/13},
+			enlarge x limits,
+			xticklabels = {2008/09,2009/10, 2010/11, 2011/12, 2012/13},
+            x tick label style={rotate=25},
+			grid = both,
+			ymin=0,ymax=10000,
+			scaled ticks=false, 
+			tick label style={/pgf/number format/fixed},
+			legend pos=south west,
+            width=\textwidth,
+		]
+		\addplot table[x=Year,y=Fall]{\mydata};
+		\addplot table[x=Year,y=Winter]{\mydata};
+		\addplot table[x=Year,y=Spring]{\mydata};
+		\addplot table[x=Year,y=Summer]{\mydata};
+		%\addplot table[x=Year,y expr=\thisrow{Summer}+\thisrow{Fall}+\thisrow{Winter}+\thisrow{Spring}]{\mydata};
+		\legend{Fall, Winter, Spring,Summer, Total}
+	\end{axis}
+\end{tikzpicture}
+\end{document}
