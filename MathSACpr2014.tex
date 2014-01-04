@@ -1,7 +1,7 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
@@ -44,6 +44,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
+%\usepackage[left]{showlabels}
+%\showlabels{hypertarget}
+%\showlabels{hyperlink}
 
 % tcolorbox libraries
 \tcbuselibrary{breakable,skins}
@@ -178,13 +181,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
 %   - inspirational quotes: perhaps one at the beginning? or one per chapter?
 %           http://tex.stackexchange.com/questions/53377/inspirational-quote-at-start-of-chapter
-%   - side captions for some tables and figures? could be nice ...
 %   - offset fancy header to make header rule longer?
-%   - hyperlinks in petals to each section
-%   - change section headings to be large and bold
-%   - change subsection headings to be italic (and bold?)
 %   - hyperlink Q1, Q2, etc in chapter 6 to their respective questions in the appendix
-%   - this to-do list is getting out of hand
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -316,7 +314,10 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % custom section
 \titleformat{\section}
-{\itshape}
+{%
+    \hypertarget{section:petal:\thechapter:\thesection}%
+    \large\bfseries%
+}
 {%
 	% original line- maybe we'll just use it after all :)
 	%\llap{\vbox to 5pt{\hbox{\resizebox{1cm}{!}{\normalfont\thesection.}}}\hskip 9pt}
@@ -336,24 +337,29 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 						minimum width=0.5cm,
 						shape border rotate=-(\i-1)*360/\mymax,
 				}]
-				%\draw[gray!50] (0,0) circle (1.0cm);
 				\def\mymax{\the\value{totalsections@\numbertotext{\thechapter}}}
+                % define the radius dependent on the total petals
+                \ifnum\mymax=6
+                \def\myradius{1.0cm}
+                \else
+                \def\myradius{0.9cm}
+                \fi
 				\foreach \i in {1,2,...,\mymax}
 				{
 					\pgfmathparse{90-(\i-1)*360/\mymax}
 					\ifnum\i=\the\value{section}
-					\node[fill=red!70] at (\pgfmathresult:0.9cm)  {\bfseries\@Alph{\i}};
+					\node[fill=red!70] at (\pgfmathresult:\myradius)  {\bfseries\@Alph{\i}};
 					\else
-					\node[draw=gray!50,fill=gray!50,text=gray] at (\pgfmathresult:0.9cm)  {\@Alph{\i}};
+                    \node[draw=gray!50,fill=gray!50] at (\pgfmathresult:\myradius)  {\hypersetup{linkcolor=gray}\hyperlink{section:petal:\thechapter:\@Alph{\i}}{\@Alph{\i}}};
 					\fi
 				}
 			\end{tikzpicture}%
 			\hskip 9pt
 			}%
-			\vss
+			\vss%
 			}%
 		}%
-	}
+	}%
 }
 {0pt}
 {}
@@ -375,7 +381,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %           minus 2pt means that TeX can shrink it by at most 2pt
 %       This is one example of the concept of, 'glue', in TeX
 \titlespacing{\chapter}{0pt}{0pt}{0.1cm}
-\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{-3pt plus 4pt minus 2pt}{-6pt plus 2pt minus 2pt}
 \titlespacing{\paragraph}{4pc}{1.5ex plus .1ex minus .2ex}{1pc}
@@ -456,7 +462,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %\includeonly{Overview}
 %\includeonly{OutcomesAndAssessment}
 %\includeonly{OtherCurricularIssues}
-%\includeonly{NeedsOfStudentsAndCommunity,appendices/enrollmentSummaries}
+\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{appendices/dlSuccessfulCompletion}
