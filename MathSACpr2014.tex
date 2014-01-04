@@ -462,9 +462,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %\includeonly{Overview}
 %\includeonly{OutcomesAndAssessment}
 %\includeonly{OtherCurricularIssues}
-\includeonly{NeedsOfStudentsAndCommunity}
+%\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
-%\includeonly{FacilitiesAndSupport}
+\includeonly{FacilitiesAndSupport,appendices/tutoringHours}
 %\includeonly{appendices/dlSuccessfulCompletion}
 
 \begin{document}
@@ -528,7 +528,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % need to change the chapter formatting for the appendices
 \titlecontents{chapter}
 [0pc]             % left margin
-{\vspace{.25cm}}    % above code
+{}    % above code
 {%                  % numbered format
 	{\hskip.5cm\color{black}\large\thecontentslabel\hskip .2cm}\large\sc%
 }%
@@ -554,6 +554,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \printcontents[appendixtoc]{}{0}{}
 \end{tcolorbox}
 \include{appendices/changeinALCcourses}
+\include{appendices/tutoringHours}
 \include{appendices/coreOutcomesMapping}
 \include{appendices/courseScheduling}
 \include{appendices/dlSuccessfulCompletion}
