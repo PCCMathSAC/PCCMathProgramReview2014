@@ -459,18 +459,22 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 {\savebox\mybox{#1}\begin{quote}}
 {\signed{\usebox\mybox}\end{quote}}
 
+
 %\includeonly{Overview}
-%\includeonly{OutcomesAndAssessment}
+\includeonly{OutcomesAndAssessment,OtherCurricularIssues}
 %\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{appendices/dlSuccessfulCompletion}
 
+% special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
+\urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
+
 \begin{document}
 
 % title page
-\includepdf{graphics/titlePage}
+%\includepdf{graphics/titlePage}
 
 % The following lines should be uncommented in the final (production) version
 %\maketitle
