@@ -42,6 +42,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
+\usepackage{bookmark}
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
 %\usepackage[left]{showlabels}
@@ -175,7 +176,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
 %   - check that hyphens, em dashes, en dashes are used appropriately
-%   - migrate all recommendations to section 8? use input? or perhaps a savebox?
+%   - migrate all recommendations to section 8? use input with standalone? or perhaps a savebox? or perhaps jobname.rec?
 %           http://tex.stackexchange.com/questions/74942/writing-notes-want-my-equations-organized-at-the-end-of-document
 %   - go through log file- a few bibliography entries, too
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
@@ -461,7 +462,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 
 %\includeonly{Overview}
-\includeonly{OutcomesAndAssessment,OtherCurricularIssues}
+%\includeonly{OutcomesAndAssessment,OtherCurricularIssues}
 %\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
@@ -474,7 +475,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \begin{document}
 
 % title page
-%\includepdf{graphics/titlePage}
+\includepdf{graphics/titlePage}
 
 % The following lines should be uncommented in the final (production) version
 %\maketitle
