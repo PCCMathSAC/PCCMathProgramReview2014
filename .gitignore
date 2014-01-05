@@ -5,6 +5,7 @@
 *.ps
 *.toc
 *.ptc
+*.rec
 *.lof
 *.lot
 *.lol
