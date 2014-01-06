@@ -47,3 +47,4 @@ http://stackoverflow.com/questions/9537392/git-fetch-remote-branch
 # Following Ann's lead
 
 Carly Vollet
+Heiko Spoddeck
