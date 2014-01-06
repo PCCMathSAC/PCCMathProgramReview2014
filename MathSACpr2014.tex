@@ -36,12 +36,12 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
-\usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
 \usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
+\usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
 \usepackage{bookmark}
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
@@ -523,7 +523,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % main chapters
 %= == == == == == == == == == == =
 \renewcommand{\thesection}{\Alph{section}}
-\include{Overview}
+%\include{Overview}
 \include{OutcomesAndAssessment}
 \include{OtherCurricularIssues}
 \include{NeedsOfStudentsAndCommunity}
