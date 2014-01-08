@@ -1,7 +1,7 @@
 % arara: pdflatex
-% !arara: bibtex
+% arara: bibtex
 % arara: pdflatex
-% !arara: pdflatex
+% arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
@@ -38,6 +38,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
+\usepackage{epigraph}                   % for inspirational quotes
 \usepackage[backend=bibtex,maxnames=99]{biblatex}   % bibliography
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
@@ -254,6 +255,10 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % boolean switch to tell if we're in the appendix or not
 \newbool{inappendix}
+
+% make epigraph italic
+\let\oldepigraph\epigraph
+\renewcommand{\epigraph}[2]{\oldepigraph{\itshape #1}{#2}}
 
 % write to the auxilary file before each \chapter command
 \preto\chapter{%
@@ -523,7 +528,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % main chapters
 %= == == == == == == == == == == =
 \renewcommand{\thesection}{\Alph{section}}
-%\include{Overview}
+\include{Overview}
 \include{OutcomesAndAssessment}
 \include{OtherCurricularIssues}
 \include{NeedsOfStudentsAndCommunity}
