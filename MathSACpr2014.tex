@@ -1,7 +1,7 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: makeglossaries
 % !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
@@ -67,6 +67,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \Crefname{table}{Table}{Tables}
 \crefname{figure}{Figure}{Figures}
 \Crefname{figure}{Figure}{Figures}
+\crefname{chapter}{Section}{Sections}
+\Crefname{chapter}{Section}{Sections}
+
 
 % graphics path
 \graphicspath{{./graphics/}}
@@ -262,13 +265,6 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % write to the auxilary file before each \chapter command
 \preto\chapter{%
-\ifbool{inappendix}{}{%
-    \ifnum\value{chapter}<7
-    \ifnum\value{chapter}>0
-    \addcontentsline{rec}{chapter}{Recommendations for section \thechapter}%
-    \fi
-    \fi
-    }%
 	\ifnum\value{chapter}>0
 	\immediate\write\@auxout{%
 		\string\cmh\string{\thechapter\string}\string{\the\value{section}\string}
@@ -320,6 +316,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 {}                                                      % label
 {1pc}                                                   % horizontal separation between label and title body
 {%
+		% add heading recommendation file
+    \ifbool{inappendix}{}{%
+    \ifnum\value{chapter}<7
+    \ifnum\value{chapter}>0
+    \addcontentsline{rec}{chapter}{Recommendations for section \thechapter}%
+    \fi
+    \fi
+    }%
+		% draw a box around the chapter number
 	\begin{tcolorbox}[pccstyle,width=2.8cm]
 		\resizebox{2cm}{!}{\color{gray!80}\thechapter}%
 	\end{tcolorbox}\Huge} % before the title body
