@@ -1,9 +1,8 @@
 % arara: pdflatex
 % arara: bibtex
+% arara: makeglossaries
 % arara: pdflatex
 % arara: pdflatex
-% !arara: makeglossaries
-% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -69,7 +68,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \Crefname{figure}{Figure}{Figures}
 \crefname{chapter}{Section}{Sections}
 \Crefname{chapter}{Section}{Sections}
-
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
 
 % graphics path
 \graphicspath{{./graphics/}}
@@ -137,14 +137,13 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
-%\usepackage[nonumberlist,section=chapter]{glossaries}
-\usepackage[section=chapter,toc]{glossaries}
+\usepackage[nonumberlist,section=chapter,toc]{glossaries}
 % make the links black
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
 \newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center}}
-\newglossaryentry{ALEKS}{name=ALEKS,description={Publisher owned software.}}
+\newglossaryentry{ALEKS}{name=ALEKS,description={Publisher owned software}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{AY}{name=AY,description={Academic Year}} 
 \newglossaryentry{CIC}{name=CIC,description={Completion Investment Council}} 
@@ -169,7 +168,6 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
 %   - make consistent choice about on-campus, oncampus, on campus, online (online and on-campus are the winners)
 %   - make consistent choice about full-time, full time, part-time, part time (full-time and part-time win)
-%   - is workgroup one word, or two?
 %   - change all 'adjunct' to 'part time' (or 'part-time')
 %   - make consistent choice about face 2 face or face-to-face (face-to-face wins, F2F can be used in tables; DL is fine anywhere)
 %   - check that all sections in the appendix are referenced in the body 
@@ -181,13 +179,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
 %   - check that hyphens, em dashes, en dashes are used appropriately
-%   - migrate all recommendations to section 8? use input with standalone? or perhaps a savebox? or perhaps jobname.rec?
-%           http://tex.stackexchange.com/questions/74942/writing-notes-want-my-equations-organized-at-the-end-of-document
 %   - go through log file- a few bibliography entries, too
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
-%   - inspirational quotes: perhaps one at the beginning? or one per chapter?
-%           http://tex.stackexchange.com/questions/53377/inspirational-quote-at-start-of-chapter
-%   - offset fancy header to make header rule longer?
 %   - hyperlink Q1, Q2, etc in chapter 6 to their respective questions in the appendix
 
 % Define fix command
@@ -196,7 +189,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \newcommand{\fixthis}[1]
 {%
 	\marginpar{\huge \color{red} \pdftooltip{\framebox{FIX}}{#1}}%
-	\typeout{FIXTHIS: p\thepage : #1^^J}%
+	\typeout{FIXTHIS: Section \thechapter:  p\thepage : #1^^J}%
 }
 
 % for the section pictures
@@ -223,6 +216,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 	\fi
 }
 
+% custom petal shape
+% custom petal shape
 % custom petal shape
 % http://tex.stackexchange.com/questions/151962/rotating-a-custom-shape-independently-of-the-text/151978?noredirect=1#151978
 \pgfkeys{/pgf/shape border rotate/.initial=0}
@@ -417,6 +412,13 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % toc settings
 % toc settings
 % toc settings
+%
+% \titlecontents{<heading>}
+%   [] % left margin
+%   {} % before code
+%   {} % formatting for numbered entries of this type
+%   {} % formatting for UNnumbered entries of this type
+%   {} % filler page format
 \titlecontents{chapter}%
 [0pc]       % left margin
 {\vspace{.5cm}}
@@ -438,6 +440,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \fancyhf{} % delete current header and footer
 \fancyhead[LE,RO]{\bfseries\thepage}
 \fancyhead[LO,RE]{\leftmark}
+\fancyheadoffset[LE,LO]{3cm}
 \pagestyle{fancy}
 
 % remove the word Chapter from the header
@@ -462,7 +465,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % wide page for side by side figures, tables, etc
 \newlength{\offsetpage}
 \setlength{\offsetpage}{3.0cm}
-\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{-.5\offsetpage}%
+\newenvironment{widepage}{\begin{adjustwidth}{-\offsetpage}{}%{-.5\offsetpage}%
 	\addtolength{\textwidth}{2\offsetpage}}%
 {\end{adjustwidth}}
 
@@ -527,7 +530,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
             \makeatother
           \end{tcolorbox}
 
-%\printglossary
+\glsaddall
+\printglossary
 
 %= == == == == == == == == == == =
 % main chapters
