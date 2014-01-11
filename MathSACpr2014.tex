@@ -2,7 +2,7 @@
 % arara: bibtex
 % arara: makeglossaries
 % arara: pdflatex
-% arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -142,8 +142,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
-\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center}}
-\newglossaryentry{ALEKS}{name=ALEKS,description={Publisher owned software}}
+\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center \fixthis{Alyson wants a better description}}}
+\newglossaryentry{ALEKS}{name=ALEKS,description={ {\bfseries A}ssessment and {\bfseries LE}arning in {\bfseries K}nowledge {\bfseries S}paces interactive computer-based math-learning program owned by McGraw-Hill \url{http://www.aleks.com/}}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{AY}{name=AY,description={Academic Year}} 
 \newglossaryentry{CIC}{name=CIC,description={Completion Investment Council}} 
@@ -154,11 +154,11 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \newglossaryentry{DOI}{name=DOI,description={Deans Of Instruction}}
 \newglossaryentry{F2F}{name=F2F,description={Face-to-face}} 
 \newglossaryentry{FT}{name=FT,description={Full-time (usually in reference to faculty)}} 
-\newglossaryentry{LAS}{name=LAS,description={Learning Assessment Council}} 
+\newglossaryentry{LAC}{name=LAC,description={Learning Assessment Council}} 
 \newglossaryentry{LDC}{name=LDC,description={Lower Division Collegiate}} 
-\newglossaryentry{MML}{name=MML,description={MyMathLab-- a commercial, publisher-owned homework management system }}
+\newglossaryentry{MyMathLab}{name=MyMathLab,description={MyMathLab-- a commercial computer-based homework management system owned and distributed by Peason \url{http://www.pearsonmylabandmastering.com/northamerica/mymathlab/}}}
 \newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
-\newglossaryentry{SAC}{name=SAC,description={Section Area Committee}}
+\newglossaryentry{SAC}{name=SAC,description={Subject Area Committee}}
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \makeglossaries
 
@@ -498,7 +498,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
       \fi%
       }
 
-%\includeonly{Overview}
+%\includeonly{Overview,appendices/ALEKSpilot}
 %\includeonly{OutcomesAndAssessment,OtherCurricularIssues}
 %\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity}
@@ -590,6 +590,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % need to change the section formatting for the appendices
 \titlecontents{section}
 [1cm]               % left margin
+{}                  % above code
+{%                  % numbered format
+	{\thecontentslabel\hskip .5cm}%
+}%
+{}         % unnumbered format
+{\titlerule*[.5pc]{.}\contentspage}%
+
+\titlecontents{subsection}
+[1.7cm]               % left margin
 {}                  % above code
 {%                  % numbered format
 	{\thecontentslabel\hskip .5cm}%
