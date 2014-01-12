@@ -2,7 +2,7 @@
 % arara: bibtex
 % arara: makeglossaries
 % arara: pdflatex
-% !arara: pdflatex
+% arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -165,8 +165,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 % to do:
 %   - shorten toc entries where necessary, indentation of toc, generally tidy it
-%   - glossary items, and update glossary entries throughout using perl script
+%   - check colons and semi-colons surrounding bullets
 %   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
+%   - do we want a different bibliography style- something more descriptive?
 %   - make consistent choice about on-campus, oncampus, on campus, online (online and on-campus are the winners)
 %   - make consistent choice about full-time, full time, part-time, part time (full-time and part-time win)
 %   - change all 'adjunct' to 'part time' (or 'part-time')
@@ -501,7 +502,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 %\includeonly{Overview,appendices/ALEKSpilot}
 %\includeonly{OutcomesAndAssessment}
-%\includeonly{OtherCurricularIssues}
+\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection,appendices/instructorQualifications}
 %\includeonly{FacilitiesAndSupport}
