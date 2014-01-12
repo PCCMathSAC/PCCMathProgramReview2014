@@ -168,6 +168,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - check colons and semi-colons surrounding bullets
 %   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
 %   - do we want a different bibliography style- something more descriptive?
+%   - should seasons be capitalized or not?
 %   - make consistent choice about on-campus, oncampus, on campus, online (online and on-campus are the winners)
 %   - make consistent choice about full-time, full time, part-time, part time (full-time and part-time win)
 %   - change all 'adjunct' to 'part time' (or 'part-time')
@@ -176,7 +177,6 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
 %   - check for undefined references, multiply defined labels- grep log file
-%   - give headings to paragraphs when appropriate using \paragraph{}?
 %   - do we need the bookmark package? are we getting bookmarks in the sidepane?
 %   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
@@ -534,6 +534,12 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 
 \glsaddall
 \printglossary
+
+\fixthis{comment below}
+%  I keep going back to the TOC to start each batch of work, and each time the
+%  TOC always starts on page 6 with the glossary.  Do you maybe want to start
+%  with TOC as page 2?  As with all such non-typo related comments, this is your
+%  call to make; my job is to just keep you thinking
 
 %= == == == == == == == == == == =
 % main chapters
