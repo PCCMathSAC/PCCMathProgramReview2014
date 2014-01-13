@@ -2,7 +2,6 @@
 % !arara: indent: {overwrite: yes}
 
 \chapter{Core Outcomes Mapping}\label{sec:app:coreoutcomes}
-\fixthis{this matrix needs attention - far too many 4s for example}
 
 \begin{minipage}[t]{.45\textwidth}
 Mapping Level Indicators:
@@ -26,38 +25,7 @@ Core Outcomes (CO):
 \end{enumerate}
 \end{minipage}%
 
-\pgfplotstableread{
-	Course 	{Course Name}	CO1	CO2	CO3	CO4	CO5	CO6
-	{MTH 10}	{Basic Math}	4	0	4	0	4	3
-	{MTH 20}	{Basic Math}	4	0	4	0	4	3
-	{MTH 30}	{Business Mathematics}	4	0	4	0	4	3
-	{MTH 60}	{Introductory Algebra, 1st term}	4	0	4	0	4	3
-	{MTH 61}	{Introductory Algebra, Part I}	4	0	4	0	4	3
-	{MTH 62}	{Introductory Algebra, Part II}	4	0	4	0	4	3
-	{MTH 63}	{Introductory Algebra, Part III}	4	0	4	0	4	3
-	{MTH 65}	{Introductory Algebra, 2nd term}	4	0	4	0	4	3
-	{MTH 70}	{Introduction to Intermediate Algebra}	4	0	4	0	4	3
-	{MTH 91}	{Intermediate Algebra, Part I}	4	0	4	0	4	3
-    {MTH 92}	{Intermediate Algebra, Part I}I	4	0	4	0	4	3
-    {MTH 93}	{Intro to TI Graphics Calculator}	4	0	4	0	4	3
-    {MTH 95}	{Intermediate Algebra}	4	0	4	0	4	3
-    {MTH 111} 	{College Algebra}	4	0	4	0	4	3
-    {MTH 112}	{Elementary Functions}	4	0	4	0	4	3
-    {MTH 211}	{Foundations of Elementary Math I}	4	0	4	0	4	3
-    {MTH 212}	{Foundations of Elementary Math II}	4	0	4	0	4	3
-    {MTH 213}	{Foundations of Elementary Math III}	4	0	4	0	4	3
-    {MTH 241}	{Calculus for Management}	4	0	4	0	4	3
-    {MTH 243}	{Statistics I}	4	0	4	0	4	3
-    {MTH 244}	{Statistics II}	4	0	4	0	4	3
-    {MTH 251}	{Calculus I}	4	0	4	0	4	3
-    {MTH 252}	{Calculus II}	4	0	4	0	4	3
-    {MTH 253}	{Calculus III}	4	0	4	0	4	3
-    {MTH 254}	{Calculus IV}	4	0	4	0	4	3
-    {MTH 259}	{Single Variable Calculus Review}	4	0	4	0	4	3
-    {MTH 256}	{Differential Equations}	4	0	4	0	4	3
-    {MTH 261}	{Applied Linear Algebra}	4	0	4	0	4	3
-
-	}\coreOutComes
+\pgfplotstableread[col sep=comma]{./data/outcomeMatrix.csv}\coreOutComes
 
 \pgfplotstabletypeset[
 begin table=\begin{longtable},
@@ -70,6 +38,6 @@ end table=\end{longtable},
     every row no 12/.style={after row=\cmidrule{2-8}},
     every row no 14/.style={after row=\cmidrule{2-8}},
     every row no 20/.style={after row=\cmidrule{2-8}},
-	columns/Course/.style={string type,column type=l},
-	columns/Course Name/.style={string type,column type=l},
+	columns/course/.style={string type,column type=l},
+	columns/name/.style={string type,column type=l},
 ]{\coreOutComes}
