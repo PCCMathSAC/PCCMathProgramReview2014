@@ -35,6 +35,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usepackage{colortbl}										% row colours in tables
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
 \usepackage{epigraph}                   % for inspirational quotes
@@ -108,6 +109,16 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 		columns/a100percent/.style={column name={\%},percentstyle},
 		columns/totpercent/.style={column name={\%},percentstyle},
 		columns/total/.style={column name={Total},column type=r},
+	},
+	demographic/.style={
+	every row no 2/.style={before row=\rowcolor{lightgray!50}},
+every row no 6/.style={before row=\rowcolor{lightgray!50}},
+every row no 8/.style={before row=\rowcolor{lightgray!50}},
+every row no 10/.style={before row=\rowcolor{lightgray!50}},
+every row no 12/.style={before row=\rowcolor{lightgray!50}},
+every row no 16/.style={before row=\rowcolor{lightgray!50}},
+every row no 18/.style={before row=\rowcolor{lightgray!50}},
+every row no 20/.style={before row=\rowcolor{lightgray!50}},
 	}
 }
 
@@ -508,6 +519,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{Recommendations}
+%\includeonly{appendices/demographicData}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
