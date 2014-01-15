@@ -1,8 +1,8 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: makeglossaries
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: makeglossaries
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -520,6 +520,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{Recommendations}
 %\includeonly{appendices/demographicData}
+\includeonly{appendices/onlineHwStudy}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}

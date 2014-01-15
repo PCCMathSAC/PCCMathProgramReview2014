@@ -1,5 +1,5 @@
-% arara: pdflatex: {files: [MathSACpr2014]}
-% !arara: indent: {overwrite: yes}
+% !arara: pdflatex: {files: [../MathSACpr2014], options: "--output-directory=../"}
+% arara: indent: {overwrite: yes}
 \chapter{Do online homework systems aid retention?}
 %{Study to See if Bringing in an Online Homework System into a Distance Learning Course Aids in Retention}
 \label{app:sec:onlinehwstudy}
@@ -8,23 +8,85 @@
 During the 2012/2013 school year Wendy Fresh and Jessica Bernards ran a study in their online MTH 60 and MTH 111 courses to see if using an online homework system, instead of the traditional method of paper/pencil homework, would aid in the retention of online students.  Each instructor taught multiple sections of the same course.  Each course was set up almost identical in nature with the exact same lecture notes, exams, and quizzes, with the exception of the method of homework: some sections did homework out of the textbook along with 4 homework write-ups (the traditional setup), while others only used the online homework system, MyMathLab (MML), for homework with no homework write-ups.  The weights of each grade category were the same in all classes and all exams were graded together.
 
 \section{Summary of Results for the MTH 111 study}
-Please keep in mind that these are low sample sizes but there are some interesting things to note: 
+The quantitative results of the study are shown in \cref{app:tab:onlinehwstudy111}.
+\begin{longtable}{p{.5\textwidth}p{.5\textwidth}}
+	\caption{MTH 111: Traditional vs MML}\label{app:tab:onlinehwstudy111}\\
+	\toprule
+	Traditional, Fall and Winter Terms 2012/13, 66 Students & MML Winter and Spring Terms 2013, 99 students       \\
+	\midrule
+	Textbook HW/Homework write-ups                          & Homework submitted via MyMathLab                    \\
+	Final Grade Average:  64.27                             & Final Grade Average:  68.5                          \\
+	Final Grade Median:  70                                 & Final Grade Median:  71.02                          \\
+	39/66 Failed (59\%), (21 of these students were Ws)     & 47/99 Failed (48\%), (16 of these students were Ws) \\
+	Final Exam Average:  66.33                              & Final Exam Average:  68.5                           \\
+	Final Exam Median:  69                                  & Final Exam Median:  71.5                            \\
+	Midterm Exam Average:  72.8                             & Midterm Exam Average:  72.12                        \\
+	Midterm Exam Median:  73                                & Midterm Exam Median:  73                            \\
+	\bottomrule
+\end{longtable}
+Please keep in mind that these are low sample sizes but there are some
+interesting things to note: 
 \begin{itemize}
-  \item In the MTH 111 courses, there wasn't a big difference between grades on exams, except for a 4\% average difference in student overall final grades.  However, when looking at the fail rates of the courses, the MyMathLab group had an 11\% lower fail rate.  Thus helping with retention.
-  \item Additionally, in the MTH 111 courses a higher percentage of students stuck with the class until the end in the MyMathLab courses, compared to the traditional sections.  Only 16\% of students withdrew from the MML courses compared to 32\% in the traditional courses.  
+	\item In the MTH 111 courses, there wasn't a big difference between grades on
+	exams, except for a 4\% average difference in student overall final grades.
+	However, when looking at the fail rates of the courses, the MyMathLab group
+	had an 11\% lower fail rate thus helping with retention.
+	\item Additionally, in the MTH 111 courses a higher percentage of students
+	stuck with the class until the end in the MyMathLab courses, compared to
+	the traditional sections.  Only 16\% of students withdrew from the MML
+	courses compared to 32\% in the traditional courses.  
 \end{itemize}
 
 \section{Summary of Results for the MTH 60 study}
-The quantitative results of the study are broken down in the data tables below.  Please keep in mind that these are low sample sizes but there are some interesting things to note: 
-\begin{itemize}
-  \item The Final Grade Average went up on average by 4.3\% in each MyMathLab course. 
-  \item The Fail Rates went down on average 5.6\% in each of the MyMathLab courses.
-\end{itemize}
+The quantitative results of the study are broken down in \cref{app:tab:onlinehwstudy60}. 
+Please keep in mind that these are low sample sizes but there are some interesting things to note: 
+\begin{longtable}{p{.5\textwidth}p{.5\textwidth}}
+	\caption{MTH 60: Traditional vs MML}\label{app:tab:onlinehwstudy60}
+	\\
+	\toprule
+	Traditional, Winter 2013, 27 students & MML, Winter 2013 25 students       \\
+	\midrule
+	Homework write-ups, bi-weekly         & Homework submitted via MML, weekly \\
+	Final Grade Average:  65.53           & Final Grade Average:  71.45        \\
+	Final Grade Median:  69.94            & Final Grade Median:  74.05         \\
+	16/27 Failed (59\%), (5 of these students were Ws and 3 of these students didn't complete course)
+	                                      &                                    
+	11/25 Failed (44\%), (5 of these students were Ws and 5 of these students didn't complete course)\\
+	\midrule
+	Traditional, Spring 2013, 26 students & MML, Spring 2013, 27 students      \\
+	\midrule
+	Homework write-ups, bi-weekly         & Homework submitted via MML, weekly \\
+	Final Grade Average:  58.82           & Final Grade Average:  63.29        \\
+	Final Grade Median:  66.43            & Final Grade Median:  69.75         \\
+	17/26 Failed (65\%), (5 of these students were 
+	Ws, 4 of these students didn't complete course, 2 Is)
+	                                      &                                    
+	17/27 Failed (63\%), (6 of these students were Ws and 3 of these students didn't complete course) \\
+	\midrule
+	Traditional, Summer 2013, 42 students & MML, Summer 2013, 37 students      \\
+	\midrule
+	Homework write-ups, bi-weekly         & Homework submitted via MML, weekly \\
+	Final Grade Average:  60.81           & Final Grade Average:  62.55        \\
+	Final Grade Median:  68.72            & Final Grade Median:  67.83         \\
+	27/42 Failed (64\%), (12 of these students were Ws and 4 of these students didn't complete course)
+	                                      &                                    
+	23/37 Failed (62\%), (9 of these students were Ws and 1 of these students didn't complete course) \\
+	\bottomrule
+\end{longtable}
 
+In summary:
+\begin{itemize}
+	\item The Final Grade Average went up on average by 4.3\% in each MyMathLab
+	course. 
+	\item The Fail Rates went down on average 5.6\% in each of the MyMathLab
+	courses.
+\end{itemize}
 Some things we noticed in our classes that don't show in the data:
 \begin{itemize}
-  \item Students in the MML classes were much more engaged in the discussion board posts and posted more often than the traditional classes.
-  \item Students in the MML courses asked more in depth questions about the mathematical content and asked questions more often throughout the term.
+	\item Students in the MML classes were much more engaged in the discussion
+	board posts and posted more often than the traditional classes.
+	\item Students in the MML courses asked more in depth questions about the
+	mathematical content and asked questions more often throughout the term.
 \end{itemize}
 
 
