@@ -2,7 +2,7 @@
 % arara: bibtex
 % arara: makeglossaries
 % arara: pdflatex
-% arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -35,6 +35,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usetikzlibrary{shapes}
 \usepackage{colortbl}										% row colours in tables
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
@@ -503,6 +504,9 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % command to output recommendation on the page, and also add it
 % to the list of recommendations
 \newcommand{\recommendation}[2][]{%
+\raisebox{0pt}[0pt][0pt]{\llap{%
+\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
+}}%
 #2%
 \ifx\\#1\\% if the first argument is empty then use the second (default)
       \addcontentsline{rec}{subsection}{#2}%
@@ -520,6 +524,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{Recommendations}
 %\includeonly{appendices/demographicData}
+%\includeonly{appendices/onlineHwStudy}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
