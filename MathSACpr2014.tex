@@ -179,7 +179,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % to do:
 %   - shorten toc entries where necessary, indentation of toc, generally tidy it
 %   - check colons and semi-colons surrounding bullets
-%   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
 %   - do we want a different bibliography style- something more descriptive?
 %   - should seasons be capitalized or not?
 %   - make consistent choice about on-campus, oncampus, on campus, online (online and on-campus are the winners)
@@ -197,6 +196,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %   - go through log file- a few bibliography entries, too
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
 %   - hyperlink Q1, Q2, etc in chapter 6 to their respective questions in the appendix
+
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -322,7 +322,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %             { format }{ label }{ sep }{ before-code }[ after-code ]
 % custom chapter
 \titleformat{\chapter}
-{\normalfont\Large\filleft\bf}                          % format applied to label+text
+{\normalfont\Large\filleft\bfseries}                    % format applied to label+text
 {}                                                      % label
 {1pc}                                                   % horizontal separation between label and title body
 {%
@@ -525,7 +525,8 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{Recommendations}
 %\includeonly{appendices/demographicData}
-%\includeonly{appendices/onlineHwStudy}
+%\includeonly{appendices/ALEKSpilot}
+%\includeonly{colophon}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
@@ -635,6 +636,8 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
 \clearpage
+\thispagestyle{plain}
+\phantomsection
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
 \begin{tcolorbox}[tocstyle,title={Appendices}]
@@ -658,5 +661,12 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \include{appendices/classSize}
 \include{appendices/demographicData}
 \include{appendices/instructorQualifications}
+
+%= == == == == == == == == == == =
+% colophon
+% colophon
+% colophon
+%= == == == == == == == == == == =
+\include{colophon}
 
 \end{document}
