@@ -1,8 +1,8 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: makeglossaries
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: makeglossaries
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -23,6 +23,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{flafter}                    % floats won't appear until after they appear in the code
 \usepackage[figuresright]{rotating}     % sideways table
 \usepackage{longtable}                  % tables that can break across pages
+\usepackage{tabularx}
 \usepackage{fancyhdr}                   % headers and footers
 \usepackage{standalone}                 % maintain graphs and tables in separate files
 \usepackage{pdfpages}                   % include separate pdf documents
@@ -44,7 +45,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
-\usepackage{bookmark}
+\usepackage[numbered]{bookmark}
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
 %\usepackage[left]{showlabels}
@@ -147,6 +148,9 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 
 % empty column type- very useful for big tables that ignore columns
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+
+% centered columns for tabularx in the appendix
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
 \usepackage[nonumberlist,section=chapter,toc]{glossaries}
@@ -527,6 +531,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %\includeonly{appendices/demographicData}
 %\includeonly{appendices/ALEKSpilot}
 %\includeonly{colophon}
+%\includeonly{appendices/resourcesurvey}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
