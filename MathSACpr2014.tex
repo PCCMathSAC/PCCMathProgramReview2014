@@ -2,7 +2,7 @@
 % !arara: bibtex
 % !arara: makeglossaries
 % !arara: pdflatex
-% !arara: pdflatex
+% arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -193,7 +193,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
 %   - check for undefined references, multiply defined labels- grep log file
-%   - do we need the bookmark package? are we getting bookmarks in the sidepane?
 %   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
 %   - check that hyphens, em dashes, en dashes are used appropriately
@@ -538,12 +537,14 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 
 \begin{document}
 
+% add a bookmark for the toc
+\pdfbookmark{Title page}{Title Page}
+
 % title page
 \includepdf{graphics/titlePage}
 
-% The following lines should be uncommented in the final (production) version
-%\maketitle
-%\tableofcontents
+% add a bookmark for the toc
+\pdfbookmark{\contentsname}{Contents}
 
 % this bit puts a tcolorbox around the toc
 \begin{tcolorbox}[tocstyle,
