@@ -1,0 +1,29 @@
+course,name,CO1,CO2,CO3,CO4,CO5,CO6
+{MTH 10},{Basic Math},4,0,4,0,4,1
+{MTH 20},{Basic Math},4,0,4,0,4,1
+{MTH 30},{Business Mathematics},4,0,4,0,4,1
+{MTH 60},"{Introductory Algebra, 1st term}",4,0,4,0,4,1
+{MTH 61},"{Introductory Algebra, Part I}",4,0,4,0,4,1
+{MTH 62},"{Introductory Algebra, Part II}",4,0,4,0,4,1
+{MTH 63},"{Introductory Algebra, Part III}",4,0,4,0,4,1
+{MTH 65},"{Introductory Algebra, 2nd term}",4,0,4,0,4,1
+{MTH 70},{Introduction to Intermediate Algebra},4,0,4,0,4,1
+{MTH 91},"{Intermediate Algebra, Part I}",4,0,4,0,4,1
+{MTH 92},"{Intermediate Algebra, Part II}",4,0,4,0,4,1
+    {MTH 93},{Intro to TI Graphics Calculator},4,0,4,0,4,1
+    {MTH 95},{Intermediate Algebra},4,0,4,0,4,1
+    {MTH 111} ,{College Algebra},4,0,4,0,4,1
+    {MTH 112},{Elementary Functions},4,0,4,0,4,1
+    {MTH 211},{Foundations of Elementary Math I},4,0,4,0,4,1
+    {MTH 212},{Foundations of Elementary Math II},4,0,4,0,4,1
+    {MTH 213},{Foundations of Elementary Math III},4,0,4,0,4,1
+    {MTH 241},{Calculus for Management},4,0,4,0,4,1
+    {MTH 243},{Statistics I},4,0,4,0,4,1
+    {MTH 244},{Statistics II},4,0,4,0,4,1
+    {MTH 251},{Calculus I},4,0,4,0,4,1
+    {MTH 252},{Calculus II},4,0,4,0,4,1
+    {MTH 253},{Calculus III},4,0,4,0,4,1
+    {MTH 254},{Calculus IV},4,0,4,0,4,1
+    {MTH 259},{Single Variable Calculus Review},4,0,4,0,4,1
+    {MTH 256},{Differential Equations},4,0,4,0,4,1
+    {MTH 261},{Applied Linear Algebra},,,,,,

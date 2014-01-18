@@ -48,3 +48,4 @@ http://stackoverflow.com/questions/9537392/git-fetch-remote-branch
 
 Carly Vollet
 Heiko Spoddeck
+Virginia Somes

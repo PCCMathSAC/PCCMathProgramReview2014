@@ -1,8 +1,8 @@
 % arara: pdflatex
-% arara: bibtex
-% arara: makeglossaries
-% arara: pdflatex
-% arara: pdflatex
+% !arara: bibtex
+% !arara: makeglossaries
+% !arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -23,6 +23,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{flafter}                    % floats won't appear until after they appear in the code
 \usepackage[figuresright]{rotating}     % sideways table
 \usepackage{longtable}                  % tables that can break across pages
+\usepackage{tabularx}
 \usepackage{fancyhdr}                   % headers and footers
 \usepackage{standalone}                 % maintain graphs and tables in separate files
 \usepackage{pdfpages}                   % include separate pdf documents
@@ -35,6 +36,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{microtype}                  % better kerning
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
+\usetikzlibrary{shapes}
+\usepackage{colortbl}										% row colours in tables
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
 \usepackage{epigraph}                   % for inspirational quotes
@@ -42,7 +45,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{varioref}                   % good for referencing things 'far away'
 \usepackage{hyperref}                   % hyperlinks
 \usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
-\usepackage{bookmark}
+\usepackage[numbered]{bookmark}
 \usepackage{cleveref}                   % allows \cref and friends
 \usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
 %\usepackage[left]{showlabels}
@@ -108,6 +111,16 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 		columns/a100percent/.style={column name={\%},percentstyle},
 		columns/totpercent/.style={column name={\%},percentstyle},
 		columns/total/.style={column name={Total},column type=r},
+	},
+	demographic/.style={
+	every row no 2/.style={before row=\rowcolor{lightgray!50}},
+every row no 6/.style={before row=\rowcolor{lightgray!50}},
+every row no 8/.style={before row=\rowcolor{lightgray!50}},
+every row no 10/.style={before row=\rowcolor{lightgray!50}},
+every row no 12/.style={before row=\rowcolor{lightgray!50}},
+every row no 16/.style={before row=\rowcolor{lightgray!50}},
+every row no 18/.style={before row=\rowcolor{lightgray!50}},
+every row no 20/.style={before row=\rowcolor{lightgray!50}},
 	}
 }
 
@@ -136,13 +149,16 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % empty column type- very useful for big tables that ignore columns
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 
+% centered columns for tabularx in the appendix
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
 \usepackage[nonumberlist,section=chapter,toc]{glossaries}
 % make the links black
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{ADA}{name=ADA,description={Americans with Disabilities Act}}
-\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. The Alternative Learning Center was the previous name given to the current Student Learning Center \fixthis{Alyson wants a better description}}}
+\newglossaryentry{ALC}{name=ALC,description={Alternative Learning Center. A former name for the SLC. Several self-paced courses in Math and English have this subject prefix.}}
 \newglossaryentry{ALEKS}{name=ALEKS,description={ {\bfseries A}ssessment and {\bfseries LE}arning in {\bfseries K}nowledge {\bfseries S}paces interactive computer-based math-learning program owned by McGraw-Hill \url{http://www.aleks.com/}}}
 \newglossaryentry{AMP}{name=AMP,description={Accelerated Mathematics Program}}
 \newglossaryentry{AY}{name=AY,description={Academic Year}} 
@@ -160,14 +176,15 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \newglossaryentry{MyMathLab}{name=MyMathLab,description={MyMathLab-- a commercial computer-based homework management system owned and distributed by Peason \url{http://www.pearsonmylabandmastering.com/northamerica/mymathlab/}}}
 \newglossaryentry{PT}{name=PT,description={Part-time (usually in reference to faculty)}} 
 \newglossaryentry{SAC}{name=SAC,description={Subject Area Committee}}
+\newglossaryentry{SLC}{name=SLC,description={Student Learning Center. An informal, open study area, with the added benefit of tutoring assistance.}}
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \makeglossaries
 
 % to do:
 %   - shorten toc entries where necessary, indentation of toc, generally tidy it
 %   - check colons and semi-colons surrounding bullets
-%   - add 'colophon' (maybe?): http://tex.stackexchange.com/questions/63468/what-is-best-way-to-mention-that-a-document-has-been-typeset-with-tex
 %   - do we want a different bibliography style- something more descriptive?
+%   - should seasons be capitalized or not?
 %   - make consistent choice about on-campus, oncampus, on campus, online (online and on-campus are the winners)
 %   - make consistent choice about full-time, full time, part-time, part time (full-time and part-time win)
 %   - change all 'adjunct' to 'part time' (or 'part-time')
@@ -176,7 +193,6 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %       (use refcheck package to check the output and grep the log file)
 %   - address all fixthis issues (check output and .log file)
 %   - check for undefined references, multiply defined labels- grep log file
-%   - give headings to paragraphs when appropriate using \paragraph{}?
 %   - do we need the bookmark package? are we getting bookmarks in the sidepane?
 %   - check that vref, cref, etc know what to do with references at the subsection level; note: use page references instead
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens)
@@ -184,6 +200,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %   - go through log file- a few bibliography entries, too
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles
 %   - hyperlink Q1, Q2, etc in chapter 6 to their respective questions in the appendix
+
 
 % Define fix command
 % 	- it puts a comment in the margin
@@ -309,7 +326,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 %             { format }{ label }{ sep }{ before-code }[ after-code ]
 % custom chapter
 \titleformat{\chapter}
-{\normalfont\Large\filleft\bf}                          % format applied to label+text
+{\normalfont\Large\filleft\bfseries}                    % format applied to label+text
 {}                                                      % label
 {1pc}                                                   % horizontal separation between label and title body
 {%
@@ -492,6 +509,9 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % command to output recommendation on the page, and also add it
 % to the list of recommendations
 \newcommand{\recommendation}[2][]{%
+\raisebox{0pt}[0pt][0pt]{\llap{%
+\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
+}}%
 #2%
 \ifx\\#1\\% if the first argument is empty then use the second (default)
       \addcontentsline{rec}{subsection}{#2}%
@@ -500,14 +520,18 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
       \fi%
       }
 
-%\includeonly{Overview,appendices/ALEKSpilot}
-%\includeonly{OutcomesAndAssessment}
+%\includeonly{Overview}
+%\includeonly{OutcomesAndAssessment,appendices/coreOutcomesMapping}
 %\includeonly{OtherCurricularIssues}
 %\includeonly{NeedsOfStudentsAndCommunity}
 %\includeonly{FacultyReflection}
 %\includeonly{FacilitiesAndSupport}
 %\includeonly{appendices/dlSuccessfulCompletion}
 %\includeonly{Recommendations}
+%\includeonly{appendices/demographicData}
+%\includeonly{appendices/ALEKSpilot}
+%\includeonly{colophon}
+%\includeonly{appendices/resourcesurvey}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
@@ -535,6 +559,12 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \glsaddall
 \printglossary
 
+\fixthis{comment below}
+%  I keep going back to the TOC to start each batch of work, and each time the
+%  TOC always starts on page 6 with the glossary.  Do you maybe want to start
+%  with TOC as page 2?  As with all such non-typo related comments, this is your
+%  call to make; my job is to just keep you thinking
+
 %= == == == == == == == == == == =
 % main chapters
 %= == == == == == == == == == == =
@@ -560,7 +590,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 % bibliography
 %= == == == == == == == == == == =
 \printbibliography[heading=bibintoc]
-\fixthis{Some references have no author field, but do have an institution. Currently, only the title of the item is printed, not the institution too.}
+\fixthis{Some references have no author field, but do have an institution. Currently, only the title of the item is printed, not the institution too. The answers here suggest we may have work to do if we want to use the institution field: http://tex.stackexchange.com/questions/65449/show-all-available-fields-in-references }
 
 %= == == == == == == == == == == =
 % appendices
@@ -611,6 +641,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \renewcommand{\thesection}{\arabic{section}}
 % start a partial tableofcontents for the appendix
 \clearpage
+\thispagestyle{plain}
+\phantomsection
 \addcontentsline{toc}{chapter}{Appendices}
 \startcontents[appendixtoc]
 \begin{tcolorbox}[tocstyle,title={Appendices}]
@@ -634,5 +666,12 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \include{appendices/classSize}
 \include{appendices/demographicData}
 \include{appendices/instructorQualifications}
+
+%= == == == == == == == == == == =
+% colophon
+% colophon
+% colophon
+%= == == == == == == == == == == =
+\include{colophon}
 
 \end{document}
