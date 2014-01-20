@@ -587,7 +587,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % bibliography
 %= == == == == == == == == == == =
 \printbibliography[heading=bibintoc]
-\fixthis{Some references have no author field, but do have an institution. Currently, only the title of the item is printed, not the institution too. The answers here suggest we may have work to do if we want to use the institution field: http://tex.stackexchange.com/questions/65449/show-all-available-fields-in-references }
 
 %= == == == == == == == == == == =
 % appendices
@@ -595,7 +594,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % appendices
 %= == == == == == == == == == == =
 \appendix
-\fixthis{appendices need reordering- should be able to grep the chapter files to check in which order they are referenced}
 % add the word Appendix to the header
 \def\chaptermark#1{\markboth{\textsc{Appendix \thechapter. \  #1}}{}}
 % custom section
@@ -646,26 +644,27 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \printcontents[appendixtoc]{}{0}{}
 \end{tcolorbox}
 \include{appendices/pathways}
-\include{appendices/professionalDevelopment}
-\include{appendices/memberships}
 \include{appendices/changeinALCcourses}
-\include{appendices/tutoringHours}
+\include{appendices/socialJustice}
 \include{appendices/coreOutcomesMapping}
-\include{appendices/courseScheduling}
-\include{appendices/dlSuccessfulCompletion}
-\include{appendices/resourcesurvey}
+\include{appendices/demographicData}
 \include{appendices/onlineHwStudy}
-\include{appendices/accessibilitysummary}
 \include{appendices/ALEKSpilot}
-\include{appendices/enrollmentSummaries}
-\include{appendices/sectionsTaughtPTFT}
-\include{appendices/facultyDegrees}
 \include{appendices/ampData}
 \include{appendices/effectivenessALC}
-\include{appendices/socialJustice}
 \include{appendices/classSize}
-\include{appendices/demographicData}
+\include{appendices/accessibilitysummary}
+\include{appendices/sectionsTaughtPTFT}
+\include{appendices/facultyDegrees}
 \include{appendices/instructorQualifications}
+\include{appendices/memberships}
+\include{appendices/professionalDevelopment}
+\include{appendices/resourcesurvey}
+\include{appendices/tutoringHours}
+\include{appendices/courseScheduling}%Not referenced
+  \fixthis{some appendices are not referenced}
+\include{appendices/dlSuccessfulCompletion}%Not referenced
+\include{appendices/enrollmentSummaries}%Not referenced
 
 %= == == == == == == == == == == =
 % colophon
