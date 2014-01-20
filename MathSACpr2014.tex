@@ -1,8 +1,8 @@
 % arara: pdflatex
-% !arara: bibtex
-% !arara: makeglossaries
-% !arara: pdflatex
+% arara: bibtex
+% arara: makeglossaries
 % arara: pdflatex
+% !arara: pdflatex
 % !arara: indent: {overwrite: yes, trace: on}
 \documentclass[11pt,twoside]{report}
 %= == == == == == == == == == == =
@@ -649,6 +649,9 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \begin{tcolorbox}[tocstyle,title={Appendices}]
 \printcontents[appendixtoc]{}{0}{}
 \end{tcolorbox}
+\include{appendices/pathways}
+\include{appendices/professionalDevelopment}
+\include{appendices/memberships}
 \include{appendices/changeinALCcourses}
 \include{appendices/tutoringHours}
 \include{appendices/coreOutcomesMapping}
