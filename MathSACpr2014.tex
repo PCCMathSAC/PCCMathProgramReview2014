@@ -455,6 +455,15 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\large\sc}          % unnumbered format
 {\titlerule*[.5pc]{.}\large\sc Page \bfseries\contentspage}%
 
+\titlecontents{subsection}
+[1.8cm]             % left margin
+{}                  % above code
+{%                  % numbered format
+	{\thecontentslabel\hskip .5cm}%
+}%
+{}         % unnumbered format
+{\titlerule*[.5pc]{.}\contentspage}%
+
 % headers and footers
 \fancyhf{} % delete current header and footer
 \fancyhead[LE,RO]{\bfseries\thepage}
