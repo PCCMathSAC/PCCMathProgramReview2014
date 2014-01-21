@@ -10,7 +10,7 @@
 % Document details: Program review for the mathematics department
 %       at Portland Community College, Portland OR
 %
-%       Prepared in Fall 2013
+%       Prepared in Fall 2013, Winter 2014
 %
 %= == == == == == == == == == == =
 \usepackage[headheight=14pt,left=3.5cm,right=2.0cm,showframe=false,
@@ -37,6 +37,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{siunitx}                    % elegant handling of units
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usetikzlibrary{shapes}
+\usetikzlibrary{positioning}
 \usepackage{colortbl}										% row colours in tables
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
@@ -196,6 +197,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %   - check that no hyphens, em dashes, or en dashes have spaces before or after them (except hanging hyphens) Alex
 %   - check that hyphens, em dashes, en dashes are used appropriately Alex
 %   - are we doing titles? e.g Mr, Dr, Ms? should be consistent. Decision from Steve, Alex, Chris: no titles Alex
+%   - should we link back from the appendices to where that appendix is menionted?
 %   - remove refcheck package Chris
 
 % Define fix command
@@ -527,7 +529,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %\includeonly{appendices/demographicData}
 %\includeonly{appendices/ALEKSpilot}
 %\includeonly{colophon}
-%\includeonly{appendices/resourcesurvey}
+%\includeonly{appendices/pathways}
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
