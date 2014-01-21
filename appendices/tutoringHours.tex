@@ -1,16 +1,14 @@
 % arara: pdflatex: {files: [../MathSACpr2014], options: "--output-directory=../"}
 % !arara: indent: {overwrite: yes}
 \chapter{Tutoring hours}\label{app:sec:tutoringhours}
-
 \Crefrange{app:fig:tutoringsylvania}{app:fig:tutoringsoutheast} show
-the number of math tutoring hours logged at each of the campuses from 2008--2013. The hours at Sylvania campus for 2012--13 are influenced by the new location and changes in the check-in setup and therefore might or might not be comparable to the previous years.
-
-\fixthis{Are these hours tutoring any subject, or just math?? ask: it would seem so, given the new table. Can we get all four graphs on the same page?}
+the number of math tutoring hours logged at each of the campuses from 2008--2013.\footnote{The hours at Sylvania campus for 2012--13 are influenced by the new location and changes in the check-in setup and therefore might or might not be comparable to the previous years.}
 
 \begin{figure}[!htb]
 	\captionsetup{skip=0pt}
   \begin{widepage}
-  \begin{minipage}{.4\textwidth}
+  \hfill
+  \begin{minipage}{.35\textwidth}
     \centering
 % Sylvania
 % Sylvania
@@ -20,7 +18,7 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
     \label{app:fig:tutoringsylvania}
   \end{minipage}%
   \hfill
-  \begin{minipage}{.4\textwidth}
+  \begin{minipage}{.35\textwidth}
     \centering
 % rockcreek
 % rockcreek
@@ -35,7 +33,8 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
 \begin{figure}[!htb]
 	\captionsetup{skip=0pt}
   \begin{widepage}
-  \begin{minipage}{.4\textwidth}
+  \hfill  
+  \begin{minipage}{.35\textwidth}
     \centering
 % Cascade
 % Cascade
@@ -45,7 +44,7 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
     \label{app:fig:tutoringCascade}
   \end{minipage}%
   \hfill
-  \begin{minipage}{.4\textwidth}
+  \begin{minipage}{.35\textwidth}
     \centering
 % south east
 % south east
@@ -59,8 +58,8 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
 
 \fixthis{This table may not meet standards. Care to look at it Chris?}
 
-%\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}}
-%If I try to rotate this table as I did with earlier sideways tables, some subsequent pages in subsequent appendices are sideways too...
+%\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}} 
+%Rotation here mysteriously causes rotation in sporadic later appendices
 
 % the monster tables need bigger margins- don't worry, it
 % is restored at the end
@@ -104,4 +103,4 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
 \fancyheadoffset[LE,LO]{3cm}
 
 %\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
-%\clearpage
+
