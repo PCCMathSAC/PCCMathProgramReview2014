@@ -1,10 +1,11 @@
 % arara: pdflatex: {files: [../MathSACpr2014], options: "--output-directory=../"}
 % !arara: indent: {overwrite: yes}
 \chapter{Demographic data}\label{app:sec:demographicdata}
-
 \Crefrange{app:tab:demographic2008-2009}{app:tab:demographic2012-2013} (on 
 the pages that follow) show
 demographic data for the academic years 2008 through 2013.
+
+\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}}
 
 % the monster tables need bigger margins- don't worry, it
 % is restored at the end
@@ -73,3 +74,5 @@ demographic data for the academic years 2008 through 2013.
 % fix the margins back
 \restoregeometry
 \fancyheadoffset[LE,LO]{3cm}
+
+\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
