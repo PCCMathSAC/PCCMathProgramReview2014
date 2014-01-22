@@ -58,18 +58,20 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
 
 \fixthis{This table may not meet standards. Care to look at it Chris?}
 
-%\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}} 
+\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}} 
 %Rotation here mysteriously causes rotation in sporadic later appendices
 
-% the monster tables need bigger margins- don't worry, it
-% is restored at the end
-\newgeometry{left=0.5cm,right=0.5cm,
-	top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
-\fancyheadoffset[LE,LO]{0cm}
+\clearpage
+%% the monster tables need bigger margins- don't worry, it
+%% is restored at the end
+%\newgeometry{left=0.5cm,right=0.5cm,
+	%top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=0cm}
+%\fancyheadoffset[LE,LO]{0cm}
 
 \begin{sidewaystable}[!h]
 \centering
-\begin{tabular}{llrrrrr|rrrrr|rrrrr}
+\caption{Tutoring Center Impact}\label{app:tut:tab:SLC}
+\begin{tabular}{llrrrrrrrrrrrrrrr}
 \toprule
 &&\multicolumn{5}{c|}{Number Students}&\multicolumn{5}{c|}{Number Visits}&\multicolumn{5}{c}{Total Hours Logged (1000)}\\
 && 08/09 & 09/10 & 10/11 & 11/12 & 12/13 & 08/09 & 09/10 & 10/11 & 11/12 & 12/13 & 08/09 & 09/10 & 10/11 & 11/12 & 12/13\\
@@ -95,12 +97,11 @@ the number of math tutoring hours logged at each of the campuses from 2008--2013
 					&Summer&	275&	322&	335&	336&	248&		904&1069&1243&1297&807&		1.18&1.37&1.98&2.01&1.06\\
 \bottomrule
 \end{tabular}
-\caption{Tutoring Center Impact}\label{app:tut:tab:SLC}
 \end{sidewaystable}
 
-% fix the margins back
-\restoregeometry
-\fancyheadoffset[LE,LO]{3cm}
+%% fix the margins back
+%\restoregeometry
+%\fancyheadoffset[LE,LO]{3cm}
 
-%\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
+\afterpage{\global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 0}}
 
