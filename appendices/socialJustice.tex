@@ -47,11 +47,32 @@
 		columns/percentage/.style={percentstyle,column name=Percentage,
 			precision=1},
 	]\poverty
+	\begin{tikzpicture}
+    		\begin{axis}[
+			axis x line=bottom,
+			axis y line=left,
+			%xlabel=Year,
+			%ylabel=Percentage,
+			xmin=0,
+			xmax=25,
+			ymin=0,
+			ymax=20,
+			width=0.5\textwidth,
+			xtick={0,5,...,25},
+			ytick={0,5,...,20},
+			xticklabels={},%{1990,1995,...,2015},
+			yticklabels={},%{0,5,...,20}	,
+			minor xtick={0,1,...,25},
+			minor ytick={0,1,...,20},
+			grid=both,
+		]
+    		\end{axis}
+    \end{tikzpicture}
 \end{table}
 
 Make a graph of the data and try to provide evidence (articles, news stories, policy, etc.) 
 for why these rate of poverty increased or decreased.  Once you completed the graph, 
-draw in what \emph{you} think will happen in the next 10 years, give a reason to back up what you draw in.
+draw in what \emph{you} think will happen in the next 10 years, and give a reason to back up what you draw in.
 
 \includepdf[pages=-,pagecommand={\pagestyle{fancy}}]{appendices/socialJusticeExample}
 \includepdf[pages=-,pagecommand={\pagestyle{fancy}}]{appendices/socialJusticeExampleMTH60}
