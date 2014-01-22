@@ -3,50 +3,78 @@
 \chapter{Enrollment summaries (by term and campus)}\label{sec:app:enrollment}
 
 \begin{figure}[!htb]
-	\centering
-	\input{graphics/enrollmentDevelopmentalbyTermTimePlot.tex}
-	\caption{Enrollment in Developmental MTH by Term}
+  \begin{widepage}
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+          \input{graphics/enrollmentDevelopmentalbyTermTimePlot.tex}
+          \caption{Enrollment in Developmental MTH by term}
+    \end{minipage}%
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+          \input{graphics/enrollmentLDCbyTermTimePlot.tex}
+          \caption{Enrollment in LDC, College Wide, by term}
+    \end{minipage}
+  \hfill
+
+\vspace{2pc}
+
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+          \input{graphics/combinedEnrollmentTermTimePlot.tex}
+          \caption{Combined Math enrollment, College Wide, by term}
+          \label{app:fig:totalenrollmentTerm}
+    \end{minipage}%
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+         \input{graphics/ratioDevelpmentalLDC.tex}
+          \caption{Ratio of Developmental MTH enrollment to LDC MTH enrollment}
+          \label{app:fig:ratioDevelopToLDC}
+    \end{minipage}
+  \hfill    
+  \end{widepage}
 \end{figure}
+
 \begin{figure}[!htb]
-	\centering
-	\input{graphics/enrollmentDevelopmentalbyCampusTimePlot.tex}
-	\caption{Enrollment by campus and year, College Wide, Developmental Math}
-    \label{app:fig:enrollmentDevelopCampus}
+  \begin{widepage}
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+          \input{graphics/enrollmentDevelopmentalbyCampusTimePlot.tex}
+          \caption{Enrollment by campus and year, College Wide, Developmental Math}
+          \label{app:fig:enrollmentDevelopCampus}
+    \end{minipage}
+  \hfill
+    \begin{minipage}{.27\textwidth}
+     	 \centering
+          \input{graphics/enrollmentLDCbyCampusTimePlot.tex}
+          \caption{Enrollment in LDC MTH by campus}
+          \label{app:fig:enrollmentLDCCampus}
+    \end{minipage}
+  \hfill
+
+\vspace{2pc}
+
+  \hfill
+    \begin{minipage}{.27\textwidth}
+     	 \centering
+         \input{graphics/combinedEnrollmentCampusTimePlot.tex}
+          \caption{Enrollment trends by campus (combined MTH)}
+          \label{app:fig:totalenrollmentCampus}
+    \end{minipage}
+  \hfill
+    \begin{minipage}{.27\textwidth}
+    	 \centering
+          \input{graphics/successRatesByTermTimePlot.tex}
+          \caption{Success rates by year and term}
+    \end{minipage}
+  \hfill
+  \end{widepage}
 \end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/enrollmentLDCbyTermTimePlot.tex}
-	\caption{Enrollment in LDC, College Wide, by term}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/enrollmentLDCbyCampusTimePlot.tex}
-	\caption{Enrollment in LDC MTH by campus}
-    \label{app:fig:enrollmentLDCCampus}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/combinedEnrollmentTermTimePlot.tex}
-	\caption{Combined Math enrollment, College Wide, by term and year}
-    \label{app:fig:totalenrollmentTerm}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/combinedEnrollmentCampusTimePlot.tex}
-	\caption{Enrollment trends by campus (combined MTH)}
-    \label{app:fig:totalenrollmentCampus}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/ratioDevelpmentalLDC.tex}
-	\caption{Ratio of Developmental MTH enrollment to LDC MTH enrollment}
-    \label{app:fig:ratioDevelopToLDC}
-\end{figure}
-\begin{figure}[!htb]
-	\centering
-	\input{graphics/successRatesByTermTimePlot.tex}
-	\caption{Success rates by year and term}
-\end{figure}
+
 
 \begin{table}[!htb]
 	\centering
@@ -58,9 +86,9 @@
 		\cmidrule{2-7}
 		       & AY2008  & AY2009  & AY2010  & AY2011  & AY2012  & AY2013  \\
 		\cmidrule{2-7}
-		Fall   & 69.85\% & 67.63\% & 69.36\% & 65.90\% & 64.40\% & 61.74\% \\ 
-		Winter & 69.47\% & 69.54\% & 70.30\% & 67.75\% & 62.41\% & 63.60\% \\
-		Spring & 67.33\% & 67.29\% & 64.49\% & 64.49\% & 59.89\% & 60.99\% \\
+		Fall   & 69.85\% & 67.63\% & 69.276\% & 65.90\% & 64.40\% & 61.74\% \\ 
+		Winter & 69.47\% & 69.54\% & 70.270\% & 67.75\% & 62.41\% & 63.60\% \\
+		Spring & 67.273\% & 67.27\% & 64.49\% & 64.49\% & 59.89\% & 60.99\% \\
 		Summer & 72.65\% & 70.86\% & 66.86\% & 68.20\% & 64.49\% & 62.44\% \\
 		\bottomrule
 	\end{tabular}
