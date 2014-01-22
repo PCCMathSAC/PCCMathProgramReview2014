@@ -32,8 +32,9 @@
 			ymin=0,ymax=10000,
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
-			legend pos= south east,
-			width=\textwidth,
+			legend pos= outer north east,
+			width=0.6\textwidth,
+			x tick label style={rotate=25},
 		]
 		\addplot table[x=Year,y=Fall]{\mydata};
 		\addplot table[x=Year,y=Winter]{\mydata};
