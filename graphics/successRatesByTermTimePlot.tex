@@ -35,7 +35,8 @@
 				\pgfmathprintnumber{\pgfmathresult}\%},
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
-			legend pos=outer north east,
+			legend pos= north east,
+			width=\textwidth,
 		]
 		\addplot table[x=Year,y=Summer]{\mydata};
 		\addplot table[x=Year,y=Fall]{\mydata};
