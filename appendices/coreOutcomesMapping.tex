@@ -2,20 +2,20 @@
 % !arara: indent: {overwrite: yes}
 
 \chapter{Core Outcomes Mapping}\label{sec:app:coreoutcomes}
-
-\begin{minipage}[t]{.45\textwidth}
+\begin{widepage}
+\begin{minipage}[t]{.5\textwidth}
 Mapping Level Indicators:
 \begin{enumerate}[start=0]
   \item Not Applicable.
   \item Limited demonstration or application of knowledge and skills.
   \item Basic demonstration and application of knowledge and skills.
-  \item Demonstrated comprehension and is able to apply essential knowledge and skills.
+  \item Demonstrates comprehension and is able to apply essential knowledge and skills.
   \item Demonstrates thorough, effective and/or sophisticated application of knowledge and skills.
 \end{enumerate}
 \end{minipage}\hfill
-\begin{minipage}[t]{.45\textwidth}
-Core Outcomes (CO): 
-\begin{enumerate}
+\begin{minipage}[t]{.3\textwidth}
+Core Outcomes: 
+\begin{enumerate}[label=CO\arabic*]
 \item Communication.
 \item Community and Environmental Responsibility.
 \item Critical Thinking and Problem Solving.
@@ -24,9 +24,11 @@ Core Outcomes (CO):
 \item Self-Reflection.
 \end{enumerate}
 \end{minipage}%
+\end{widepage}
 
 \pgfplotstableread[col sep=comma]{./data/outcomeMatrix.csv}\coreOutComes
 
+\small
 \pgfplotstabletypeset[
 begin table=\begin{longtable},
 end table=\end{longtable},
@@ -34,10 +36,11 @@ end table=\end{longtable},
 		before row=\toprule,
 		after row=\midrule},
 	every last row/.style={after row=\bottomrule},
-    every row no 8/.style={after row=\cmidrule{2-8}},
+    every row no 7/.style={after row=\cmidrule{2-8}},
     every row no 12/.style={after row=\cmidrule{2-8}},
-    every row no 14/.style={after row=\cmidrule{2-8}},
-    every row no 20/.style={after row=\cmidrule{2-8}},
+    every row no 15/.style={after row=\cmidrule{2-8}},
+    every row no 21/.style={after row=\cmidrule{2-8}},
 	columns/course/.style={string type,column type=l},
 	columns/name/.style={string type,column type=l},
 ]{\coreOutComes}
+\normalsize
