@@ -1,77 +1,73 @@
 % arara: pdflatex: {files: [MathSACpr2014]}
 % !arara: indent: {overwrite: yes}
-\chapter{Enrollment summaries (by term and campus)}\label{sec:app:enrollment}
+\chapter{Enrollment and success rate summaries}\label{sec:app:enrollment}
 
 \begin{figure}[!htb]
   \begin{widepage}
-  \hfill
-    \begin{minipage}{.27\textwidth}
+      \begin{minipage}[t]{.45\textwidth}
     	 \centering
           \input{graphics/enrollmentDevelopmentalbyTermTimePlot.tex}
-          \caption{Enrollment in Developmental MTH by term}
+          \caption{Enrollment in DE math by term}
     \end{minipage}%
-  \hfill
-    \begin{minipage}{.27\textwidth}
+    \hspace{1em}
+    \begin{minipage}[t]{.45\textwidth}
     	 \centering
           \input{graphics/enrollmentLDCbyTermTimePlot.tex}
-          \caption{Enrollment in LDC, College Wide, by term}
+          \caption{Enrollment in LDC math by term}
     \end{minipage}
-  \hfill
-
-\vspace{2pc}
-
-  \hfill
-    \begin{minipage}{.27\textwidth}
-    	 \centering
-          \input{graphics/combinedEnrollmentTermTimePlot.tex}
-          \caption{Combined Math enrollment, College Wide, by term}
-          \label{app:fig:totalenrollmentTerm}
-    \end{minipage}%
-  \hfill
-    \begin{minipage}{.27\textwidth}
-    	 \centering
-         \input{graphics/ratioDevelpmentalLDC.tex}
-          \caption{Ratio of Developmental MTH enrollment to LDC MTH enrollment}
-          \label{app:fig:ratioDevelopToLDC}
-    \end{minipage}
-  \hfill    
   \end{widepage}
 \end{figure}
 
 \begin{figure}[!htb]
   \begin{widepage}
-  \hfill
-    \begin{minipage}{.27\textwidth}
+    \begin{minipage}[t]{.45\textwidth}
+    	 \centering
+          \input{graphics/combinedEnrollmentTermTimePlot.tex}
+          \caption{Combined DE and LDC enrollment by term}
+          \label{app:fig:totalenrollmentTerm}
+    \end{minipage}%
+    \hspace{1em}
+    \begin{minipage}[t]{.45\textwidth}
+    	 \centering
+         \input{graphics/ratioDevelpmentalLDC.tex}
+          \caption{Ratio of DE math enrollment to LDC math enrollment}
+          \label{app:fig:ratioDevelopToLDC}
+    \end{minipage}
+  \end{widepage}
+\end{figure}
+
+\begin{figure}[!htb]
+  \begin{widepage}
+    \begin{minipage}[t]{.45\textwidth}
     	 \centering
           \input{graphics/enrollmentDevelopmentalbyCampusTimePlot.tex}
-          \caption{Enrollment by campus and year, College Wide, Developmental Math}
+          \caption{Enrollment in DE math by campus}
           \label{app:fig:enrollmentDevelopCampus}
-    \end{minipage}
-  \hfill
-    \begin{minipage}{.27\textwidth}
+   \end{minipage}%
+    \hspace{1em}
+    \begin{minipage}[t]{.45\textwidth}
      	 \centering
           \input{graphics/enrollmentLDCbyCampusTimePlot.tex}
-          \caption{Enrollment in LDC MTH by campus}
+          \caption{Enrollment in LDC math by campus}
           \label{app:fig:enrollmentLDCCampus}
-    \end{minipage}
-  \hfill
+   \end{minipage}
+  \end{widepage}
+\end{figure}
 
-\vspace{2pc}
-
-  \hfill
-    \begin{minipage}{.27\textwidth}
+\begin{figure}[!htb]
+  \begin{widepage}
+    \begin{minipage}[t]{.45\textwidth}
      	 \centering
          \input{graphics/combinedEnrollmentCampusTimePlot.tex}
-          \caption{Enrollment trends by campus (combined MTH)}
+          \caption{Combined DE and LDC enrollment by campus}
           \label{app:fig:totalenrollmentCampus}
-    \end{minipage}
-  \hfill
-    \begin{minipage}{.27\textwidth}
+   \end{minipage}%
+    \hspace{1em}
+    \begin{minipage}[t]{.45\textwidth}
     	 \centering
           \input{graphics/successRatesByTermTimePlot.tex}
           \caption{Success rates by year and term}
-    \end{minipage}
-  \hfill
+   \end{minipage}
   \end{widepage}
 \end{figure}
 

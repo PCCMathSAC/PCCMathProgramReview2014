@@ -35,14 +35,15 @@
 				\pgfmathprintnumber{\pgfmathresult}\%},
 			scaled ticks=false, 
 			tick label style={/pgf/number format/fixed},
-			legend pos= north east,
-			width=\textwidth,
+			legend pos= outer north east,
+			width=0.6\textwidth,
+			x tick label style={rotate=25},
 		]
-		\addplot table[x=Year,y=Summer]{\mydata};
 		\addplot table[x=Year,y=Fall]{\mydata};
 		\addplot table[x=Year,y=Winter]{\mydata};
 		\addplot table[x=Year,y=Spring]{\mydata};
-		\legend{Summer, Fall, Winter, Spring}
+		\addplot table[x=Year,y=Summer]{\mydata};
+		\legend{Fall, Winter, Spring, Summer}
 	\end{axis}
 \end{tikzpicture}
 \end{document}
