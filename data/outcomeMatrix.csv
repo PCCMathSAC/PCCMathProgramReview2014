@@ -1,29 +1,29 @@
 course,name,CO1,CO2,CO3,CO4,CO5,CO6
 {MTH 20},{Basic Math},2,0,3,0,3,3
-{MTH 30},{Business Mathematics I},2,0,3,0,3,3
-{MTH 60},{Introductory Algebra, 1st term},2,0,3,0,3,3
-{MTH 61},{Introductory Algebra, Part I},2,0,3,0,3,3
-{MTH 62},{Introductory Algebra, Part II},2,0,3,0,3,3
-{MTH 63},{Introductory Algebra, Part III},2,0,3,0,3,3
-{MTH 65},{Introductory Algebra, 2nd term},2,0,3,0,3,3
-{MTH 70},{Introduction to Intermediate Algebra},2,0,3,0,3,3
+{MTH 30},{Business Mathematics},2,0,3,0,3,3
+{MTH 60},{Introductory Algebra---\nth{1} term},2,0,3,0,3,3
+{MTH 61},{Introductory Algebra---Part I},2,0,3,0,3,3
+{MTH 62},{Introductory Algebra---Part II},2,0,3,0,3,3
+{MTH 63},{Introductory Algebra---Part III},2,0,3,0,3,3
+{MTH 65},{Introductory Algebra---\nth{2} term},2,0,3,0,3,3
+{MTH 70},{Review of Intro Algebra},2,0,3,0,3,3
 {MTH 84},{Introduction to \LaTeX},3,0,4,0,0,1
-{MTH 91},{Intermediate Algebra, Part I},2,0,3,0,3,3
-{MTH 92},{Intermediate Algebra, Part II},2,0,3,0,3,3
-{MTH 93},{Intro to TI Graphics Calculator},1,0,1,0,2,1
+{MTH 91},{Intermediate Algebra Part I},2,0,3,0,3,3
+{MTH 92},{Intermediate Algebra Part II},2,0,3,0,3,3
+{MTH 93},{Intro Graphing Calculators},1,0,1,0,2,1
 {MTH 95},{Intermediate Algebra},2,0,3,0,3,3
 {MTH 105},{Explorations in Mathematics},2,0,3,0,2,2
 {MTH 111} ,{College Algebra},2,0,3,0,3,3
 {MTH 112},{Elementary Functions},2,0,3,0,3,3
-{MTH 211},{Foundations of Elementary Math I},3,0,3,0,3,2
-{MTH 212},{Foundations of Elementary Math II},3,0,3,0,3,2
-{MTH 213},{Foundations of Elementary Math III},3,0,3,0,3,2
-{MTH 241},{Calculus for Management},2,0,3,0,2,1
+{MTH 211},{Foundations of Elementary Mathematics I},3,0,3,0,3,2
+{MTH 212},{Foundations of Elementary Mathematics II},3,0,3,0,3,2
+{MTH 213},{Foundations of Elementary Mathematics III},3,0,3,0,3,2
+{MTH 241},{Calculus for Mgmt and Life/Social Sciences},2,0,3,0,2,1
 {MTH 243},{Statistics I},3,1,4,0,3,3
 {MTH 244},{Statistics II},3,1,4,0,3,3
 {MTH 251},{Calculus I},2,0,3,0,3,2
 {MTH 252},{Calculus II},2,0,3,0,3,2
 {MTH 253},{Calculus III},2,0,3,0,3,2
-{MTH 254},{Calculus IV},2,0,3,0,3,2
+{MTH 254},{Vector Calculus I},2,0,3,0,3,2
 {MTH 256},{Differential Equations},2,0,3,0,3,1
 {MTH 261},{Applied Linear Algebra},2,0,3,0,3,2
