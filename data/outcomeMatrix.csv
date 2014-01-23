@@ -1,5 +1,7 @@
 course,name,CO1,CO2,CO3,CO4,CO5,CO6
 {MTH 20},{Basic Math},2,0,3,0,3,3
+{MTH 25C},{Fractions},2,0,3,0,3,3
+{MTH 26C},{Decimals},2,0,3,0,3,3
 {MTH 30},{Business Mathematics},2,0,3,0,3,3
 {MTH 60},{Introductory Algebra---\nth{1} term},2,0,3,0,3,3
 {MTH 61},{Introductory Algebra---Part I},2,0,3,0,3,3
@@ -8,8 +10,6 @@ course,name,CO1,CO2,CO3,CO4,CO5,CO6
 {MTH 65},{Introductory Algebra---\nth{2} term},2,0,3,0,3,3
 {MTH 70},{Review of Intro Algebra},2,0,3,0,3,3
 {MTH 84},{Introduction to \LaTeX},3,0,4,0,0,1
-{MTH 91},{Intermediate Algebra Part I},2,0,3,0,3,3
-{MTH 92},{Intermediate Algebra Part II},2,0,3,0,3,3
 {MTH 93},{Intro Graphing Calculators},1,0,1,0,2,1
 {MTH 95},{Intermediate Algebra},2,0,3,0,3,3
 {MTH 105},{Explorations in Mathematics},2,0,3,0,2,2
