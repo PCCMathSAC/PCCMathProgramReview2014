@@ -13,7 +13,7 @@ Mapping Level Indicators:
   \item Demonstrates thorough, effective and/or sophisticated application of knowledge and skills.
 \end{enumerate}
 \end{minipage}\hfill
-\begin{minipage}[t]{.3\textwidth}
+\begin{minipage}[t]{.34\textwidth}
 Core Outcomes: 
 \begin{enumerate}[label=CO\arabic*]
 \item Communication.
@@ -26,9 +26,11 @@ Core Outcomes:
 \end{minipage}%
 \end{widepage}
 
+\vfill
+MTH courses 10B, 10C, 11B, 11C, 15, 20B, 21C, 22, 22C, 23C, 24C, 27C, 75, 91, and 92 remain in the catalog, but are no longer offered and have not been offered since at least Spring 2012.
 \pgfplotstableread[col sep=comma]{./data/outcomeMatrix.csv}\coreOutComes
 
-\small
+\footnotesize
 \pgfplotstabletypeset[
 begin table=\begin{longtable},
 end table=\end{longtable},
@@ -36,7 +38,7 @@ end table=\end{longtable},
 		before row=\toprule,
 		after row=\midrule},
 	every last row/.style={after row=\bottomrule},
-    every row no 7/.style={after row=\cmidrule{2-8}},
+    every row no 3/.style={after row=\cmidrule{2-8}},
     every row no 12/.style={after row=\cmidrule{2-8}},
     every row no 15/.style={after row=\cmidrule{2-8}},
     every row no 21/.style={after row=\cmidrule{2-8}},
