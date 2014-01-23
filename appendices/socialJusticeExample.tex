@@ -1,0 +1,267 @@
+%=====================================================================================================
+
+%       Exponential Function Introduction
+
+%				Created 201201
+
+%				Edited 201304
+
+%				LaTeX=>PDF sizing, graphics
+%=====================================================================================================
+% arara: pdflatex
+
+\documentclass[11pt]{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{amscd}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{fancyhdr,lastpage}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{framed}
+\usepackage{wasysym}
+\theoremstyle{definition}
+\pagestyle{fancy}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{defi}{Definition}
+\newtheorem*{notation}{Notation}
+\newtheorem{ex}{Example}
+\newtheorem{proc}{Process}
+\newtheorem{gw}{Group Work}
+
+%These are manual page settings
+\setlength{\textwidth}{7.25in}			%for =>PDF, use 6.5in
+\setlength{\textheight}{9.5in}		%for =>PDF, use 9.5in
+\setlength{\oddsidemargin}{-0.375in}		
+\setlength{\evensidemargin}{-0.375in}		
+\setlength{\voffset}{-.75in}			%for=>PDF, use -0.75in
+\setlength{\footskip}{15pt}
+
+
+
+\usepackage{placeins} % enables \FloatBarrier, useful for positioning figures/tables more precisely.
+
+
+\usepackage{pgfplots}
+
+\tikzset{>=stealth}
+\usetikzlibrary{backgrounds,arrows}
+\tikzset{tight background}
+
+
+\pgfplotsset{every axis/.append style={width=7cm,height=7cm,
+					axis x line=middle,
+					axis y line=middle,
+					line width=0.75pt,
+					tick label style={font=\tiny},
+					label style={font=\small},
+					legend style={font=\tiny}
+}}
+
+\pgfplotsset{framed/.style={axis background/.style ={draw=black!75}}}
+
+
+\usepackage{hyperref}
+%\usepackage{url}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue,breaklinks=true}
+
+\usepackage{xcolor}
+%		My colors
+\definecolor{silver}{rgb}{0.95,0.95,0.95}
+\definecolor{mypurple}{cmyk}{0.5,1,0,0}			%purple
+\definecolor{myblue}{cmyk}{1,0.012,0,0}		%blue
+\definecolor{mygreen}{cmyk}{0.3,0,0.2,0.16}		%green
+\definecolor{myred}{cmyk}{0,1,1,0}
+
+
+\setlength{\parindent}{0pt}
+
+
+\renewcommand{\labelenumi}{ (\alph{enumi}) }			% makes enumeration (a) instead of (a).
+
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+\onehalfspace
+
+%============================================================
+%           Header Stuff   CHANGE FOR EACH SECTION!!!
+%============================================================
+
+\fancyhf{}   % clears both header and footer
+\fancyfoot[RE,RO]{ \scriptsize{Page \thepage\ of \pageref{LastPage}}}
+\fancyfoot[LE,LO]{\scriptsize{Instructor:  A.E.Cary}}
+\fancyhead[RE,RO]{\scriptsize{Section 4.3: Exponential Functions}}
+\fancyhead[LE,LO]{\scriptsize{Math 111 Lecture Notes}}
+\renewcommand{\headrulewidth}{0.4pt} % Removes header line if 0pt
+\fancyfootoffset[LE,LO]{0in}        %Moves center ??
+\renewcommand{\footrulewidth}{0.4pt} % Removes header line if 0pt
+
+
+
+%============================================================
+%           Title/ Info
+%============================================================
+
+\begin{center}
+  \larger[3] {Math 111 Lecture Notes} \\
+\end{center}
+
+\section*{\larger[2]  Section 4.3: Exponential Functions}
+
+\vfill
+
+In 1988, a judge in Yonkers, New York instituted an \emph{exponential} fine on the city of Yonkers. Below is the background and scenario, published in the New York Times\footnote{\url{http://www.nytimes.com/1988/09/10/nyregion/yonkers-legal-battle-how-it-unfolded.html}}:
+
+\begin{framed}
+{\fontfamily{pcr}\selectfont \small{
+		\textbf{Dec.\,1, 1980}: Justice Department sues Board of Education, City of Yonkers and Yonkers Community Development Agency, charging that the city racially discriminated in education and public housing.
+
+\textbf{Nov.\,20, 1985}: Judge Leonard B. Sand of Federal District Court in Manhattan rules that Yonkers's housing and schools were intentionally segregated by race. A housing remedy order directs the city to build 200 units of public housing and to plan additional subsidized housing.
+
+\textbf{Jan.\,28, 1988}: City Council approves consent decree that sets timetable for building 200 units of public housing and commits city to an additional 800 subsidized units.
+
+\textbf{July 26, 1988}: Court sets Aug.\,1 deadline for Council to adopt zoning amendment needed to build the 800 units.
+
+\textbf{Aug.\,1, 1988}: Council rejects amendment in a 4-to-3 vote.
+
+\textbf{Aug.\,2, 1988}: Judge Sand finds city and the four Councilmen who voted against the amendment in contempt of court and imposes fines. The city's fines start at \$100 and double every day. The Councilmen's fines start at \$500 a day and increase by \$500 each day.
+}}
+\end{framed}
+
+\vspace{11pt}
+
+\begin{ex}
+ Let $P$ be the amount fined (in dollars) $t$ days after the fines were imposed. Complete the entries in Table~\ref{tab:cm} and Table~\ref{tab:cy}.
+
+\end{ex}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{minipage}{0.5\linewidth}
+	\begin{center}
+		        \captionof{table}{Councilmen}
+		        \label{tab:cm}
+        \begin{tabular}{| p{1cm}|p{2cm}|p{4cm}|}
+          \hline
+          		$t$	&  $P$ 	&	Formula\\ \hline
+            $0$			& 								&			\\ \hline
+            $1$ 		& 								&			\\ \hline
+            $2$ 		& 								&			\\ \hline
+          	$3$ 		&    							&			\\ \hline
+          	$4$ 		&       					&			\\ \hline
+          	$5$ 		&   							&			\\ \hline
+          	\vdots	&				\vdots		&	\vdots	\\[-11pt] \hline
+          	$t$ 		&									&			\\ 
+          	\hline
+        \end{tabular}
+	\end{center}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+	\begin{center}
+		        \captionof{table}{City of Yonkers}
+		        \label{tab:cy}
+        \begin{tabular}{| p{1cm}|p{2cm}|p{4cm}|}
+          \hline
+          		$t$	&  $P$ 	&	Formula\\ \hline
+            $0$			& 								&			\\ \hline
+            $1$ 		& 								&			\\ \hline
+            $2$ 		& 								&			\\ \hline
+          	$3$ 		&    							&			\\ \hline
+          	$4$ 		&       					&			\\ \hline
+          	$5$ 		&   							&			\\ \hline
+          	\vdots	&				\vdots		&	\vdots	\\[-11pt] \hline
+          	$t$ 		&									&			\\
+          	\hline
+        \end{tabular}
+	\end{center}
+\end{minipage}
+
+\newpage
+
+\begin{ex} Graph each of the functions you found that model the fines for the Councilmen and the city of Yonkers. Identify the key features of each graph.
+
+\begin{minipage}{0.5\linewidth}
+\begin{center}
+	\captionof{figure}{Councilmen}
+	\label{fig:cm}
+	   	\begin{tikzpicture}
+
+			\begin{axis}[
+			height=2in,
+			width=2.75in,
+			grid=major,
+				xmin=0,xmax=6,
+				ymin=0,ymax=3600,
+				xlabel={$t$},
+				ylabel={$P$},
+				xlabel style={at={(ticklabel cs:0.5)},anchor=near ticklabel},
+      	ylabel style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+				xlabel={$t$, time in days},
+				ylabel={$P$, fine in dollars},
+				xtick={0,...,6},
+				ytick={0,500,...,3500},
+				]
+				% use TeX as calculator:
+			\end{axis}
+		\end{tikzpicture}
+\end{center}
+\begin{itemize}
+	\item \
+	\item \
+	\item \
+\end{itemize}
+
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\begin{center}
+	\captionof{figure}{City of Yonkers}
+	\label{fig:cy5}
+			\begin{tikzpicture}
+			\begin{axis}[
+			height=2in,
+			width=2.75in,
+			grid=major,
+				xmin=0,xmax=6,
+				ymin=0,ymax=3600,
+				xlabel={$t$},
+				ylabel={$P$},
+				xlabel style={at={(ticklabel cs:0.5)},anchor=near ticklabel},
+      	ylabel style={at={(ticklabel cs:0.5)},rotate=90,anchor=near ticklabel},
+				xlabel={$t$, time in days},
+				ylabel={$P$, fine in dollars},
+				xtick={0,...,6},
+				ytick={0,400,...,3600},
+				]
+			\end{axis}
+		\end{tikzpicture}
+\end{center}
+\begin{itemize}
+	\item \
+	\item \
+	\item \
+\end{itemize}
+
+\end{minipage}
+
+\end{ex}
+
+\vspace{11pt}
+
+\begin{gw}
+On what day will the city of Yonkers' fine reach over \$1,000,000? \\[2in]
+\end{gw}
+
+\begin{gw}
+How much will the city of Yonkers be fined on day 30? What will each of the Councilmen's fines be on that day?
+\end{gw}
+
+
+\end{document}
