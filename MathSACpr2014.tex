@@ -531,7 +531,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\scshape\hypersetup{linkcolor=black}}         % unnumbered format
 {\titlerule*[.5pc]{.}\contentspage}%
 
-% need to set the toclevel here, otherwise the recommendatinos appear in bookmarks
+% need to set the toclevel here, otherwise the recommendations appear in bookmarks
 % http://tex.stackexchange.com/questions/123575/how-to-suppress-the-author-bookmark-generated-by-svmult-with-bookmark-package-wi
 \makeatletter
 \providecommand*{\toclevel@pcctitle}{7} 
@@ -707,6 +707,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % colophon
 % colophon
 %= == == == == == == == == == == =
+\pdfbookmark{Colophon}{Colophon}
 \include{colophon}
 
 \end{document}
