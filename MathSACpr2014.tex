@@ -336,7 +336,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
     \ifbool{inappendix}{}{%
     \ifnum\value{chapter}<7
     \ifnum\value{chapter}>0
-    \addcontentsline{rec}{chapter}{Recommendations for section \thechapter}%
+    \addcontentsline{toc}{pcctitle}{Recommendations for section \thechapter}%
     \fi
     \fi
     }%
@@ -516,21 +516,21 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\signed{\usebox\mybox}\end{quote}}
 
 % recommendations
-\newcommand\listofrecommendations{\@starttoc{rec}}
+%\newcommand\listofrecommendations{\@starttoc{rec}}
 
-% command to output recommendation on the page, and also add it
-% to the list of recommendations
-\newcommand{\recommendation}[2][]{%
-\raisebox{0pt}[0pt][0pt]{\llap{%
-\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
-}}%
-#2%
-\ifx\\#1\\% if the first argument is empty then use the second (default)
-      \addcontentsline{rec}{subsection}{#2}%
-      \else % if we want to put something else in the list of recommendations
-      \addcontentsline{rec}{subsection}{#1}%
-      \fi%
-      }
+%% command to output recommendation on the page, and also add it
+%% to the list of recommendations
+%\newcommand{\recommendation}[2][]{%
+%\raisebox{0pt}[0pt][0pt]{\llap{%
+%\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
+%}}%
+%#2%
+%\ifx\\#1\\% if the first argument is empty then use the second (default)
+%      \addcontentsline{rec}{subsection}{#2}%
+%      \else % if we want to put something else in the list of recommendations
+%      \addcontentsline{rec}{subsection}{#1}%
+%      \fi%
+%      }
 
 %\includeonly{Overview}
 %\includeonly{OutcomesAndAssessment,appendices/coreOutcomesMapping}
@@ -550,8 +550,40 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
 
+\titleclass{\pcctitle}{straight}[\paragraph]
+\titleformat{\pcctitle}{}{}{}{}
+\titlecontents{pcctitle}
+[3.8cm]             % left margin
+{}                  % above code
+{% numbered format
+\llap{\bfseries\thecontentslabel~}%
+}%                  
+{\scshape\hypersetup{linkcolor=black}}         % unnumbered format
+{\titlerule*[.5pc]{.}\contentspage}%
+
+% http://tex.stackexchange.com/questions/123575/how-to-suppress-the-author-bookmark-generated-by-svmult-with-bookmark-package-wi
+\makeatletter
+\providecommand*{\toclevel@pcctitle}{7} 
+
+% command to output recommendation on the page, and also add it
+% to the list of recommendations
+\newcommand{\recommendation}[2][]{%
+\raisebox{0pt}[0pt][0pt]{\llap{%
+\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
+}}%
+\phantomsection
+#2%
+\ifx\\#1\\% if the first argument is empty then use the second (default)
+\addcontentsline{toc}{pcctitle}{#2}%
+      \else % if we want to put something else in the list of recommendations
+     \addcontentsline{toc}{pcctitle}{\protect\numberline{\protect#1} #2}%
+      \fi%
+      }
+
+
 \begin{document}
 
+\setcounter{tocdepth}{3}
 % add a bookmark for the toc
 \pdfbookmark{Title page}{Title Page}
 
@@ -575,7 +607,19 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \glsaddall
 \printglossary
 
-
+% needed for the recommendation toc
+\startcontents
+%\printcontents{}{4}{%
+%\setcounter{tocdepth}{6}
+%\titlecontents{pcctitle}
+%[3.8cm]             % left margin
+%{}                  % above code
+%{% numbered format
+%\llap{\thecontentslabel~}%
+%}%                  
+%{\scshape}         % unnumbered format
+%{\titlerule*[.5pc]{.}\contentspage}%
+%}
 
 %= == == == == == == == == == == =
 % main chapters
