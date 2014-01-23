@@ -40,7 +40,7 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{pgfplotstable}              % typeset tables intelligently
 \usetikzlibrary{shapes}
 \usetikzlibrary{positioning}
-\usepackage{after page}			%helps with rotating the pdf by 90 deg for sideways tables
+\usepackage{afterpage}			%helps with rotating the pdf by 90 deg for sideways tables
 \usepackage{colortbl}										% row colours in tables
 \usepackage{tcolorbox}
 \usepackage{etoolbox}
@@ -159,7 +159,12 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
 % glossaries settings- load after hyperref: http://tex.stackexchange.com/questions/1863/which-packages-should-be-loaded-after-hyperref-instead-of-before
-\usepackage[nonumberlist,section=chapter,toc]{glossaries}
+\usepackage[nonumberlist,section=chapter,toc,]{glossaries}
+% use longragged style, based on longtable
+\usepackage{glossary-longragged}
+\setglossarystyle{longragged}
+% widen description column
+\setlength{\glsdescwidth}{0.8\linewidth}
 % make the links black
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
