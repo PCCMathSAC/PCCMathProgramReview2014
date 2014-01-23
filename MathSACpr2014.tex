@@ -166,7 +166,8 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \setglossarystyle{longragged}
 % widen description column
 \setlength{\glsdescwidth}{0.8\linewidth}
-% make the links black
+% make entries bold and black
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 \renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}} 
 % basic vocab
 \newglossaryentry{ACCEPT}{name=ACCEPT,description={Addressing the Collective Climate and Experience of Part-Timers}}
