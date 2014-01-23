@@ -526,7 +526,8 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 [3.8cm]             % left margin
 {}                  % above code
 {% numbered format
-\llap{\bfseries\thecontentslabel~}%
+\raisebox{0pt}[0pt][0pt]{\llap{\begin{minipage}[t]{6cm}
+\bfseries\raggedleft\thecontentslabel\end{minipage}~~}}%
 }%                  
 {\scshape\hypersetup{linkcolor=black}}         % unnumbered format
 {\titlerule*[.5pc]{.}\contentspage}%

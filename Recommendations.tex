@@ -8,7 +8,14 @@ seek.}{Barack Obama}
 The following recommendations have been made throughout this document; they 
 are summarized here for convenience.
 
+% the printcontents command is from the titletoc package
+% and it has the form
+%
+% \printcontents[name]{prefix}{start-level}{toc-code}
+%
 \printcontents{}{4}{%
+% set the tocdepth locally for this list so that we don't get 
+% all of the other section headings
 \setcounter{tocdepth}{6}
 }
 

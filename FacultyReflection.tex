@@ -34,26 +34,13 @@ part-time faculty varied between 143 to 158 on any given term,  not including
 Summer.     The percent of \emph{all} courses (pre-college and college level)
 taught by full-time instructors during this time period varied from a low of
 24.9\% at Cascade to a high of 41\% at Sylvania (see
-\cref{reflect:tab:percentallcourses}).
+\cref{app:tab:analysisPTFT}).
 
 From the academic year 2008/09 to 2012/13 there was a significant increase in the
 number of students taking math courses at all campuses as shown
 \cref{reflect:tab:enrollment}. 
 \begin{table}[!htb]
-  \begin{widepage}
-	\begin{minipage}[t]{.4\textwidth}
-		\centering
-		\caption{Percentage of courses taught by full-time faculty from 2011--2013}
-		\label{reflect:tab:percentallcourses}
-		\begin{tabular}{rrrr}
-			\toprule
-			SY   & RC     & ELC  & CA     \\    
-			41\% & 28.2\% & 26\% & 24.9\% \\
-			\bottomrule
-		\end{tabular}
-	\end{minipage}%
-	\begin{minipage}[t]{.6\textwidth}
-		\centering
+  	\centering
 		\caption{Enrollment Difference from AY 08/09 to AY 12/13}
         \label{reflect:tab:enrollment}
 		\begin{tabular}{lrr}
@@ -66,15 +53,13 @@ number of students taking math courses at all campuses as shown
 			ELC    & 3171                  & 103.09\%    \\
             \bottomrule
 		\end{tabular}
-	\end{minipage}
-  \end{widepage}
 \end{table}
 
 \Cref{app:tab:analysisPTFT} summarizes the breakdown of courses taught by
 full-time and part-time faculty from Summer 2011--Spring 2013; breakdowns 
 by \emph{term} are given in \vref{app:sec:analysisPTFT}.
 
-\begin{table}[!hb]
+\begin{table}[!htb]
 	\centering
 	\caption{Summary of sections taught (by campus) from Summer 2011--Spring 2013}
 	\label{app:tab:analysisPTFT}
@@ -84,6 +69,7 @@ by \emph{term} are given in \vref{app:sec:analysisPTFT}.
 	\pgfplotstableread[col sep=comma]{./data/sectionsTaughtPTFT/sectionsTaughtPTFT2011-2013.csv}\sectionsTaughtSummary
 	\pgfplotstabletypeset[sectionFTPT]{\sectionsTaughtSummary}
 \end{table}
+
 
 In reference to ``quality of the faculty needed to meet the needs of the discipline,''  it is insufficient to look at degree or experience qualifications alone.  Even a short list of what we expect from our mathematics faculty would include, but not be limited to that she/he
 \begin{itemize}
