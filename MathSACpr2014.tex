@@ -51,7 +51,8 @@ top=2cm,bottom=1.5cm,asymmetric=true,bindingoffset=1cm]{geometry}
 \usepackage{pdfcomment}		% for inserting of tooltips, like with fix this items
 \usepackage[numbered]{bookmark}
 \usepackage{cleveref}                   % allows \cref and friends
-\usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
+% fairwell refcheck- you have served us well
+%\usepackage{refcheck}                   % checks if labels have been used remove once the document is completed
 %\usepackage[left]{showlabels}
 %\showlabels{hypertarget}
 %\showlabels{hyperlink}
@@ -199,9 +200,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 %   - address all fixthis issues (check output and .log file) Chris
 %   - check for undefined references, multiply defined labels- grep log file Chris
 %   - should we link back from the appendices to where that appendix is mentioned?
-%   - remove refcheck package Chris
-%   - indentation of subsections in toc
-%   - recommendations: optional argument for to whom it is addressed? displayed in chapter 8?
 %   - check functionality in various browsers, OSs
 
 % Define fix command
@@ -457,15 +455,15 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\large\sc}          % unnumbered format
 {\titlerule*[.5pc]{.}\large\sc Page \bfseries\contentspage}%
 
-% these lines screw up the formatting in recommendations
-%\titlecontents{subsection}
-%[1.8cm]             % left margin
-%{}                  % above code
-%{%                  % numbered format
-%	{\thecontentslabel\hskip .5cm}%
-%}%
-%{}         % unnumbered format
-%{\titlerule*[.5pc]{.}\contentspage}%
+% indented subsection
+\titlecontents{subsection}
+[2.0cm]             % left margin
+{}                  % above code
+{%                  % numbered format
+	{\thecontentslabel\hskip .5cm}%
+}%
+{}         % unnumbered format
+{\titlerule*[.5pc]{.}\contentspage}%
 
 % headers and footers
 \fancyhf{} % delete current header and footer
@@ -477,21 +475,21 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % remove the word Chapter from the header
 \def\chaptermark#1{\markboth{\textsc{\thechapter. \  #1}}{}}
 
-%%% make refcheck and cleveref play nicely together: 
-% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
-\makeatletter
-\newcommand{\refcheckize}[1]{%
-	\expandafter\let\csname @@\string#1\endcsname#1%
-	\expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{%
-		\csname @@\string#1\endcsname{##1}\wrtusdrf{##1}}%
-	\expandafter\let\expandafter#1\csname relax\string#1\endcsname
-}
-% Now we add the reference commands we want refcheck to be aware of
-\refcheckize{\vref}
-\refcheckize{\cref}
-\refcheckize{\Cref}
-\refcheckize{\cpageref}
-%%%
+%%%%% make refcheck and cleveref play nicely together: 
+%%% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
+%%\makeatletter
+%%\newcommand{\refcheckize}[1]{%
+	%%\expandafter\let\csname @@\string#1\endcsname#1%
+	%%\expandafter\DeclareRobustCommand\csname relax\string#1\endcsname[1]{%
+		%%\csname @@\string#1\endcsname{##1}\wrtusdrf{##1}}%
+	%%\expandafter\let\expandafter#1\csname relax\string#1\endcsname
+%%}
+%%% Now we add the reference commands we want refcheck to be aware of
+%%\refcheckize{\vref}
+%%\refcheckize{\cref}
+%%\refcheckize{\Cref}
+%%\refcheckize{\cpageref}
+%%%%%
 
 % wide page for side by side figures, tables, etc
 \newlength{\offsetpage}
@@ -516,40 +514,11 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\signed{\usebox\mybox}\end{quote}}
 
 % recommendations
-%\newcommand\listofrecommendations{\@starttoc{rec}}
+% recommendations
+% recommendations
 
-%% command to output recommendation on the page, and also add it
-%% to the list of recommendations
-%\newcommand{\recommendation}[2][]{%
-%\raisebox{0pt}[0pt][0pt]{\llap{%
-%\tikz[baseline=(X.base)] \node[star,fill=yellow,draw=orange,scale=0.65] (X){R};\hskip .5cm%
-%}}%
-%#2%
-%\ifx\\#1\\% if the first argument is empty then use the second (default)
-%      \addcontentsline{rec}{subsection}{#2}%
-%      \else % if we want to put something else in the list of recommendations
-%      \addcontentsline{rec}{subsection}{#1}%
-%      \fi%
-%      }
-
-%\includeonly{Overview}
-%\includeonly{OutcomesAndAssessment,appendices/coreOutcomesMapping}
-%\includeonly{OtherCurricularIssues}
-%\includeonly{NeedsOfStudentsAndCommunity}
-%\includeonly{FacultyReflection}
-%\includeonly{FacilitiesAndSupport}
-%\includeonly{appendices/dlSuccessfulCompletion}
-%\includeonly{Recommendations}
-%\includeonly{colophon}
-%\includeonly{appendices/enrollmentSummaries}
-%\includeonly{appendices/tutoringHours}
-%\includeonly{colophon}
-%\includeonly{appendices/pathways}
-%\includeonly{appendices/professionalDevelopment}
-
-% special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
-\urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
-
+% this creates a 'dummy' heading level after paragraph, which we can exploit
+% to read in the recommendations from the toc
 \titleclass{\pcctitle}{straight}[\paragraph]
 \titleformat{\pcctitle}{}{}{}{}
 \titlecontents{pcctitle}
@@ -561,6 +530,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\scshape\hypersetup{linkcolor=black}}         % unnumbered format
 {\titlerule*[.5pc]{.}\contentspage}%
 
+% need to set the toclevel here, otherwise the recommendatinos appear in bookmarks
 % http://tex.stackexchange.com/questions/123575/how-to-suppress-the-author-bookmark-generated-by-svmult-with-bookmark-package-wi
 \makeatletter
 \providecommand*{\toclevel@pcctitle}{7} 
@@ -580,10 +550,28 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
       \fi%
       }
 
+%\includeonly{Overview}
+%\includeonly{OutcomesAndAssessment,appendices/coreOutcomesMapping}
+%\includeonly{OtherCurricularIssues}
+%\includeonly{NeedsOfStudentsAndCommunity}
+%\includeonly{FacultyReflection}
+%\includeonly{FacilitiesAndSupport}
+%\includeonly{appendices/dlSuccessfulCompletion}
+%\includeonly{Recommendations}
+%\includeonly{colophon}
+%\includeonly{appendices/enrollmentSummaries}
+%\includeonly{appendices/tutoringHours}
+%\includeonly{colophon}
+%\includeonly{appendices/pathways}
+%\includeonly{appendices/professionalDevelopment}
+
+% special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
+\urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
+
+
 
 \begin{document}
 
-\setcounter{tocdepth}{3}
 % add a bookmark for the toc
 \pdfbookmark{Title page}{Title Page}
 
@@ -609,17 +597,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 
 % needed for the recommendation toc
 \startcontents
-%\printcontents{}{4}{%
-%\setcounter{tocdepth}{6}
-%\titlecontents{pcctitle}
-%[3.8cm]             % left margin
-%{}                  % above code
-%{% numbered format
-%\llap{\thecontentslabel~}%
-%}%                  
-%{\scshape}         % unnumbered format
-%{\titlerule*[.5pc]{.}\contentspage}%
-%}
 
 %= == == == == == == == == == == =
 % main chapters
