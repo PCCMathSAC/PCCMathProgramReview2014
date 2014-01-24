@@ -195,12 +195,9 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 \newglossaryentry{WRC}{name=WRC,description={Women's Resource Center}}
 \makeglossaries
 
-% to do:
-%   - check colons and semi-colons surrounding bullets Chris
-%       (use refcheck package to check the output and grep the log file) Chris
+% to do: (bash scripts/logfilecheck.sh)
 %   - address all fixthis issues (check output and .log file) Chris
 %   - check for undefined references, multiply defined labels- grep log file Chris
-%   - should we link back from the appendices to where that appendix is mentioned?
 %   - check functionality in various browsers, OSs
 
 % Define fix command
@@ -456,7 +453,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 {\large\sc}          % unnumbered format
 {\titlerule*[.5pc]{.}\large\sc Page \bfseries\contentspage}%
 
-% indented subsection
+% indented subsection (in toc)
 \titlecontents{subsection}
 [2.0cm]             % left margin
 {}                  % above code
@@ -476,7 +473,7 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 % remove the word Chapter from the header
 \def\chaptermark#1{\markboth{\textsc{\thechapter. \  #1}}{}}
 
-%%%%% make refcheck and cleveref play nicely together: 
+%%%%% make refcheck and cleveref play nicely together (not needed once the document is complete): 
 %%% http://tex.stackexchange.com/questions/87610/making-refcheck-work-with-cleveref
 %%\makeatletter
 %%\newcommand{\refcheckize}[1]{%
@@ -569,8 +566,6 @@ every row no 20/.style={before row=\rowcolor{lightgray!50}},
 
 % special characters in url in footnote: http://tex.stackexchange.com/questions/12230/getting-percent-sign-into-an-url-in-a-footnote
 \urldef\awardsurl\url{http://www.pcc.edu/resources/academic/learning-assessment/sac-resources.html#assessmentwin}
-
-
 
 \begin{document}
 
