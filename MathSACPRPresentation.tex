@@ -1,10 +1,20 @@
 % arara: pdflatex
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
-\usetheme{PaloAlto}
+\usetheme{Warsaw}
 \usepackage{standalone}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{decorations.text}
+
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
 %Does someone have a theme they like or one they created for PCC?
 
 \title{Mathematics SAC Program Review}
@@ -17,6 +27,49 @@
 \end{frame}
 
 %Let me know if there is anything out of place or something you think should be moved to another page. 
+
+\begin{frame}
+	
+	\begin{tikzpicture}[mindmap,
+concept/.append style={fill={none}},
+root concept/.style={concept color=blue},
+level 1 concept/.append style=
+{level distance = 35mm},
+level 2 concept/.append style=
+{level distance = 19mm},
+every node/.append style={align=center,scale=0.7},
+]
+\node [concept,font=\huge] {Math SAC\\2008--2013}
+child[grow=145, concept color=orange,visible on=<2->] {node[concept] {Action Committees} 
+        child[grow=45, visible on=<2->]{node[concept] {Social Justice}}
+        child[grow=135, visible on=<2->]{node[concept] {LAC, LAS}}
+        child[grow=180, visible on=<2->]{node[concept] {DL Standing}}
+        child[grow=225, visible on=<2->]{node[concept] {Dual Credit}}
+            }
+child[loosely dotted,concept color=blue,grow=215,visible on=<3->] {node[concept] {Projects} 
+        child[grow=135,visible on=<3->]{node[concept] {Study Skills}}
+        child[grow=180,visible on=<3->]{node[concept] {WeBWorK}}
+				child[grow=225,visible on=<3->]{node[concept] {Accessibility}}
+				child[grow=330,visible on=<3->]{node[concept] {ALEKS, GeoGebra}}
+        }
+child[dash pattern=on 1pt off 1pt on 1pt off 1pt, concept color=blue!50!purple,grow=35,visible on=<4->] {node[concept] {Curricular} 
+			child[grow=0,visible on=<4-> ] {node[concept] {Created 111H}}
+			child[grow=45,visible on=<4->] {node[concept] {Created 84}}
+			child[grow=135,visible on=<4->] {node[concept] {Created 105}}
+			child[grow=270,visible on=<4->] {node[concept] {Formed 111}}
+			child[grow=315,visible on=<4->] {node[concept] {Adjusted 243}}
+        }
+	child[loosely dashed,concept color=green!50!black,grow=325,visible on=<5->] {node[concept] {The Future} 
+			child[grow=225,visible on=<4-> ] {node[concept] {Pathways}}
+			child[grow=45,visible on=<4->] {node[concept] {AMP}}
+			child[grow=-45,visible on=<4->] {node[concept] {ALC}}
+        };
+%\node at (0,0) [inner sep=9mm,decorate,circle,decoration=
+%{text along path,text={Equally Effective Equally Effective Equally Effective  Equally Effective }}] {};
+\end{tikzpicture}
+
+	
+\end{frame}
 
 \begin{frame}{Highlights from the last 5 years}
 
